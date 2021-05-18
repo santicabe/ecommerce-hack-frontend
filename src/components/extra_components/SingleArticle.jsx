@@ -1,5 +1,6 @@
+import "../../cozastore/css/main.css";
+import "../../cozastore/css/util.css";
 import React from "react";
-
 function SingleArticle() {
   return (
     <div className="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
@@ -35,7 +36,7 @@ function SingleArticle() {
               href="#"
               className="btn-addwish-b2 dis-block pos-relative js-addwish-b2"
             >
-              <img
+              {/* <img
                 className="icon-heart1 dis-block trans-04"
                 src="images/icons/icon-heart-01.png"
                 alt="ICON"
@@ -44,7 +45,7 @@ function SingleArticle() {
                 className="icon-heart2 dis-block trans-04 ab-t-l"
                 src=""
                 alt="ICON"
-              />
+              /> */}
             </a>
           </div>
         </div>
