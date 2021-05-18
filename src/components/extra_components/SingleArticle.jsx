@@ -42,7 +42,7 @@ function SingleArticle() {
               />
               <img
                 className="icon-heart2 dis-block trans-04 ab-t-l"
-                src="images/icons/icon-heart-02.png"
+                src=""
                 alt="ICON"
               />
             </a>
