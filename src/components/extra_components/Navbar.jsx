@@ -1,6 +1,6 @@
+import "../../cozastore/css/main.css";
+import "../../cozastore/css/util.css";
 import React from "react";
-import "../css/main.css"
-import "../css/util.css"
 
 function Navbar() {
   return (
