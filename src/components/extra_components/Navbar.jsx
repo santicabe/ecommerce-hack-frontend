@@ -1,6 +1,6 @@
+import "../../cozastore/css/main.css";
+import "../../cozastore/css/util.css";
 import React from "react";
-import "../css/main.css"
-import "../css/util.css"
 
 function Navbar() {
   return (
@@ -11,7 +11,7 @@ function Navbar() {
             <nav className="limiter-menu-desktop">
               {/* Logo desktop */}
               <a href="#" className="logo">
-                <img src="images/icons/logo-01.png" alt="IMG-LOGO"></img>
+                <img src="images/icons/logo-01.png" alt="IMG-LOGO" />
               </a>
               {/* Menu Desktop */}
               <div className="menu-desktop">
@@ -60,7 +60,7 @@ function Navbar() {
           {/* Logo mobile */}
           <div className="logo-mobile">
             <a href="index.html">
-              <img src="images/icons/logo-01.png" alt="IMG-LOGO"></img>
+              <img src="images/icons/logo-01.png" alt="IMG-LOGO" />
             </a>
           </div>
           {/* Icon header */}
@@ -77,6 +77,7 @@ function Navbar() {
               >
                 <i className="zmdi zmdi-shopping-cart"></i>
               </div>
+              <i className="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
             </div>
           </div>
           {/* Button show menu */}

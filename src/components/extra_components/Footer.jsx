@@ -149,6 +149,7 @@ function Footer() {
           </p>
         </div>
       </div>
+      
     </footer>
   );
 }
