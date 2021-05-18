@@ -36,16 +36,16 @@ function SingleArticle() {
               href="#"
               className="btn-addwish-b2 dis-block pos-relative js-addwish-b2"
             >
-              {/* <img
+              <img
                 className="icon-heart1 dis-block trans-04"
-                src="images/icons/icon-heart-01.png"
+                src="https://preview.colorlib.com/theme/cozastore/images/icons/xicon-heart-01.png.pagespeed.ic.kGwqiVk_BS.png"
                 alt="ICON"
               />
               <img
                 className="icon-heart2 dis-block trans-04 ab-t-l"
-                src=""
+                src="https://preview.colorlib.com/theme/cozastore/images/icons/xicon-heart-02.png.pagespeed.ic.-OFifoFj6L.png"
                 alt="ICON"
-              /> */}
+              />
             </a>
           </div>
         </div>
