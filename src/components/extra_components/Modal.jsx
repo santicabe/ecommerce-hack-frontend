@@ -1,8 +1,13 @@
 import "../../cozastore/css/main.css";
 import "../../cozastore/css/util.css";
+import { useEffect } from "react";
+
 import React from "react";
 
 function Modal() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div
 
