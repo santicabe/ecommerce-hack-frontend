@@ -35,20 +35,19 @@ function Navbar() {
                 </li>
               </ul>
             </div>
+            <div className="wrap-icon-header flex-w flex-r-m h-full">
+              <div className="flex-c-m h-full p-r-24">
+                <div className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-modal-search">
+                  <i className="zmdi zmdi-search"></i>
+                </div>
+              </div>
+              <div className="flex-c-m h-full p-l-18 p-r-25 bor5">
+                <div className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-sidebar">
+                  <i className="zmdi zmdi-menu"></i>
+                </div>
+              </div>
+            </div>
           </nav>
-        </div>
-
-        <div className="wrap-icon-header flex-w flex-r-m h-full">
-          <div className="flex-c-m h-full p-r-24">
-            <div className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-modal-search">
-              <i className="zmdi zmdi-search"></i>
-            </div>
-          </div>
-          <div className="flex-c-m h-full p-l-18 p-r-25 bor5">
-            <div className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-sidebar">
-              <i className="zmdi zmdi-menu"></i>
-            </div>
-          </div>
         </div>
       </div>
       <div className="wrap-header-mobile">
@@ -61,16 +60,17 @@ function Navbar() {
           <div className="flex-c-m h-full p-r-10">
             <div className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-modal-search">
               <i className="zmdi zmdi-search"></i>
+              Cart
+              
             </div>
           </div>
-          <div className="flex-c-m h-full p-lr-10 bor5">
+          <div className="flex-c-m h-full p-lr-10 ">
             <div
               className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart"
               data-notify="2"
             >
               <i className="zmdi zmdi-shopping-cart"></i>
             </div>
-            <i className="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
           </div>
         </div>
         <div className="btn-show-menu-mobile hamburger hamburger--squeeze">
