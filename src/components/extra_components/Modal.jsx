@@ -164,7 +164,7 @@ function Modal() {
                 <div className="flex-w flex-m p-l-100 p-t-40 respon7">
                   <div className="flex-m bor9 p-r-10 m-r-11">
                     <a
-                      href="#"
+                      href="/"
                       className="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100"
                       data-tooltip="Add to Wishlist"
                     >
@@ -173,7 +173,7 @@ function Modal() {
                   </div>
 
                   <a
-                    href="#"
+                    href="/"
                     className="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
                     data-tooltip="Facebook"
                   >
@@ -181,7 +181,7 @@ function Modal() {
                   </a>
 
                   <a
-                    href="#"
+                    href="/"
                     className="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
                     data-tooltip="Twitter"
                   >
@@ -189,7 +189,7 @@ function Modal() {
                   </a>
 
                   <a
-                    href="#"
+                    href="/"
                     className="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
                     data-tooltip="Google Plus"
                   >
