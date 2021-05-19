@@ -1,5 +1,7 @@
 import "../../cozastore/css/main.css";
 import "../../cozastore/css/util.css";
+import { Link } from "react-router-dom";
+
 import React from "react";
 
 function Navbar() {
@@ -14,7 +16,9 @@ function Navbar() {
             <div className="menu-desktop">
               <ul className="main-menu">
                 <li className="active-menu">
-                  <a href="index.html">Home</a>
+                  <Link to="/">
+                    <a>Home</a>
+                  </Link>
                 </li>
                 <li>
                   <a href="product.html">Shop</a>
