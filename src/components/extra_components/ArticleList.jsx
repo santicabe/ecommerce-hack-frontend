@@ -1,8 +1,26 @@
 import "../../cozastore/css/main.css";
 import "../../cozastore/css/util.css";
-import React from "react";
+import React, { useEffect } from "react";
 import SingleArticle from "./SingleArticle";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+
 function ArticleList() {
+  const dispatch = useDispatch();
+  const url = "http://localhost:3000/products";
+  useEffect(() => {
+    const getArticle = async () => {
+      try {
+        const response = await axios.get(url);
+        console.log(response.data[0]);
+        dispatch({ type: "SET_ARTICLES", payload: response.data[0] }); //depende aca el array que devuelva la API
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getArticle();
+  });
+
   return (
     <section className="bg0 p-t-23 p-b-140">
       <div className="container">

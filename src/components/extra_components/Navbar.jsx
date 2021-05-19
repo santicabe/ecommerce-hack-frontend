@@ -23,13 +23,6 @@ function Navbar() {
                 <li>
                   <a href="product.html">Shop</a>
                 </li>
-                <li className="label1" data-label1="hot">
-                  <a href="shoping-cart.html">Features</a>
-                </li>
-                <li>
-                  <a href="blog.html">Blog</a>
-                </li>
-
                 <li>
                   <a href="about.html">About</a>
                 </li>
