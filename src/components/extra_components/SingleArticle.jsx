@@ -1,5 +1,6 @@
 import "../../cozastore/css/main.css";
 import "../../cozastore/css/util.css";
+import { Link } from "react-router-dom";
 import React from "react";
 function SingleArticle() {
   return (
@@ -10,13 +11,11 @@ function SingleArticle() {
             src="https://image.freepik.com/vector-gratis/icono-hombre-persona-pensando_24877-40527.jpg"
             alt="IMG-PRODUCT"
           />
-
-          <a
-            href="#"
-            className="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1"
-          >
-            Quick View
-          </a>
+          <Link to="/modal">
+            <a className="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+              Quick View
+            </a>
+          </Link>
         </div>
 
         <div className="block2-txt flex-w flex-t p-t-14">

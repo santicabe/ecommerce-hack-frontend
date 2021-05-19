@@ -2,6 +2,7 @@ import "../../cozastore/css/main.css";
 import "../../cozastore/css/util.css";
 import React from "react";
 import SingleArticle from "./SingleArticle";
+import Modal from "./Modal";
 function ArticleList() {
   return (
     <section className="bg0 p-t-23 p-b-140">
