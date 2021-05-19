@@ -2,7 +2,6 @@ import "../../cozastore/css/main.css";
 import "../../cozastore/css/util.css";
 import React from "react";
 import SingleArticle from "./SingleArticle";
-import Modal from "./Modal";
 function ArticleList() {
   return (
     <section className="bg0 p-t-23 p-b-140">
@@ -92,26 +91,26 @@ function ArticleList() {
 
                 <ul>
                   <li className="p-b-6">
-                    <a href="#" className="filter-link stext-106 trans-04">
+                    <a href="/" className="filter-link stext-106 trans-04">
                       Default
                     </a>
                   </li>
 
                   <li className="p-b-6">
-                    <a href="#" className="filter-link stext-106 trans-04">
+                    <a href="/" className="filter-link stext-106 trans-04">
                       Popularity
                     </a>
                   </li>
 
                   <li className="p-b-6">
-                    <a href="#" className="filter-link stext-106 trans-04">
+                    <a href="/" className="filter-link stext-106 trans-04">
                       Average rating
                     </a>
                   </li>
 
                   <li className="p-b-6">
                     <a
-                      href="#"
+                      href="/"
                       className="filter-link stext-106 trans-04 filter-link-active"
                     >
                       Newness
@@ -119,13 +118,13 @@ function ArticleList() {
                   </li>
 
                   <li className="p-b-6">
-                    <a href="#" className="filter-link stext-106 trans-04">
+                    <a href="/" className="filter-link stext-106 trans-04">
                       Price: Low to High
                     </a>
                   </li>
 
                   <li className="p-b-6">
-                    <a href="#" className="filter-link stext-106 trans-04">
+                    <a href="/" className="filter-link stext-106 trans-04">
                       Price: High to Low
                     </a>
                   </li>
@@ -138,7 +137,7 @@ function ArticleList() {
                 <ul>
                   <li className="p-b-6">
                     <a
-                      href="#"
+                      href="/"
                       className="filter-link stext-106 trans-04 filter-link-active"
                     >
                       All
@@ -146,31 +145,31 @@ function ArticleList() {
                   </li>
 
                   <li className="p-b-6">
-                    <a href="#" className="filter-link stext-106 trans-04">
+                    <a href="/" className="filter-link stext-106 trans-04">
                       $0.00 - $50.00
                     </a>
                   </li>
 
                   <li className="p-b-6">
-                    <a href="#" className="filter-link stext-106 trans-04">
+                    <a href="/" className="filter-link stext-106 trans-04">
                       $50.00 - $100.00
                     </a>
                   </li>
 
                   <li className="p-b-6">
-                    <a href="#" className="filter-link stext-106 trans-04">
+                    <a href="/" className="filter-link stext-106 trans-04">
                       $100.00 - $150.00
                     </a>
                   </li>
 
                   <li className="p-b-6">
-                    <a href="#" className="filter-link stext-106 trans-04">
+                    <a href="/" className="filter-link stext-106 trans-04">
                       $150.00 - $200.00
                     </a>
                   </li>
 
                   <li className="p-b-6">
-                    <a href="#" className="filter-link stext-106 trans-04">
+                    <a href="/" className="filter-link stext-106 trans-04">
                       $200.00+
                     </a>
                   </li>
@@ -189,7 +188,7 @@ function ArticleList() {
                       <i className="zmdi zmdi-circle"></i>
                     </span>
 
-                    <a href="#" className="filter-link stext-106 trans-04">
+                    <a href="/" className="filter-link stext-106 trans-04">
                       Black
                     </a>
                   </li>
@@ -203,7 +202,7 @@ function ArticleList() {
                     </span>
 
                     <a
-                      href="#"
+                      href="/"
                       className="filter-link stext-106 trans-04 filter-link-active"
                     >
                       Blue
@@ -218,7 +217,7 @@ function ArticleList() {
                       <i className="zmdi zmdi-circle"></i>
                     </span>
 
-                    <a href="#" className="filter-link stext-106 trans-04">
+                    <a href="/" className="filter-link stext-106 trans-04">
                       Grey
                     </a>
                   </li>
@@ -231,7 +230,7 @@ function ArticleList() {
                       <i className="zmdi zmdi-circle"></i>
                     </span>
 
-                    <a href="#" className="filter-link stext-106 trans-04">
+                    <a href="/" className="filter-link stext-106 trans-04">
                       Green
                     </a>
                   </li>
@@ -244,7 +243,7 @@ function ArticleList() {
                       <i className="zmdi zmdi-circle"></i>
                     </span>
 
-                    <a href="#" className="filter-link stext-106 trans-04">
+                    <a href="/" className="filter-link stext-106 trans-04">
                       Red
                     </a>
                   </li>
@@ -257,7 +256,7 @@ function ArticleList() {
                       <i className="zmdi zmdi-circle-o"></i>
                     </span>
 
-                    <a href="#" className="filter-link stext-106 trans-04">
+                    <a href="/" className="filter-link stext-106 trans-04">
                       White
                     </a>
                   </li>
@@ -269,35 +268,35 @@ function ArticleList() {
 
                 <div className="flex-w p-t-4 m-r--5">
                   <a
-                    href="#"
+                    href="/"
                     className="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5"
                   >
                     Fashion
                   </a>
 
                   <a
-                    href="#"
+                    href="/"
                     className="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5"
                   >
                     Lifestyle
                   </a>
 
                   <a
-                    href="#"
+                    href="/"
                     className="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5"
                   >
                     Denim
                   </a>
 
                   <a
-                    href="#"
+                    href="/"
                     className="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5"
                   >
                     Streetstyle
                   </a>
 
                   <a
-                    href="#"
+                    href="/"
                     className="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5"
                   >
                     Crafts
@@ -323,7 +322,7 @@ function ArticleList() {
         </div>
         <div className="flex-c-m flex-w w-full p-t-45">
           <a
-            href="#"
+            href="/"
             className="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04"
           >
             Load More

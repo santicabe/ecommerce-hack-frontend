@@ -10,14 +10,14 @@ function Navbar() {
       <div className="container-menu-desktop trans-03">
         <div className="wrap-menu-desktop">
           <nav className="limiter-menu-desktop">
-            <a href="#" className="logo">
+            <a href="/" className="logo">
               <img src="images/icons/logo-01.png" alt="IMG-LOGO" />
             </a>
             <div className="menu-desktop">
               <ul className="main-menu">
                 <li className="active-menu">
                   <Link to="/">
-                    <a>Home</a>
+                    <span>Home</span>
                   </Link>
                 </li>
                 <li>
