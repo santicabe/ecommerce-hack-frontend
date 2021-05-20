@@ -16,8 +16,8 @@ function Modal() {
     const getArticle = async () => {
       try {
         const response = await axios.get(url);
-        console.log(response.data.product[0]);
-        setSingleProduct(response.data.product[0]);
+        // console.log(response.data.product);
+        setSingleProduct(response.data.product);
       } catch (err) {
         console.log(err);
       }
