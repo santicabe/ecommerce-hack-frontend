@@ -3,24 +3,24 @@ import "../../cozastore/css/util.css";
 import React, { useEffect } from "react";
 import SingleArticle from "./SingleArticle";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 function ArticleList() {
-  const dispatch = useDispatch();
+  const [productos, setProductos] = useState([]);
+
   const url = "http://localhost:3000/products";
   useEffect(() => {
     const getArticle = async () => {
       try {
         const response = await axios.get(url);
-        console.log(response.data[0]);
-        dispatch({ type: "SET_ARTICLES", payload: response.data[0] }); //depende aca el array que devuelva la API
+        setProductos(response.data.products);
+        // dispatch({ type: "SET_PRODUCTS", payload: response.data.products }); //depende aca el array que devuelva la API
       } catch (err) {
         console.log(err);
       }
     };
     getArticle();
-  });
-
+  }, []);
   return (
     <section className="bg0 p-t-23 p-b-140">
       <div className="container">
@@ -326,17 +326,10 @@ function ArticleList() {
         </div>
 
         <div className="row isotope-grid">
-          <SingleArticle />
-          <SingleArticle />
-          <SingleArticle />
-          <SingleArticle />
-          <SingleArticle />
-          <SingleArticle />
-          <SingleArticle />
-          <SingleArticle />
-          <SingleArticle />
-          <SingleArticle />
-          <SingleArticle />
+          {productos &&
+            productos.map((item) => {
+              return <SingleArticle key={item.id} item={item} />;
+            })}
         </div>
         <div className="flex-c-m flex-w w-full p-t-45">
           <a
