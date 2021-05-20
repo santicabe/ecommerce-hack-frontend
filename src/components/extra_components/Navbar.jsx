@@ -44,7 +44,9 @@ function Navbar() {
                   className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart"
                   data-notify="2"
                 >
-                  <i className="zmdi zmdi-shopping-cart"></i>
+                  <Link to="/cart">
+                    <i className="zmdi zmdi-shopping-cart"></i>
+                  </Link>
                 </div>
               </div>
               <div className="flex-c-m h-full p-l-18 p-r-25 bor5">
