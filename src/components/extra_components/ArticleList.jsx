@@ -7,20 +7,30 @@ import { useState } from "react";
 
 function ArticleList() {
   const [productos, setProductos] = useState([]);
+  const [category, setCategory] = useState(0);
 
-  const url = "http://localhost:3000/products";
+  const handleClick = (e) => setCategory(e);
+
+  let url = "";
+  if (category === 0) {
+    url = "http://localhost:3000/products";
+  } else {
+    url = `http://localhost:3000/products/category/${category}`;
+  }
+
   useEffect(() => {
     const getArticle = async () => {
       try {
         const response = await axios.get(url);
         setProductos(response.data.products);
+        console.log(response.data.products);
         // dispatch({ type: "SET_PRODUCTS", payload: response.data.products }); //depende aca el array que devuelva la API
       } catch (err) {
         console.log(err);
       }
     };
     getArticle();
-  }, []);
+  }, [category, url]);
   return (
     <section className="bg0 p-t-23 p-b-140">
       <div className="container">
@@ -30,50 +40,114 @@ function ArticleList() {
 
         <div className="flex-w flex-sb-m p-b-52">
           <div className="flex-w flex-l-m filter-tope-group m-tb-10">
-            <button
-              className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
-              data-filter="*"
-            >
-              All Products
-            </button>
+            {category === 0 ? (
+              <button
+                className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
+                data-filter="*"
+                onClick={() => handleClick(0)}
+              >
+                All Products
+              </button>
+            ) : (
+              <button
+                className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
+                data-filter="*"
+                onClick={() => handleClick(0)}
+              >
+                All Products
+              </button>
+            )}
+            {category === 1 ? (
+              <button
+                className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
+                data-filter="*"
+                onClick={() => handleClick(1)}
+              >
+                Women
+              </button>
+            ) : (
+              <button
+                className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
+                data-filter="*"
+                onClick={() => handleClick(1)}
+              >
+                Women
+              </button>
+            )}
 
-            <button
-              className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-              data-filter=".women"
-            >
-              Women
-            </button>
+            {category === 2 ? (
+              <button
+                className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
+                data-filter="*"
+                onClick={() => handleClick(2)}
+              >
+                Men
+              </button>
+            ) : (
+              <button
+                className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
+                data-filter="*"
+                onClick={() => handleClick(2)}
+              >
+                Men
+              </button>
+            )}
+            {category === 3 ? (
+              <button
+                className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
+                data-filter="*"
+                onClick={() => handleClick(3)}
+              >
+                bag
+              </button>
+            ) : (
+              <button
+                className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
+                data-filter="*"
+                onClick={() => handleClick(3)}
+              >
+                bag
+              </button>
+            )}
+            {category === 4 ? (
+              <button
+                className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
+                data-filter="*"
+                onClick={() => handleClick(4)}
+              >
+                shoes
+              </button>
+            ) : (
+              <button
+                className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
+                data-filter="*"
+                onClick={() => handleClick(4)}
+              >
+                shoes
+              </button>
+            )}
 
-            <button
-              className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-              data-filter=".men"
-            >
-              Men
-            </button>
-
-            <button
-              className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-              data-filter=".bag"
-            >
-              Bag
-            </button>
-
-            <button
-              className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-              data-filter=".shoes"
-            >
-              Shoes
-            </button>
-
-            <button
-              className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
-              data-filter=".watches"
-            >
-              Watches
-            </button>
+            {category === 5 ? (
+              <button
+                className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
+                data-filter="*"
+                onClick={() => handleClick(5)}
+              >
+                Watches
+              </button>
+            ) : (
+              <button
+                className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5"
+                data-filter="*"
+                onClick={() => handleClick(5)}
+              >
+                Watches
+              </button>
+            )}
           </div>
 
-          <div className="flex-w flex-c-m m-tb-10">
+          {/* SEARCH Y FILTER
+           <div className="flex-w flex-c-m m-tb-10">
             <div className="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
               <i className="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
               <i className="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
@@ -85,7 +159,7 @@ function ArticleList() {
               <i className="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
               Search
             </div>
-          </div>
+          </div> */}
 
           <div className="dis-none panel-search w-full p-t-10 p-b-15">
             <div className="bor8 dis-flex p-l-15">
