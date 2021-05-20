@@ -12,35 +12,35 @@ const [username, setUsername] = useState("");
 const [password, setPassword] = useState("");
 
 function Register() {
-  const handSignUp = (event) => {
-    event.preventDefault();
-    const sendData = async () => {
-      try {
-        const response = await axios.post("aca va el link de la API", {
-          firstname: firstname,
-          lastname: lastname,
-          email: email,
-          username: username,
-          password: password,
-        });
-        // console.log(response);
-        if (response.data)
-          dispatch({
-            type: "SET_USER",
-            payload: response.data,
-          });
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    sendData();
-  };
+  // const handSignUp = (event) => {
+  //   event.preventDefault();
+  //   const sendData = async () => {
+  //     try {
+  //       const response = await axios.post("aca va el link de la API", {
+  //         firstname: firstname,
+  //         lastname: lastname,
+  //         email: email,
+  //         username: username,
+  //         password: password,
+  //       });
+  //       // console.log(response);
+  //       if (response.data)
+  //         dispatch({
+  //           type: "SET_USER",
+  //           payload: response.data,
+  //         });
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+  //   sendData();
+  // };
   
   return (
     <div>
       <div
         className="wrapper"
-        style={{backgroundImage= "url(images/bg-registration-form-1.jpg)"}}
+        style={{backgroundImage:`url(images/bg-registration-form-1.jpg)`}}
       >
         <div className="inner">
           <div className="image-holder">
