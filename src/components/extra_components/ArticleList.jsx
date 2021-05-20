@@ -3,25 +3,25 @@ import "../../cozastore/css/util.css";
 import React, { useEffect } from "react";
 import SingleArticle from "./SingleArticle";
 import axios from "axios";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 function ArticleList() {
-  const products = useSelector((state) => state.productReducer);
-  const dispatch = useDispatch();
+  const [productos, setProductos] = useState([]);
+
   const url = "http://localhost:3000/products";
   useEffect(() => {
     const getArticle = async () => {
       try {
         const response = await axios.get(url);
-        dispatch({ type: "SET_PRODUCTS", payload: response.data.products }); //depende aca el array que devuelva la API
+        setProductos(response.data.products);
+        // dispatch({ type: "SET_PRODUCTS", payload: response.data.products }); //depende aca el array que devuelva la API
       } catch (err) {
         console.log(err);
       }
     };
     getArticle();
-  }, [dispatch]);
-
-  console.log(products);
+  }, [productos]);
   return (
     <section className="bg0 p-t-23 p-b-140">
       <div className="container">
@@ -327,8 +327,8 @@ function ArticleList() {
         </div>
 
         <div className="row isotope-grid">
-          {products &&
-            products.map((item) => {
+          {productos &&
+            productos.map((item) => {
               return <SingleArticle key={item.id} item={item} />;
             })}
         </div>
