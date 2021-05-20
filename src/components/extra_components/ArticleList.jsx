@@ -4,7 +4,6 @@ import React, { useEffect } from "react";
 import SingleArticle from "./SingleArticle";
 import axios from "axios";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 
 function ArticleList() {
   const [productos, setProductos] = useState([]);
