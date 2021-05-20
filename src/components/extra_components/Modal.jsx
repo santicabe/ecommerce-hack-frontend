@@ -1,13 +1,30 @@
 import "../../cozastore/css/main.css";
 import "../../cozastore/css/util.css";
-import { useEffect } from "react";
-
-import React from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
 function Modal() {
+  const [singleProduct, setSingleProduct] = useState([]);
+
+  let { slug } = useParams();
+  let url = "http://localhost:3000/products/" + slug;
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+
+    const getArticle = async () => {
+      try {
+        const response = await axios.get(url);
+        console.log(response.data.product[0]);
+        setSingleProduct(response.data.product[0]);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getArticle();
+  }, [url]);
+
   return (
     <div
 
@@ -33,12 +50,12 @@ function Modal() {
                   <div className="slick3 gallery-lb">
                     <div
                       className="item-slick3"
-                      data-thumb="https://preview.colorlib.com/theme/cozastore/images/xproduct-detail-01.jpg.pagespeed.ic.p3moSJxG7I.webp"
+                      data-thumb={singleProduct.image}
                     >
                       <div className="wrap-pic-w pos-relative">
                         <img
-                          src="https://preview.colorlib.com/theme/cozastore/images/xproduct-detail-01.jpg.pagespeed.ic.p3moSJxG7I.webp"
-                          alt="IMG-PRODUCT"
+                          src={singleProduct.image}
+                          alt={singleProduct.name}
                         />
 
                         <a
@@ -95,14 +112,13 @@ function Modal() {
             <div className="col-md-6 col-lg-5 p-b-30">
               <div className="p-r-50 p-t-5 p-lr-0-lg">
                 <h4 className="mtext-105 cl2 js-name-detail p-b-14">
-                  Lightweight Jacket
+                  {singleProduct.name}
                 </h4>
 
-                <span className="mtext-106 cl2">$58.79</span>
+                <span className="mtext-106 cl2">$ {singleProduct.price}</span>
 
                 <p className="stext-102 cl3 p-t-23">
-                  Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus
-                  ligula. Mauris consequat ornare feugiat.
+                  {singleProduct.description}
                 </p>
 
                 <div className="p-t-33">
