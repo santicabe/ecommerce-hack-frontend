@@ -20,7 +20,7 @@ function ArticleList() {
       }
     };
     getArticle();
-  }, [productos]);
+  }, []);
   return (
     <section className="bg0 p-t-23 p-b-140">
       <div className="container">
