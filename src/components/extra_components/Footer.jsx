@@ -97,7 +97,7 @@ function Footer() {
             <form>
               <div className="wrap-input1 w-full p-b-4">
                 <input
-                  class="input1 bg-none plh1 stext-107 cl7"
+                  className="input1 bg-none plh1 stext-107 cl7"
                   type="text"
                   name="email"
                   placeholder="email@example.com"
@@ -138,11 +138,11 @@ function Footer() {
             </a>
           </div>
 
-          <p class="stext-107 cl6 txt-center">
+          <p className="stext-107 cl6 txt-center">
             Copyright &copy;
             <script>document.write(new Date().getFullYear());</script> All
             rights reserved | This template is made with{" "}
-            <i class="fa fa-heart-o" aria-hidden="true"></i> by{" "}
+            <i className="fa fa-heart-o" aria-hidden="true"></i> by{" "}
             <a href="https://colorlib.com" rel="noreferrer" target="_blank">
               Colorlib
             </a>
