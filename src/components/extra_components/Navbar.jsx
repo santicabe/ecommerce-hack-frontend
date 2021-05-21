@@ -38,13 +38,13 @@ function Navbar() {
                 </li>
                 <li>
                   <Link to="/login">
-                    <a>Login</a>
+                    <span>Login</span>
                   </Link>
                 </li>
 
                 <li>
                   <Link to="/register">
-                    <a>Register</a>
+                    <span>Register</span>
                   </Link>
                 </li>
               </ul>
