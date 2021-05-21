@@ -13,9 +13,10 @@ function ArticleList() {
 
   let url = "";
   if (category === 0) {
-    url = "http://localhost:3000/products";
+    url =
+      "https://ecommerce-hack-back-j8jdpvzd0-joaquinetchegaray.vercel.app/products";
   } else {
-    url = `http://localhost:3000/products/category/${category}`;
+    url = `https://ecommerce-hack-back-j8jdpvzd0-joaquinetchegaray.vercel.app/products/category/${category}`;
   }
 
   useEffect(() => {

@@ -8,7 +8,9 @@ function Modal() {
   const [singleProduct, setSingleProduct] = useState([]);
 
   let { slug } = useParams();
-  let url = "http://localhost:3000/products/" + slug;
+  let url =
+    "https://ecommerce-hack-back-j8jdpvzd0-joaquinetchegaray.vercel.app/products/" +
+    slug;
 
   useEffect(() => {
     window.scrollTo(0, 0);
