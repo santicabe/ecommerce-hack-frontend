@@ -4,7 +4,6 @@ import React, { useEffect } from "react";
 import SingleArticle from "./SingleArticle";
 import axios from "axios";
 import { useState } from "react";
-
 function ArticleList() {
   const [productos, setProductos] = useState([]);
   const [category, setCategory] = useState(0);
@@ -24,8 +23,7 @@ function ArticleList() {
       try {
         const response = await axios.get(url);
         setProductos(response.data.products);
-        console.log(response.data.products);
-        // dispatch({ type: "SET_PRODUCTS", payload: response.data.products }); //depende aca el array que devuelva la API
+        // console.log(response.data.products);
       } catch (err) {
         console.log(err);
       }
