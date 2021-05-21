@@ -1,8 +1,8 @@
-// import "../../colorlib-regform-17/css/style.css"
+import "../../colorlib-regform-17/css/style.css";
 import React from "react";
 
 function Login() {
- //funcion para verificar el Login, la constante checkCredentials se tiene que hacer un onSumbit del form en Login
+  //funcion para verificar el Login, la constante checkCredentials se tiene que hacer un onSumbit del form en Login
   // const checkCredentials = (event) => {
   //   event.preventDefault();
   //   const getToken = async () => { //falta setear el Token, pero se genera el token con esta data
@@ -23,9 +23,11 @@ function Login() {
   //   };
   //   getToken();
   // };
-  return <div><div
+  return (
+    <div>
+      <div
         className="wrapper"
-        style={{backgroundImage:`url(images/bg-registration-form-1.jpg)`}}
+        style={{ backgroundImage: `url(images/bg-registration-form-1.jpg)` }}
       >
         <div className="inner">
           <div className="image-holder">
@@ -34,7 +36,11 @@ function Login() {
           <form action="">
             <h3>Login</h3>
             <div className="form-wrapper">
-              <input type="text" placeholder="Username" className="form-control" />
+              <input
+                type="text"
+                placeholder="Username"
+                className="form-control"
+              />
               <i className="zmdi zmdi-account"></i>
             </div>
             <div className="form-wrapper">
@@ -51,7 +57,9 @@ function Login() {
             </button>
           </form>
         </div>
-      </div></div>;
+      </div>
+    </div>
+  );
 }
 
 export default Login;
