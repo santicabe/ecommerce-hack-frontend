@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 
 // Funcion para hacer el registro del usuario, se activa con el form submit, se declara en cada input del form como value de ejemplo (firstname) y
 // onChange de ese mismo input se declara la funcion que setEjemplo (setFirstname) del value.

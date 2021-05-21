@@ -19,7 +19,7 @@ function ArticleList() {
   }
 
   useEffect(() => {
-    const getArticle = async () => {
+    const getArticles = async () => {
       try {
         const response = await axios.get(url);
         setProductos(response.data.products);
@@ -29,8 +29,9 @@ function ArticleList() {
         console.log(err);
       }
     };
-    getArticle();
+    getArticles();
   }, [category, url]);
+
   return (
     <section className="bg0 p-t-23 p-b-140">
       <div className="container">

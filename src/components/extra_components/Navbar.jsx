@@ -12,19 +12,19 @@ function Navbar() {
           <nav className="limiter-menu-desktop">
             <a href="/" className="logo ml-5">
               <img
-                src=" https://image.flaticon.com/icons/png/512/4702/4702270.png"
+                src="https://image.flaticon.com/icons/png/512/3184/3184948.png"
                 //https://image.flaticon.com/icons/png/512/4710/4710022.png
                 //https://image.flaticon.com/icons/png/512/3184/3184948.png
 
                 alt="IMG-LOGO"
               />
-              <h5
+              <h4
                 className="ml-3 text-dark"
                 style={{ fontFamily: "Poppins-Regular", fontWeight: "80px" }}
               >
                 {" "}
                 <strong>Ecommerce</strong>
-              </h5>
+              </h4>
             </a>
             <div className="menu-desktop">
               <ul className="main-menu">

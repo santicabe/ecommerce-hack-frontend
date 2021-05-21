@@ -1,4 +1,4 @@
-import "../../colorlib-regform-17/css/style.css";
+// import "../../colorlib-regform-17/css/style.css";
 import React from "react";
 
 function Login() {
