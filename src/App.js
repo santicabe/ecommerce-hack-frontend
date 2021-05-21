@@ -6,6 +6,7 @@ import Home from "./components/Pages/Home";
 import Modal from "./components/extra_components/Modal";
 import Login from "./components/Pages/Login";
 import Cart from "./components/extra_components/Cart";
+import Register from "./components/Pages/Register";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/article/:slug" component={Modal} />
       <Route exact path="/cart" component={Cart} />
       <Route exact path="/login" component={Login} />
+      <Route exact path="/register" component={Register} />
 
       <Footer />
     </div>

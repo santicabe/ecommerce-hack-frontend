@@ -10,8 +10,21 @@ function Navbar() {
       <div className="container-menu-desktop trans-03">
         <div className="wrap-menu-desktop">
           <nav className="limiter-menu-desktop">
-            <a href="/" className="logo">
-              <img src="images/icons/logo-01.png" alt="IMG-LOGO" />
+            <a href="/" className="logo ml-5">
+              <img
+                src=" https://image.flaticon.com/icons/png/512/4702/4702270.png"
+                //https://image.flaticon.com/icons/png/512/4710/4710022.png
+                //https://image.flaticon.com/icons/png/512/3184/3184948.png
+
+                alt="IMG-LOGO"
+              />
+              <h5
+                className="ml-3 text-dark"
+                style={{ fontFamily: "Poppins-Regular", fontWeight: "80px" }}
+              >
+                {" "}
+                <strong>Ecommerce</strong>
+              </h5>
             </a>
             <div className="menu-desktop">
               <ul className="main-menu">
@@ -24,15 +37,15 @@ function Navbar() {
                   <a href="product.html">Shop</a>
                 </li>
                 <li>
-                  <a href="about.html">
-                    <strong>Login</strong>{" "}
-                  </a>
+                  <Link to="/login">
+                    <a>Login</a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a href="contact.html">
-                    <strong>Register</strong>{" "}
-                  </a>
+                  <Link to="/register">
+                    <a>Register</a>
+                  </Link>
                 </li>
               </ul>
             </div>
