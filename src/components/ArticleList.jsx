@@ -1,5 +1,5 @@
-import "../../cozastore/css/main.css";
-import "../../cozastore/css/util.css";
+import "../cozastore/css/main.css";
+import "../cozastore/css/util.css";
 import React, { useEffect } from "react";
 import SingleArticle from "./SingleArticle";
 import axios from "axios";

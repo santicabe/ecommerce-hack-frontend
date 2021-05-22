@@ -1,5 +1,5 @@
-import "../../cozastore/css/main.css";
-import "../../cozastore/css/util.css";
+import "../cozastore/css/main.css";
+import "../cozastore/css/util.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
