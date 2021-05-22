@@ -38,7 +38,7 @@ function RegisterPage() {
         },
       }
     );
-
+    console.log("respuesta", response.data);
     if (response.data) {
       dispatch(actions.setUser(response.data));
       history.push("/");
@@ -66,7 +66,7 @@ function RegisterPage() {
                   name="firstName"
                   id="firstName"
                   required
-                  autocomplete="off"
+                  autoComplete="off"
                   value={firstName}
                   onChange={(e) => {
                     setFirstName(e.target.value);
@@ -81,7 +81,7 @@ function RegisterPage() {
                   type="text"
                   name="lastName"
                   required
-                  autocomplete="off"
+                  autoComplete="off"
                   value={lastName}
                   onChange={(e) => {
                     setLastName(e.target.value);
@@ -96,7 +96,7 @@ function RegisterPage() {
                   type="text"
                   name="userName"
                   required
-                  autocomplete="off"
+                  autoComplete="off"
                   value={userName}
                   onChange={(e) => {
                     setUserName(e.target.value);
@@ -111,7 +111,7 @@ function RegisterPage() {
                   type="text"
                   name="email"
                   required
-                  autocomplete="off"
+                  autoComplete="off"
                   value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);
@@ -127,7 +127,7 @@ function RegisterPage() {
                   type="password"
                   name="password"
                   required
-                  autocomplete="off"
+                  autoComplete="off"
                   value={password}
                   onChange={(e) => {
                     setPassword(e.target.value);
