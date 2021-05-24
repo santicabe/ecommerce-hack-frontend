@@ -12,9 +12,9 @@ function ArticleList() {
 
   let url = "";
   if (category === 0) {
-    url = "https://ecommerce-hack-back.vercel.app/products";
+    url = process.env.REACT_APP_BACK_END_URL + "/products";
   } else {
-    url = `https://ecommerce-hack-back.vercel.app/products/category/${category}`;
+    url = process.env.REACT_APP_BACK_END_URL + `/products/category/${category}`;
   }
 
   useEffect(() => {

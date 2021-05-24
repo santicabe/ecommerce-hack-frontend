@@ -9,8 +9,7 @@ function ProductsAdmin() {
 
   const handleClick = (e) => setItem(e);
 
-  const url =
-    "https://ecommerce-hack-back-j8jdpvzd0-joaquinetchegaray.vercel.app/products";
+  const url = process.env.REACT_APP_BACK_END_URL + "/products/admin";
 
   useEffect(() => {
     const getProducts = async () => {
@@ -62,13 +61,14 @@ function ProductsAdmin() {
           </div>
           <div className="col">
             <h4 className="mb-3">Edit:</h4>
-            <form action="" className="border border-secondary p-3">
+            <form action="POST" className="border border-secondary p-3">
               <label htmlFor="name" className="form-label">
                 Name
               </label>
               <input
                 type="text"
                 id="name"
+                name="name"
                 className="form-control"
                 defaultValue={item.name}
               />
@@ -89,6 +89,7 @@ function ProductsAdmin() {
               <input
                 type="text"
                 id="image"
+                name="image"
                 className="form-control"
                 defaultValue={item.image}
               />
@@ -125,18 +126,33 @@ function ProductsAdmin() {
               <label htmlFor="isFeatured" className="mt-3">
                 Is Featured
               </label>
-              <input
-                type="text"
-                id="isFeatured"
-                className="form-control"
-                defaultValue={item.isFeatured}
-              />
+              {item.isFeatured ? (
+                <select
+                  id="isFeatured"
+                  name="isFeatured"
+                  className="form-control"
+                >
+                  <option selected="true">True</option>
+                  <option value="false">False</option>
+                </select>
+              ) : (
+                <select
+                  id="isFeatured"
+                  name="isFeatured"
+                  className="form-control"
+                >
+                  <option value="true">True</option>
+                  <option selected="false">False</option>
+                </select>
+              )}
+
               <label htmlFor="slug" className="mt-3">
                 Slug
               </label>
               <input
                 type="text"
                 id="slug"
+                name="slug"
                 className="form-control"
                 defaultValue={item.slug}
               />
