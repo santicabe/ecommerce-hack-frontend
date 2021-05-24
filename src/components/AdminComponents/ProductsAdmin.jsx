@@ -6,6 +6,14 @@ import { useState } from "react";
 function ProductsAdmin() {
   const [productos, setProductos] = useState([]);
   const [item, setItem] = useState([]);
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
+  const [price, setPrice] = useState("");
+  const [stock, setStock] = useState("");
+  const [categoryId, setCategoryId] = useState("");
+  const [isFeatured, setIsFeatured] = useState(true);
+  const [slug, setSlug] = useState("");
 
   const handleClick = (e) => setItem(e);
 
@@ -97,6 +105,7 @@ function ProductsAdmin() {
                 rows="3"
                 className="form-control"
                 defaultValue={item.description}
+                onChange={(e) => setDescription(e.target.value)}
               ></textarea>
               <label htmlFor="image" className="mt-3">
                 Image
@@ -107,6 +116,7 @@ function ProductsAdmin() {
                 name="image"
                 className="form-control"
                 defaultValue={item.image}
+                onChange={(e) => setImage(e.target.value)}
               />
               <label htmlFor="price" className="mt-3">
                 Price
@@ -117,9 +127,10 @@ function ProductsAdmin() {
                 id="price"
                 className="form-control"
                 defaultValue={item.price}
+                onChange={(e) => setPrice(e.target.value)}
               />
               <label htmlFor="categoryId" className="mt-3">
-                Category Id
+                Category
               </label>
               <input
                 type="number"
@@ -127,6 +138,7 @@ function ProductsAdmin() {
                 id="categoryId"
                 className="form-control"
                 defaultValue={item.categoryId}
+                onChange={(e) => setCategoryId(e.target.value)}
               />
               <label htmlFor="stock" className="mt-3">
                 Stock
@@ -137,6 +149,7 @@ function ProductsAdmin() {
                 id="stock"
                 className="form-control"
                 defaultValue={item.stock}
+                onChange={(e) => setStock(e.target.value)}
               />
               <label htmlFor="isFeatured" className="mt-3">
                 Is Featured
@@ -146,6 +159,7 @@ function ProductsAdmin() {
                   id="isFeatured"
                   name="isFeatured"
                   className="form-control"
+                  onChange={(e) => setIsFeatured(e.target.value)} //ver si funciona
                 >
                   <option selected="true">True</option>
                   <option value="false">False</option>
@@ -155,6 +169,7 @@ function ProductsAdmin() {
                   id="isFeatured"
                   name="isFeatured"
                   className="form-control"
+                  onChange={(e) => setIsFeatured(e.target.value)} //ver si funciona
                 >
                   <option value="true">True</option>
                   <option selected="false">False</option>
@@ -170,6 +185,7 @@ function ProductsAdmin() {
                 name="slug"
                 className="form-control"
                 defaultValue={item.slug}
+                onChange={(e) => setSlug(e.target.value)}
               />
               <button type="submit" className="btn btn-primary mt-4">
                 Save!
