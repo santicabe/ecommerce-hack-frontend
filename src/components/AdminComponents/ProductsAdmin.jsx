@@ -96,7 +96,7 @@ function ProductsAdmin() {
                 Price
               </label>
               <input
-                type="text"
+                type="number"
                 name="price"
                 id="price"
                 className="form-control"
