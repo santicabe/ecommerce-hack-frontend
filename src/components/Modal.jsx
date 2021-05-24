@@ -9,9 +9,7 @@ function Modal() {
   const [number, setNumber] = useState(1);
   const dispatch = useDispatch();
   let { slug } = useParams();
-  let url =
-    "https://ecommerce-hack-back-j8jdpvzd0-joaquinetchegaray.vercel.app/products/" +
-    slug;
+  let url = "https://ecommerce-hack-back.vercel.app/products/" + slug;
 
   useEffect(() => {
     window.scrollTo(0, 0);

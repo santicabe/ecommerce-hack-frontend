@@ -16,7 +16,7 @@ function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await axios.post(
-      "https://ecommerce-hack-back-cmcbegeni-joaquinetchegaray.vercel.app/tokens",
+      "https://ecommerce-hack-back.vercel.app/tokens",
       {
         user: userName,
         password: password,

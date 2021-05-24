@@ -19,7 +19,7 @@ function RegisterPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await axios.post(
-      "https://ecommerce-hack-back-cmcbegeni-joaquinetchegaray.vercel.app/users",
+      "https://ecommerce-hack-back.vercel.app/users",
 
       {
         firstName,
