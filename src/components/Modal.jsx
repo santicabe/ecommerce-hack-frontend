@@ -9,7 +9,7 @@ function Modal() {
   const [number, setNumber] = useState(1);
   const dispatch = useDispatch();
   let { slug } = useParams();
-  let url = "https://ecommerce-hack-back.vercel.app/products/" + slug;
+  let url = process.env.REACT_APP_BACK_END_URL + "/products/" + slug;
 
   useEffect(() => {
     window.scrollTo(0, 0);
