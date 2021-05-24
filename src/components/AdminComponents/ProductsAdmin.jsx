@@ -9,8 +9,8 @@ function ProductsAdmin() {
 
   const handleClick = (e) => setItem(e);
 
-  const url =
-    "https://ecommerce-hack-back-j8jdpvzd0-joaquinetchegaray.vercel.app/products";
+  const url = process.env.REACT_APP_BACK_END_URL + "/products/admin";
+  const url2 = process.env.REACT_APP_BACK_END_URL + `/user/${item.id}`;
 
   useEffect(() => {
     const getProducts = async () => {
@@ -23,6 +23,19 @@ function ProductsAdmin() {
       }
     };
     getProducts();
+  }, []);
+
+  useEffect(() => {
+    const updateProducts = async () => {
+      try {
+        const response = await axios.patch(url2);
+        setProductos(response.data.products);
+        //console.log(response.data.products);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    updateProducts();
   }, []);
 
   return (
@@ -62,7 +75,7 @@ function ProductsAdmin() {
           </div>
           <div className="col">
             <h4 className="mb-3">Edit:</h4>
-            <form action="" className="border border-secondary p-3">
+            <form action="POST" className="border border-secondary p-3">
               <label htmlFor="name" className="form-label">
                 Name
               </label>
@@ -72,6 +85,7 @@ function ProductsAdmin() {
                 name="name"
                 className="form-control"
                 defaultValue={item.name}
+                onChange={(e) => setName(e.target.value)}
               />
               <label htmlFor="description" className="mt-3">
                 Description

@@ -87,17 +87,33 @@ function UsersAdmin() {
               <label htmlFor="role" className="mt-3">
                 Role
               </label>
-              <select id="role" name="role" className="form-control">
-                <option value="client">Client</option>
-                <option value="admin">Admin</option>
-              </select>
+              {data.role === "admin" ? (
+                <select id="role" name="role" className="form-control">
+                  <option value="client">Client</option>
+                  <option selected="admin">Admin</option>
+                </select>
+              ) : (
+                <select id="role" name="role" className="form-control">
+                  <option selected="client">Client</option>
+                  <option value="admin">Admin</option>
+                </select>
+              )}
+
               <label htmlFor="isActive" className="mt-3">
                 Is active
               </label>
-              <select id="isActive" name="isActive" className="form-control">
-                <option value="true">True</option>
-                <option value="false">False</option>
-              </select>
+              {data.isActive === true ? (
+                <select id="isActive" name="isActive" className="form-control">
+                  <option selected="true">True</option>
+                  <option value="false">False</option>
+                </select>
+              ) : (
+                <select id="isActive" name="isActive" className="form-control">
+                  <option value="true">True</option>
+                  <option selected="false">False</option>
+                </select>
+              )}
+
               <button type="submit" className="btn btn-primary mt-4">
                 Save!
               </button>
