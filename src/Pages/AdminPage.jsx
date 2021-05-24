@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import UsersAdmin from "./AdminComponents/UsersAdmin";
-import ProductsAdmin from "./AdminComponents/ProductsAdmin";
-import OrdersAdmin from "./AdminComponents/OrdersAdmin";
-import CategoriesAdmin from "./AdminComponents/CategoriesAdmin";
+import UsersAdmin from "../components/AdminComponents/UsersAdmin";
+import ProductsAdmin from "../components/AdminComponents/ProductsAdmin";
+import OrdersAdmin from "../components/AdminComponents/OrdersAdmin";
+import CategoriesAdmin from "../components/AdminComponents/CategoriesAdmin";
 
 function Admin() {
   const [menu, setMenu] = useState(0);
