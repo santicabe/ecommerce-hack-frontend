@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import React from "react";
 function SingleArticle({ item }) {
   let url = "/article/" + item.slug;
-  console.log(item);
 
   return (
     <div className="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">

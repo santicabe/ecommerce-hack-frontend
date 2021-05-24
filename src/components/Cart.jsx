@@ -7,12 +7,15 @@ function Cart() {
   const carrito = useSelector((state) => state.productReducer);
   console.log(carrito);
 
-  function handleClearClick(event) {
-    event.preventDefault();
+  const handleClearClick = (e) => {
+    e.preventDefault();
     dispatch({
       type: "CLEAR_PRODUCTS",
     });
-  }
+  };
+
+  let total = 0;
+
   return (
     <div>
       <form className="bg0 p-t-75 p-b-85">
@@ -25,7 +28,7 @@ function Cart() {
                     <thead>
                       <tr className="table_head">
                         <th className="column-1">Product</th>
-                        <th className="column-2"></th>
+                        <th className="column-2">Name</th>
                         <th className="column-3">Price</th>
                         <th className="column-4">Quantity</th>
                         <th className="column-5">Total</th>
@@ -34,6 +37,7 @@ function Cart() {
                     <tbody>
                       {carrito &&
                         carrito.map((item, index) => {
+                          total = total + item.price * item.quantity;
                           return <CarSingleItem key={index} item={item} />;
                         })}
                     </tbody>
@@ -66,15 +70,15 @@ function Cart() {
               <div className="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
                 <h4 className="mtext-109 cl2 p-b-30">Cart Totals</h4>
 
-                <div className="flex-w flex-t bor12 p-b-13">
+                {/* <div className="flex-w flex-t bor12 p-b-13">
                   <div className="size-208">
                     <span className="stext-110 cl2">Subtotal:</span>
                   </div>
 
                   <div className="size-209">
-                    <span className="mtext-110 cl2">$79.65</span>
+                    <span className="mtext-110 cl2">${total}</span>
                   </div>
-                </div>
+                </div> */}
 
                 {/* INFORMACIÓN DE ENVIO  
                 <div className="flex-w flex-t bor12 p-t-15 p-b-30">
@@ -133,7 +137,7 @@ function Cart() {
                   </div>
 
                   <div className="size-209 p-t-1">
-                    <span className="mtext-110 cl2">$79.65</span>
+                    <span className="mtext-110 cl2">${total}</span>
                   </div>
                 </div>
 

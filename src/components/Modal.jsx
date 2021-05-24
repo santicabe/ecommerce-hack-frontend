@@ -6,6 +6,9 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 function Modal() {
   const [singleProduct, setSingleProduct] = useState([]);
+
+  const [ProductToCart, setProductToCart] = useState({});
+
   const [number, setNumber] = useState(1);
   const dispatch = useDispatch();
   let { slug } = useParams();
@@ -24,6 +27,25 @@ function Modal() {
     };
     getArticle();
   }, [url]);
+
+  useEffect(() => {
+    setProductToCart({
+      name: singleProduct.name,
+      image: singleProduct.image,
+      price: singleProduct.price,
+      description: singleProduct.description,
+      quantity: number,
+    });
+    console.log("asd");
+  }, [number, singleProduct]);
+
+  const handleClickOnCart = (e) => {
+    dispatch({
+      type: "SET_PRODUCTS",
+      payload: ProductToCart,
+    });
+    console.log(ProductToCart);
+  };
 
   return (
     <div>
@@ -126,11 +148,6 @@ function Modal() {
                         <div
                           onClick={() => {
                             setNumber(number + 1);
-
-                            dispatch({
-                              type: "SET_PRODUCTS",
-                              payload: singleProduct,
-                            }); //depende aca el array que devuelva la API
                           }}
                           className="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m"
                         >
@@ -138,9 +155,11 @@ function Modal() {
                         </div>
                       </div>
 
-                      <button className="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
-                        Agregar al carrito -
-                        <i className="zmdi zmdi-shopping-cart"></i>
+                      <button
+                        onClick={handleClickOnCart}
+                        className="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail"
+                      >
+                        Add to cart -<i className="zmdi zmdi-shopping-cart"></i>
                       </button>
                     </div>
                   </div>
