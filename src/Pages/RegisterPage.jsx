@@ -57,7 +57,7 @@ function RegisterPage() {
               <img src="images/registration-form-1.jpg" alt="" />
             </div>
             <form onSubmit={handleSubmit}>
-              <h3>Registration Form</h3>
+              <h3>Register</h3>
               <div className="form-group mt-3">
                 <input
                   placeholder="First Name"
