@@ -23,7 +23,7 @@ function Navbar() {
                 style={{ fontFamily: "Poppins-Regular", fontWeight: "80px" }}
               >
                 {" "}
-                <strong>Ecommerce</strong>
+                <strong>HackCommerce</strong>
               </h4>
             </a>
             <div className="menu-desktop">
