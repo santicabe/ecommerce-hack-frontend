@@ -10,6 +10,7 @@ function ProductsAdmin() {
   const handleClick = (e) => setItem(e);
 
   const url = process.env.REACT_APP_BACK_END_URL + "/products/admin";
+  const url2 = process.env.REACT_APP_BACK_END_URL + `/user/${item.id}`;
 
   useEffect(() => {
     const getProducts = async () => {
@@ -22,6 +23,19 @@ function ProductsAdmin() {
       }
     };
     getProducts();
+  }, []);
+
+  useEffect(() => {
+    const updateProducts = async () => {
+      try {
+        const response = await axios.patch(url2);
+        setProductos(response.data.products);
+        //console.log(response.data.products);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    updateProducts();
   }, []);
 
   return (
@@ -71,6 +85,7 @@ function ProductsAdmin() {
                 name="name"
                 className="form-control"
                 defaultValue={item.name}
+                onChange={(e) => setName(e.target.value)}
               />
               <label htmlFor="description" className="mt-3">
                 Description
