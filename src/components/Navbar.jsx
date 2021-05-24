@@ -1,5 +1,5 @@
-import "../../cozastore/css/main.css";
-import "../../cozastore/css/util.css";
+import "../cozastore/css/main.css";
+import "../cozastore/css/util.css";
 import { Link } from "react-router-dom";
 
 import React from "react";
@@ -10,8 +10,21 @@ function Navbar() {
       <div className="container-menu-desktop trans-03">
         <div className="wrap-menu-desktop">
           <nav className="limiter-menu-desktop">
-            <a href="/" className="logo">
-              <img src="images/icons/logo-01.png" alt="IMG-LOGO" />
+            <a href="/" className="logo ml-5">
+              <img
+                src="https://image.flaticon.com/icons/png/512/3184/3184948.png"
+                //https://image.flaticon.com/icons/png/512/4710/4710022.png
+                //https://image.flaticon.com/icons/png/512/3184/3184948.png
+
+                alt="IMG-LOGO"
+              />
+              <h4
+                className="ml-3 text-dark"
+                style={{ fontFamily: "Poppins-Regular", fontWeight: "80px" }}
+              >
+                {" "}
+                <strong>Ecommerce</strong>
+              </h4>
             </a>
             <div className="menu-desktop">
               <ul className="main-menu">
@@ -24,15 +37,15 @@ function Navbar() {
                   <a href="product.html">Shop</a>
                 </li>
                 <li>
-                  <a href="about.html">
-                    <strong>Login</strong>{" "}
-                  </a>
+                  <Link to="/login">
+                    <span>Login</span>
+                  </Link>
                 </li>
 
                 <li>
-                  <a href="contact.html">
-                    <strong>Register</strong>{" "}
-                  </a>
+                  <Link to="/register">
+                    <span>Register</span>
+                  </Link>
                 </li>
               </ul>
             </div>

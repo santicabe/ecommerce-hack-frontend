@@ -1,20 +1,22 @@
 import "./App.css";
-import Navbar from "./components/extra_components/Navbar";
-import Footer from "./components/extra_components/Footer";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import { Route } from "react-router-dom";
-import Home from "./components/Pages/Home";
-import Modal from "./components/extra_components/Modal";
-import Login from "./components/Pages/Login";
-import Cart from "./components/extra_components/Cart";
+import HomePage from "./Pages/HomePage";
+import Modal from "./components/Modal";
+import LoginPage from "./Pages/LoginPage";
+import Cart from "./components/Cart.jsx";
+import RegisterPage from "./Pages/RegisterPage";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" component={HomePage} />
       <Route path="/article/:slug" component={Modal} />
       <Route exact path="/cart" component={Cart} />
-      <Route exact path="/login" component={Login} />
+      <Route exact path="/login" component={LoginPage} />
+      <Route exact path="/register" component={RegisterPage} />
 
       <Footer />
     </div>
