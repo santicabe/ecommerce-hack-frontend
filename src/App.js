@@ -7,6 +7,7 @@ import Modal from "./components/Modal";
 import LoginPage from "./Pages/LoginPage";
 import Cart from "./components/Cart.jsx";
 import RegisterPage from "./Pages/RegisterPage";
+import Admin from "./components/Admin";
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <Route exact path="/cart" component={Cart} />
       <Route exact path="/login" component={LoginPage} />
       <Route exact path="/register" component={RegisterPage} />
-
+      <Route exact path="/admin" component={Admin} />
       <Footer />
     </div>
   );

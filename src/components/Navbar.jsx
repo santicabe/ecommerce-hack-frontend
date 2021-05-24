@@ -47,6 +47,11 @@ function Navbar() {
                     <span>Register</span>
                   </Link>
                 </li>
+                <li>
+                  <Link to="/admin">
+                    <span>Admin</span>
+                  </Link>
+                </li>
               </ul>
             </div>
 
