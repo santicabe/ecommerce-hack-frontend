@@ -69,6 +69,7 @@ function ProductsAdmin() {
               <input
                 type="text"
                 id="name"
+                name="name"
                 className="form-control"
                 defaultValue={item.name}
               />
@@ -89,6 +90,7 @@ function ProductsAdmin() {
               <input
                 type="text"
                 id="image"
+                name="image"
                 className="form-control"
                 defaultValue={item.image}
               />
@@ -128,6 +130,7 @@ function ProductsAdmin() {
               <input
                 type="text"
                 id="isFeatured"
+                name="isFeatured"
                 className="form-control"
                 defaultValue={item.isFeatured}
               />
@@ -137,6 +140,7 @@ function ProductsAdmin() {
               <input
                 type="text"
                 id="slug"
+                name="slug"
                 className="form-control"
                 defaultValue={item.slug}
               />
