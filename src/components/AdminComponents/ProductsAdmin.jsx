@@ -127,13 +127,26 @@ function ProductsAdmin() {
               <label htmlFor="isFeatured" className="mt-3">
                 Is Featured
               </label>
-              <input
-                type="text"
-                id="isFeatured"
-                name="isFeatured"
-                className="form-control"
-                defaultValue={item.isFeatured}
-              />
+              {item.isFeatured ? (
+                <select
+                  id="isFeatured"
+                  name="isFeatured"
+                  className="form-control"
+                >
+                  <option selected="true">True</option>
+                  <option value="false">False</option>
+                </select>
+              ) : (
+                <select
+                  id="isFeatured"
+                  name="isFeatured"
+                  className="form-control"
+                >
+                  <option value="true">True</option>
+                  <option selected="false">False</option>
+                </select>
+              )}
+
               <label htmlFor="slug" className="mt-3">
                 Slug
               </label>
