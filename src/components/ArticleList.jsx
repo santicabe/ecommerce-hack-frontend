@@ -5,7 +5,7 @@ import SingleArticle from "./SingleArticle";
 import axios from "axios";
 import { useState } from "react";
 function ArticleList() {
-  const [productos, setProductos] = useState([]);
+  const [products, setProducts] = useState([]);
   const [category, setCategory] = useState(0);
 
   const handleClick = (e) => setCategory(e);
@@ -21,7 +21,7 @@ function ArticleList() {
     const getArticles = async () => {
       try {
         const response = await axios.get(url);
-        setProductos(response.data.products);
+        setProducts(response.data.products);
         // console.log(response.data.products);
       } catch (err) {
         console.log(err);
@@ -399,8 +399,8 @@ function ArticleList() {
         </div>
 
         <div className="row isotope-grid">
-          {productos &&
-            productos.map((item) => {
+          {products &&
+            products.map((item) => {
               return <SingleArticle key={item.id} item={item} />;
             })}
         </div>

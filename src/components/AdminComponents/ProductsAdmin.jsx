@@ -11,49 +11,33 @@ function ProductsAdmin() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
-  const [price, setPrice] = useState("");
-  const [stock, setStock] = useState("");
-  const [categoryId, setCategoryId] = useState("");
+  const [price, setPrice] = useState(0);
+  const [stock, setStock] = useState(0);
+  const [categoryId, setCategoryId] = useState(0);
   const [isFeatured, setIsFeatured] = useState(true);
-  // const [slug, setSlug] = useState("");
 
-  const user = useSelector((state) => state.user);
-
+  // const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const handleClick = (e) => setItem(e);
 
   const url = process.env.REACT_APP_BACK_END_URL + "/products/admin";
-  const url2 = process.env.REACT_APP_BACK_END_URL + `/user/${item.id}`;
+  const url2 = process.env.REACT_APP_BACK_END_URL + `/products/${item.id}`;
 
   useEffect(() => {
     const getProducts = async () => {
       try {
         const response = await axios.get(url);
         setProductos(response.data.products);
-        console.log(response.data.products);
       } catch (err) {
         console.log(err);
       }
     };
     getProducts();
-  }, []);
-
-  const dispatch = useDispatch();
+  }, [url]);
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    // console.log(avatar);
-    const formData = new FormData();
-    // const fields = {
-    //   name: name,
-    //   description: description,
-    //   image: image,
-    //   price: price,
-    //   stock: stock,
-    //   categoryId: categoryId,
-    //   isFeatured: isFeatured,
-    //   slug: slug,
-    // };
-
+    let formData = new FormData();
     formData.append("name", name);
     formData.append("description", description);
     formData.append("image", image);
@@ -61,31 +45,25 @@ function ProductsAdmin() {
     formData.append("categoryId", categoryId);
     formData.append("stock", stock);
     formData.append("isFeatured", isFeatured);
-    // formData.append("slug", slug);
 
     const sendData = async () => {
       try {
-        const response = await axios.patch(url2, formData, {
+        const response = await axios({
+          method: "PATCH",
+          url: url2,
+          data: formData,
           headers: {
-            "content-type": "multipart/form-data",
+            "Content-Type": "multipart/form-data",
             // Authorization: `Bearer ${user.token}`,
           },
         });
-        // console.log(response);
-        if (response.data) {
-          // dispatch({
-          //   type: "SET_USER",
-          //   payload: response.data,
-          // });
-          dispatch({ type: "SET_VISIT_USER", payload: response.data._doc });
-        }
+        console.log("artículo se modificó con éxito", response);
       } catch (err) {
         console.log(err);
       }
     };
     sendData();
-    // history.push(`/username/${username}`);
-    history.goBack();
+    // history.push(`/article/${slug}`);   encontrar forma de llegar a "slug"
   };
 
   return (
@@ -105,11 +83,13 @@ function ProductsAdmin() {
               </thead>
               <tbody>
                 {productos.map((item) => (
-                  <tr>
-                    <th scope="row">{item.id}</th>
-                    <td>{item.name}</td>
-                    <td>$ {item.price}</td>
-                    <td>
+                  <tr key={item.id}>
+                    <th scope="row" key={item.id}>
+                      {item.id}
+                    </th>
+                    <td key={item.id}>{item.name}</td>
+                    <td key={item.id}>$ {item.price}</td>
+                    <td key={item.id}>
                       <button
                         type="button"
                         className="btn btn-success"
@@ -138,7 +118,6 @@ function ProductsAdmin() {
                 id="name"
                 name="name"
                 className="form-control"
-                value={name}
                 defaultValue={item.name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -208,8 +187,8 @@ function ProductsAdmin() {
                   className="form-control"
                   onChange={(e) => setIsFeatured(e.target.value)} //ver si funciona
                 >
-                  <option selected="true">True</option>
-                  <option value="false">False</option>
+                  <option selected={true}>True</option>
+                  <option value={false}>False</option>
                 </select>
               ) : (
                 <select
@@ -218,22 +197,10 @@ function ProductsAdmin() {
                   className="form-control"
                   onChange={(e) => setIsFeatured(e.target.value)} //ver si funciona
                 >
-                  <option value="true">True</option>
-                  <option selected="false">False</option>
+                  <option value={true}>True</option>
+                  <option selected={false}>False</option>
                 </select>
               )}
-
-              {/* <label htmlFor="slug" className="mt-3">
-                Slug
-              </label>
-              <input
-                type="text"
-                id="slug"
-                name="slug"
-                className="form-control"
-                defaultValue={item.slug}
-                onChange={(e) => setSlug(e.target.value)}
-              /> */}
               <button type="submit" className="btn btn-primary mt-4">
                 Save!
               </button>

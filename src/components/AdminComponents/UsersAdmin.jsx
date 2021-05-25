@@ -4,25 +4,25 @@ import axios from "axios";
 import { useState } from "react";
 
 function UsersAdmin() {
-  const [usuarios, setUsuarios] = useState([]);
+  const [users, setUsers] = useState([]);
   const [data, setData] = useState([]);
 
   const handleClick = (e) => setData(e);
 
-  const url = "";
+  const url = process.env.REACT_APP_BACK_END_URL + "/users";
 
   useEffect(() => {
     const getProducts = async () => {
       try {
         const response = await axios.get(url);
-        setUsuarios(response.data.products);
+        setUsers(response.data.users);
         //console.log(response.data.products);
       } catch (err) {
         console.log(err);
       }
     };
     getProducts();
-  }, []);
+  }, [url]);
   return (
     <div>
       <h3 className="mb-5">Users</h3>
@@ -41,7 +41,7 @@ function UsersAdmin() {
                 </tr>
               </thead>
               <tbody>
-                {usuarios.map((item) => (
+                {users.map((item) => (
                   <tr>
                     <th scope="row">{item.id}</th>
                     <td>{item.userName}</td>
@@ -104,13 +104,13 @@ function UsersAdmin() {
               </label>
               {data.isActive === true ? (
                 <select id="isActive" name="isActive" className="form-control">
-                  <option selected="true">True</option>
-                  <option value="false">False</option>
+                  <option selected={true}>True</option>
+                  <option value={false}>False</option>
                 </select>
               ) : (
                 <select id="isActive" name="isActive" className="form-control">
-                  <option value="true">True</option>
-                  <option selected="false">False</option>
+                  <option value={true}>True</option>
+                  <option selected={false}>False</option>
                 </select>
               )}
 
