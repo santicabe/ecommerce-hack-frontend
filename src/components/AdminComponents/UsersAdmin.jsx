@@ -49,7 +49,7 @@ function UsersAdmin() {
                     </td>
                     <td>{item.email}</td>
                     <td>{item.role}</td>
-                    <td>{item.isActive}</td>
+                    <td>{String(item.isActive)}</td>
                     <td>
                       <button
                         type="button"
@@ -67,25 +67,6 @@ function UsersAdmin() {
           <div className="col">
             <h4 className="mb-3">Edit:</h4>
             <form action="" className="border border-secondary p-3">
-              <label htmlFor="userName" className="form-label">
-                Username
-              </label>
-              <input
-                type="text"
-                id="userName"
-                name="UserName"
-                className="form-control"
-                defaultValue={data.userName}
-              />
-              <label htmlFor="email" className="mt-3">
-                Email
-              </label>
-              <input
-                name="email"
-                id="email"
-                className="form-control"
-                defaultValue={data.email}
-              />
               <label htmlFor="role" className="mt-3">
                 Role
               </label>
@@ -104,15 +85,15 @@ function UsersAdmin() {
               <label htmlFor="isActive" className="mt-3">
                 Is active
               </label>
-              {data.isActive === true ? (
+              {String(data.isActive) === "true" ? (
                 <select id="isActive" name="isActive" className="form-control">
                   <option selected={true}>True</option>
                   <option value={false}>False</option>
                 </select>
               ) : (
                 <select id="isActive" name="isActive" className="form-control">
-                  <option value={true}>True</option>
-                  <option selected={false}>False</option>
+                  <option value="true">True</option>
+                  <option selected="false">False</option>
                 </select>
               )}
 
