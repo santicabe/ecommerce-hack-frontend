@@ -1,11 +1,13 @@
-import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 function ProductsAdmin() {
+  const history = useHistory();
   const [productos, setProductos] = useState([]);
   const [item, setItem] = useState([]);
+
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
@@ -13,7 +15,9 @@ function ProductsAdmin() {
   const [stock, setStock] = useState("");
   const [categoryId, setCategoryId] = useState("");
   const [isFeatured, setIsFeatured] = useState(true);
-  const [slug, setSlug] = useState("");
+  // const [slug, setSlug] = useState("");
+
+  const user = useSelector((state) => state.user);
 
   const handleClick = (e) => setItem(e);
 
@@ -25,7 +29,7 @@ function ProductsAdmin() {
       try {
         const response = await axios.get(url);
         setProductos(response.data.products);
-        //console.log(response.data.products);
+        console.log(response.data.products);
       } catch (err) {
         console.log(err);
       }
@@ -33,18 +37,56 @@ function ProductsAdmin() {
     getProducts();
   }, []);
 
-  useEffect(() => {
-    const updateProducts = async () => {
+  const dispatch = useDispatch();
+
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    // console.log(avatar);
+    const formData = new FormData();
+    // const fields = {
+    //   name: name,
+    //   description: description,
+    //   image: image,
+    //   price: price,
+    //   stock: stock,
+    //   categoryId: categoryId,
+    //   isFeatured: isFeatured,
+    //   slug: slug,
+    // };
+
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("image", image);
+    formData.append("price", price);
+    formData.append("categoryId", categoryId);
+    formData.append("stock", stock);
+    formData.append("isFeatured", isFeatured);
+    // formData.append("slug", slug);
+
+    const sendData = async () => {
       try {
-        const response = await axios.patch(url2);
-        setProductos(response.data.products);
-        //console.log(response.data.products);
+        const response = await axios.patch(url2, formData, {
+          headers: {
+            "content-type": "multipart/form-data",
+            // Authorization: `Bearer ${user.token}`,
+          },
+        });
+        // console.log(response);
+        if (response.data) {
+          // dispatch({
+          //   type: "SET_USER",
+          //   payload: response.data,
+          // });
+          dispatch({ type: "SET_VISIT_USER", payload: response.data._doc });
+        }
       } catch (err) {
         console.log(err);
       }
     };
-    updateProducts();
-  }, []);
+    sendData();
+    // history.push(`/username/${username}`);
+    history.goBack();
+  };
 
   return (
     <div>
@@ -83,7 +125,11 @@ function ProductsAdmin() {
           </div>
           <div className="col">
             <h4 className="mb-3">Edit:</h4>
-            <form action="POST" className="border border-secondary p-3">
+            <form
+              // action="POST"
+              className="border border-secondary p-3"
+              onSubmit={onFormSubmit}
+            >
               <label htmlFor="name" className="form-label">
                 Name
               </label>
@@ -92,6 +138,7 @@ function ProductsAdmin() {
                 id="name"
                 name="name"
                 className="form-control"
+                value={name}
                 defaultValue={item.name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -176,7 +223,7 @@ function ProductsAdmin() {
                 </select>
               )}
 
-              <label htmlFor="slug" className="mt-3">
+              {/* <label htmlFor="slug" className="mt-3">
                 Slug
               </label>
               <input
@@ -186,7 +233,7 @@ function ProductsAdmin() {
                 className="form-control"
                 defaultValue={item.slug}
                 onChange={(e) => setSlug(e.target.value)}
-              />
+              /> */}
               <button type="submit" className="btn btn-primary mt-4">
                 Save!
               </button>
