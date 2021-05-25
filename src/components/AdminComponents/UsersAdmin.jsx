@@ -33,7 +33,7 @@ function UsersAdmin() {
               <thead>
                 <tr>
                   <th scope="col">Id</th>
-                  <th scope="col">Username</th>
+                  <th scope="col">Name</th>
                   <th scope="col">Email</th>
                   <th scope="col">Role</th>
                   <th scope="col">Is Active</th>
@@ -42,10 +42,12 @@ function UsersAdmin() {
               </thead>
               <tbody>
                 {users.map((item) => (
-                  <tr>
+                  <tr key={item.id}>
                     <th scope="row">{item.id}</th>
-                    <td>{item.userName}</td>
-                    <td>$ {item.email}</td>
+                    <td>
+                      {item.firstName} {item.lastName}
+                    </td>
+                    <td>{item.email}</td>
                     <td>{item.role}</td>
                     <td>{item.isActive}</td>
                     <td>
