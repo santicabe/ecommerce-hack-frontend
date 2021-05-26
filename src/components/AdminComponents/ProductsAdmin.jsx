@@ -15,6 +15,7 @@ function ProductsAdmin() {
   const [stock, setStock] = useState(0);
   const [categoryId, setCategoryId] = useState(0);
   const [isFeatured, setIsFeatured] = useState(true);
+  console.log("name" + name + "desc" + description);
 
   // const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -39,12 +40,13 @@ function ProductsAdmin() {
     e.preventDefault();
     let formData = new FormData();
     formData.append("name", name);
-    formData.append("description", description);
+    /* formData.append("description", description);
     formData.append("image", image);
     formData.append("price", price);
     formData.append("categoryId", categoryId);
     formData.append("stock", stock);
-    formData.append("isFeatured", isFeatured);
+    formData.append("isFeatured", isFeatured); */
+    console.log(formData);
 
     const sendData = async () => {
       try {
@@ -84,12 +86,10 @@ function ProductsAdmin() {
               <tbody>
                 {productos.map((item) => (
                   <tr key={item.id}>
-                    <th scope="row" key={item.id}>
-                      {item.id}
-                    </th>
-                    <td key={item.id}>{item.name}</td>
-                    <td key={item.id}>$ {item.price}</td>
-                    <td key={item.id}>
+                    <th scope="row">{item.id}</th>
+                    <td>{item.name}</td>
+                    <td>$ {item.price}</td>
+                    <td>
                       <button
                         type="button"
                         className="btn btn-success"
@@ -106,7 +106,7 @@ function ProductsAdmin() {
           <div className="col">
             <h4 className="mb-3">Edit:</h4>
             <form
-              // action="POST"
+              //action="POST"
               className="border border-secondary p-3"
               onSubmit={onFormSubmit}
             >
@@ -202,7 +202,7 @@ function ProductsAdmin() {
                 </select>
               )}
               <button type="submit" className="btn btn-primary mt-4">
-                Save!
+                Save
               </button>
             </form>
           </div>
