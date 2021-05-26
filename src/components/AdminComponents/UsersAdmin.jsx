@@ -92,8 +92,8 @@ function UsersAdmin() {
                 </select>
               ) : (
                 <select id="isActive" name="isActive" className="form-control">
-                  <option value="true">True</option>
-                  <option selected="false">False</option>
+                  <option value={true}>True</option>
+                  <option selected={false}>False</option>
                 </select>
               )}
 
