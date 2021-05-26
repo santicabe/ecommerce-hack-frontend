@@ -66,7 +66,7 @@ function LoginPage() {
           className="wrapper"
           style={{ backgroundImage: `url(images/bg-registration-form-1.jpg)` }}
         >
-          <div className="inner">
+          <div className="inner border border-secondary p-3 mb-3 mt-3">
             <div className="image-holder">
               <img src="images/registration-form-1.jpg" alt="" />
             </div>
@@ -104,8 +104,11 @@ function LoginPage() {
                   }}
                 />
               </div>
-
-              <button className="btn btn-secondary my-3">Register</button>
+              <div className="d-flex justify-content-center">
+                <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04 mb-2 mt-3">
+                  Login
+                </button>
+              </div>
             </form>
           </div>
         </div>

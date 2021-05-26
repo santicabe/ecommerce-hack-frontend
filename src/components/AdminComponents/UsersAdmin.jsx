@@ -66,17 +66,19 @@ function UsersAdmin() {
           </div>
           <div className="col">
             <h4 className="mb-3">Edit:</h4>
-            <form action="" className="border border-secondary p-3">
-              <label htmlFor="userName" className="form-label">
-                Username
-              </label>
-              <input
-                type="text"
-                id="userName"
-                name="UserName"
-                className="form-control"
-                defaultValue={data.userName}
-              />
+            <form action="" className="border border-secondary p-3 mb-4">
+              <div className="text-start">
+                <label htmlFor="userName" className="form-label text-start">
+                  Username
+                </label>
+                <input
+                  type="text"
+                  id="userName"
+                  name="UserName"
+                  className="form-control"
+                  defaultValue={data.userName}
+                />
+              </div>
               <label htmlFor="email" className="mt-3">
                 Email
               </label>
@@ -117,7 +119,7 @@ function UsersAdmin() {
               )}
 
               <button type="submit" className="btn btn-primary mt-4">
-                Save!
+                Save
               </button>
             </form>
           </div>

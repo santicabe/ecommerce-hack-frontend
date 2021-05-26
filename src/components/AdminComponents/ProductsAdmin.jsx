@@ -202,7 +202,7 @@ function ProductsAdmin() {
                 </select>
               )}
               <button type="submit" className="btn btn-primary mt-4">
-                Save!
+                Save
               </button>
             </form>
           </div>
