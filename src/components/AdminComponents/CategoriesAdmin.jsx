@@ -22,7 +22,7 @@ function CategoriesAdmin() {
       }
     };
     getCategories();
-  }, []);
+  }, [url]);
   return (
     <div>
       <div>

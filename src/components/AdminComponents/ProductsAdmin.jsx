@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 function ProductsAdmin() {
-  const history = useHistory();
+  // const history = useHistory();
   const [productos, setProductos] = useState([]);
   const [item, setItem] = useState([]);
 
@@ -35,8 +35,8 @@ function ProductsAdmin() {
     getProducts();
   }, [url]);
 
-  const onFormSubmit = (event) => {
-    event.preventDefault();
+  const onFormSubmit = (e) => {
+    e.preventDefault();
     let formData = new FormData();
     formData.append("name", name);
     formData.append("description", description);
