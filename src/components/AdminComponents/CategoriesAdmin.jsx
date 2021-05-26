@@ -9,19 +9,19 @@ function CategoriesAdmin() {
 
   const handleClick = (e) => setData(e);
 
-  const url = "";
+  const url = process.env.REACT_APP_BACK_END_URL + "/category";
 
   useEffect(() => {
-    const getProducts = async () => {
+    const getCategories = async () => {
       try {
         const response = await axios.get(url);
-        setCategories(response.data.products);
+        setCategories(response.data.categories);
         //console.log(response.data.products);
       } catch (err) {
         console.log(err);
       }
     };
-    getProducts();
+    getCategories();
   }, []);
   return (
     <div>

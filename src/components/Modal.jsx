@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import actions from "../redux/actions/cartActions";
 function Modal() {
   const [singleProduct, setSingleProduct] = useState([]);
 
@@ -36,15 +37,10 @@ function Modal() {
       description: singleProduct.description,
       quantity: number,
     });
-    console.log("asd");
   }, [number, singleProduct]);
 
   const handleClickOnCart = (e) => {
-    dispatch({
-      type: "SET_PRODUCTS",
-      payload: ProductToCart,
-    });
-    console.log(ProductToCart);
+    dispatch(actions.setProducts(ProductToCart));
   };
 
   return (

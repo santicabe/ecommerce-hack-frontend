@@ -49,7 +49,7 @@ function UsersAdmin() {
                     </td>
                     <td>{item.email}</td>
                     <td>{item.role}</td>
-                    <td>{item.isActive}</td>
+                    <td>{String(item.isActive)}</td>
                     <td>
                       <button
                         type="button"
@@ -106,15 +106,15 @@ function UsersAdmin() {
               <label htmlFor="isActive" className="mt-3">
                 Is active
               </label>
-              {data.isActive === true ? (
+              {String(data.isActive) === "true" ? (
                 <select id="isActive" name="isActive" className="form-control">
                   <option selected={true}>True</option>
                   <option value={false}>False</option>
                 </select>
               ) : (
                 <select id="isActive" name="isActive" className="form-control">
-                  <option value={true}>True</option>
-                  <option selected={false}>False</option>
+                  <option value="true">True</option>
+                  <option selected="false">False</option>
                 </select>
               )}
 
