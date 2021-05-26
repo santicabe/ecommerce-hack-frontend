@@ -37,6 +37,11 @@ function Navbar() {
                   <a href="product.html">Shop</a>
                 </li>
                 <li>
+                  <Link to="/profile">
+                    <span>Profile</span>
+                  </Link>
+                </li>
+                <li>
                   <Link to="/login">
                     <span>Login</span>
                   </Link>
@@ -64,7 +69,7 @@ function Navbar() {
               <div className="flex-c-m h-full p-lr-10 ">
                 <div
                   className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart"
-                  data-notify="2"
+                  data-notify="0"
                 >
                   <Link to="/cart">
                     <i className="zmdi zmdi-shopping-cart"></i>

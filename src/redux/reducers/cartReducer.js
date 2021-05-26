@@ -1,13 +1,16 @@
 import produce from "immer";
 const INITIAL_STATE = [];
 
-const userReducer = produce((state, action) => {
+const cartReducer = produce((state, action) => {
   switch (action.type) {
-    case "SET_USER":
-      return (state = action.payload);
+    case "ADD_PRODUCT": //actions.products ?
+      console.log(state);
+      return [...state, action.payload];
+    case "CLEAR_PRODUCTS":
+      return []; //es la mejor practica???
     default:
       return state;
   }
 }, INITIAL_STATE);
 
-export default userReducer;
+export default cartReducer;

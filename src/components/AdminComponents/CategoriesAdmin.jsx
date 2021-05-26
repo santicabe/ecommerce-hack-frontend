@@ -71,7 +71,7 @@ function CategoriesAdmin() {
                   defaultValue={data.name}
                 />
                 <button type="submit" className="btn btn-primary mt-4">
-                  Save!
+                  Save
                 </button>
               </form>
               <h4 className="mb-3 mt-5">Create:</h4>
@@ -86,7 +86,7 @@ function CategoriesAdmin() {
                   className="form-control"
                 />
                 <button type="submit" className="btn btn-primary mt-4">
-                  Save!
+                  Save
                 </button>
               </form>
             </div>
