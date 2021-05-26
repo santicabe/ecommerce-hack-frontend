@@ -87,7 +87,7 @@ function Navbar() {
       </div>
       <div className="wrap-header-mobile">
         <div className="logo-mobile">
-          <a href="index.html">
+          <a href="/">
             <img src="images/icons/logo-01.png" alt="IMG-LOGO" />
           </a>
         </div>
@@ -102,7 +102,9 @@ function Navbar() {
               className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart"
               data-notify="2"
             >
-              <i className="zmdi zmdi-shopping-cart"></i>
+              <Link to="/cart">
+                <i className="zmdi zmdi-shopping-cart"></i>
+              </Link>
             </div>
           </div>
         </div>
