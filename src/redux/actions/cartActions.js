@@ -1,7 +1,7 @@
 const actions = {
   setProducts: (products) => {
     return {
-      type: "SET_PRODUCTS",
+      type: "ADD_PRODUCT",
       payload: products,
     };
   },

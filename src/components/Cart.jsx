@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import CarSingleItem from "./CarSingleItem";
 function Cart() {
   const dispatch = useDispatch();
-  const carrito = useSelector((state) => state.productReducer);
+  const carrito = useSelector((state) => state.cartReducer);
   console.log(carrito);
 
   const handleClearClick = (e) => {
