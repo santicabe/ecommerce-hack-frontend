@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 // import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 
 function ProductsAdmin() {
   // const history = useHistory();
@@ -18,7 +18,7 @@ function ProductsAdmin() {
   console.log("name" + name + "desc" + description);
 
   // const user = useSelector((state) => state.user);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const handleClick = (e) => setItem(e);
 
   const url = process.env.REACT_APP_BACK_END_URL + "/products/admin";
@@ -40,12 +40,12 @@ function ProductsAdmin() {
     e.preventDefault();
     let formData = new FormData();
     formData.append("name", name);
-    /* formData.append("description", description);
+    formData.append("description", description);
     formData.append("image", image);
     formData.append("price", price);
     formData.append("categoryId", categoryId);
     formData.append("stock", stock);
-    formData.append("isFeatured", isFeatured); */
+    formData.append("isFeatured", isFeatured);
     console.log(formData);
 
     const sendData = async () => {

@@ -49,7 +49,6 @@ function Modal() {
       dispatch(actions.setProducts(ProductToCart));
       console.log(carrito);
     } else {
-      const index = carrito.indexOf(itemExists);
       // carrito[index].quantity += 1;
       dispatch(actions.addQuantity(ProductToCart));
 
