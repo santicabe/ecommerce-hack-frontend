@@ -3,14 +3,16 @@ import "../cozastore/css/util.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import actions from "../redux/actions/cartActions";
 function Modal() {
+  const carrito = useSelector((state) => state.cartReducer);
+
   const [singleProduct, setSingleProduct] = useState([]);
 
   const [ProductToCart, setProductToCart] = useState({});
 
-  const [number, setNumber] = useState(1);
+  const [itemQuantity, setItemQuantity] = useState(1);
   const dispatch = useDispatch();
   let { slug } = useParams();
   let url = process.env.REACT_APP_BACK_END_URL + "/products/" + slug;
@@ -35,12 +37,23 @@ function Modal() {
       image: singleProduct.image,
       price: singleProduct.price,
       description: singleProduct.description,
-      quantity: number,
+      quantity: itemQuantity,
     });
-  }, [number, singleProduct]);
+  }, [itemQuantity, singleProduct]);
 
   const handleClickOnCart = (e) => {
-    dispatch(actions.setProducts(ProductToCart));
+    const itemExists = carrito.find((item) => item.name === ProductToCart.name);
+    console.log(itemExists);
+
+    if (itemExists === undefined) {
+      dispatch(actions.setProducts(ProductToCart));
+      console.log(carrito);
+    } else {
+      // carrito[index].quantity += 1;
+      dispatch(actions.addQuantity(ProductToCart));
+
+      console.log(carrito);
+    }
   };
 
   return (
@@ -128,7 +141,8 @@ function Modal() {
                         {/*  */}
                         <div
                           onClick={() => {
-                            if (number > 1) setNumber(number - 1);
+                            if (itemQuantity > 1)
+                              setItemQuantity(itemQuantity - 1);
                           }}
                           className="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m"
                         >
@@ -136,14 +150,14 @@ function Modal() {
                         </div>
                         <input
                           className="mtext-104 cl3 txt-center num-product"
-                          type="number"
+                          type="itemQuantity"
                           name="num-product"
-                          value={number}
+                          value={itemQuantity}
                         />
 
                         <div
                           onClick={() => {
-                            setNumber(number + 1);
+                            setItemQuantity(itemQuantity + 1);
                           }}
                           className="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m"
                         >

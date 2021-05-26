@@ -1,5 +1,4 @@
 import React from "react";
-import { useState,useEffect } from "react";
 
 function EditUser() {
   // const [firstname, setFirstname] = useState("");
@@ -17,7 +16,6 @@ function EditUser() {
   //         headers: { Authorization: `Bearer ${user.token}` },
   //       });
 
-        
   //       setFirstname(response.data.firstname);
   //       setLastname(response.data.lastname);
   //       setEmail(response.data.email);

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+// import { useHistory } from "react-router-dom";
+// import { useDispatch } from "react-redux";
 
 function ProductsAdmin() {
-  const history = useHistory();
+  // const history = useHistory();
   const [productos, setProductos] = useState([]);
   const [item, setItem] = useState([]);
 
@@ -15,9 +15,10 @@ function ProductsAdmin() {
   const [stock, setStock] = useState(0);
   const [categoryId, setCategoryId] = useState(0);
   const [isFeatured, setIsFeatured] = useState(true);
+  console.log("name" + name + "desc" + description);
 
   // const user = useSelector((state) => state.user);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const handleClick = (e) => setItem(e);
 
   const url = process.env.REACT_APP_BACK_END_URL + "/products/admin";
@@ -35,8 +36,8 @@ function ProductsAdmin() {
     getProducts();
   }, [url]);
 
-  const onFormSubmit = (event) => {
-    event.preventDefault();
+  const onFormSubmit = (e) => {
+    e.preventDefault();
     let formData = new FormData();
     formData.append("name", name);
     formData.append("description", description);
@@ -45,6 +46,7 @@ function ProductsAdmin() {
     formData.append("categoryId", categoryId);
     formData.append("stock", stock);
     formData.append("isFeatured", isFeatured);
+    console.log(formData);
 
     const sendData = async () => {
       try {
@@ -84,12 +86,10 @@ function ProductsAdmin() {
               <tbody>
                 {productos.map((item) => (
                   <tr key={item.id}>
-                    <th scope="row" key={item.id}>
-                      {item.id}
-                    </th>
-                    <td key={item.id}>{item.name}</td>
-                    <td key={item.id}>$ {item.price}</td>
-                    <td key={item.id}>
+                    <th scope="row">{item.id}</th>
+                    <td>{item.name}</td>
+                    <td>$ {item.price}</td>
+                    <td>
                       <button
                         type="button"
                         className="btn btn-success"
@@ -106,7 +106,7 @@ function ProductsAdmin() {
           <div className="col">
             <h4 className="mb-3">Edit:</h4>
             <form
-              // action="POST"
+              //action="POST"
               className="border border-secondary p-3"
               onSubmit={onFormSubmit}
             >
