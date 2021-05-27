@@ -93,8 +93,18 @@ function Navbar() {
       </div>
       <div className="wrap-header-mobile">
         <div className="logo-mobile">
-          <a href="index.html">
-            <img src="images/icons/logo-01.png" alt="IMG-LOGO" />
+          <a href="/" className="logo ml-4 mt-1">
+            <img
+              src="https://image.flaticon.com/icons/png/512/3184/3184948.png"
+              style={{ width:"30px" }}
+              alt="IMG-LOGO"
+            />
+            <h4
+              className="ml-3 text-dark"
+              style={{ fontFamily: "Poppins-Regular", fontWeight: "100px" }}
+            >
+              <strong>HC</strong>
+            </h4>
           </a>
         </div>
         <div className="wrap-icon-header flex-w flex-r-m h-full m-r-15">
