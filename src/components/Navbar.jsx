@@ -1,10 +1,19 @@
 import "../cozastore/css/main.css";
 import "../cozastore/css/util.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import React from "react";
 
 function Navbar() {
+  const cart = useSelector((state) => state.cartReducer);
+  let productsAmount = 0;
+
+  cart.forEach((item) => {
+    productsAmount += item.quantity;
+    console.log(productsAmount);
+  });
+
   return (
     <header className="header-v2">
       <div className="container-menu-desktop trans-03">
@@ -34,7 +43,9 @@ function Navbar() {
                   </Link>
                 </li>
                 <li>
-                  <a href="product.html">Shop</a>
+                  <Link to="/cart">
+                    <span>Shop</span>
+                  </Link>
                 </li>
                 <li>
                   <Link to="/profile">
@@ -68,17 +79,12 @@ function Navbar() {
               </div>
               <div className="flex-c-m h-full p-lr-10 ">
                 <div
-                  className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart"
-                  data-notify="0"
+                  className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart mr-4"
+                  data-notify={productsAmount}
                 >
                   <Link to="/cart">
                     <i className="zmdi zmdi-shopping-cart"></i>
                   </Link>
-                </div>
-              </div>
-              <div className="flex-c-m h-full p-l-18 p-r-25 bor5">
-                <div className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-sidebar">
-                  <i className="zmdi zmdi-menu"></i>
                 </div>
               </div>
             </div>
@@ -102,7 +108,9 @@ function Navbar() {
               className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart"
               data-notify="2"
             >
-              <i className="zmdi zmdi-shopping-cart"></i>
+              <Link to="/cart">
+                <i className="zmdi zmdi-shopping-cart"></i>
+              </Link>
             </div>
           </div>
         </div>

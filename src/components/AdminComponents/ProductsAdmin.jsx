@@ -20,21 +20,20 @@ function ProductsAdmin() {
   // const user = useSelector((state) => state.user);
   // const dispatch = useDispatch();
   const handleClick = (e) => setItem(e);
-
-  const url = process.env.REACT_APP_BACK_END_URL + "/products/admin";
-  const url2 = process.env.REACT_APP_BACK_END_URL + `/products/${item.id}`;
-
+  // process.env.REACT_APP_BACK_END_URL + `/products/${item.id}`,
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const response = await axios.get(url);
+        const response = await axios.get(
+          process.env.REACT_APP_BACK_END_URL + "/products/admin"
+        );
         setProductos(response.data.products);
       } catch (err) {
         console.log(err);
       }
     };
     getProducts();
-  }, [url]);
+  }, []);
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -46,13 +45,14 @@ function ProductsAdmin() {
     formData.append("categoryId", categoryId);
     formData.append("stock", stock);
     formData.append("isFeatured", isFeatured);
-    console.log(formData);
+    console.log(name);
+    console.log(...formData);
 
     const sendData = async () => {
       try {
         const response = await axios({
           method: "PATCH",
-          url: url2,
+          url: process.env.REACT_APP_BACK_END_URL + `/products/${item.id}`,
           data: formData,
           headers: {
             "Content-Type": "multipart/form-data",
@@ -107,7 +107,7 @@ function ProductsAdmin() {
             <h4 className="mb-3">Edit:</h4>
             <form
               //action="POST"
-              className="border border-secondary p-3"
+              className="border border-secondary rounded p-3"
               onSubmit={onFormSubmit}
             >
               <label htmlFor="name" className="form-label">

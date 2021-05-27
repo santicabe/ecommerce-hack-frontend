@@ -5,8 +5,10 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../redux/actions/cartActions";
+import { Link } from "react-router-dom";
+
 function Modal() {
-  const carrito = useSelector((state) => state.cartReducer);
+  const cart = useSelector((state) => state.cartReducer);
 
   const [singleProduct, setSingleProduct] = useState([]);
 
@@ -42,17 +44,17 @@ function Modal() {
   }, [itemQuantity, singleProduct]);
 
   const handleClickOnCart = (e) => {
-    const itemExists = carrito.find((item) => item.name === ProductToCart.name);
+    const itemExists = cart.find((item) => item.name === ProductToCart.name);
     console.log(itemExists);
 
     if (itemExists === undefined) {
       dispatch(actions.setProducts(ProductToCart));
-      console.log(carrito);
+      console.log(cart);
     } else {
-      // carrito[index].quantity += 1;
-      dispatch(actions.addQuantity(ProductToCart));
+      // cart[index].quantity += 1;
+      dispatch(actions.add_quantity(ProductToCart));
 
-      console.log(carrito);
+      console.log(cart);
     }
   };
 
@@ -164,13 +166,15 @@ function Modal() {
                           <i className="fs-16 zmdi zmdi-plus"></i>
                         </div>
                       </div>
-
-                      <button
-                        onClick={handleClickOnCart}
-                        className="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail"
-                      >
-                        Add to cart -<i className="zmdi zmdi-shopping-cart"></i>
-                      </button>
+                      <Link to="/cart">
+                        <button
+                          onClick={handleClickOnCart}
+                          className="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail"
+                        >
+                          Add to cart
+                          <i className="zmdi zmdi-shopping-cart ml-2"></i>
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
