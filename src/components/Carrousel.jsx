@@ -5,31 +5,31 @@ import React from "react";
 
 function Carrousel() {
   return (
-    <div>
+    <div id="carouselAll">
       <div
         id="carouselExampleFade"
         className="carousel slide carousel-fade"
         data-bs-ride="carousel"
       >
         <div className="carousel-inner">
-          <div className="carousel-item active">
+          <div className="carousel-item active carousel-slide">
             <img
               src="https://preview.colorlib.com/theme/cozastore/images/xslide-01.jpg.pagespeed.ic.XotvXKn0Mi.webp"
-              className="d-block w-100"
+              className="d-block w-100 image-carrousel"
               alt="..."
             />
           </div>
           <div className="carousel-item">
             <img
               src="https://preview.colorlib.com/theme/cozastore/images/xslide-03.jpg.pagespeed.ic.tP-L47NU9M.webp"
-              className="d-block w-100"
+              className="d-block w-100 image-carrousel"
               alt="..."
             />
           </div>
           <div className="carousel-item">
             <img
               src="https://preview.colorlib.com/theme/cozastore/images/xslide-02.jpg.pagespeed.ic.__MQeyG5T4.webp"
-              className="d-block w-100"
+              className="d-block w-100 image-carrousel"
               alt="..."
             />
           </div>

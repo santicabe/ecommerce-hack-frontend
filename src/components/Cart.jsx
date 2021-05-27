@@ -1,11 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import CarSingleItem from "./CarSingleItem";
+import CartSingleItem from "./CartSingleItem";
 function Cart() {
   const dispatch = useDispatch();
-  const carrito = useSelector((state) => state.cartReducer);
-  console.log(carrito);
+  const cart = useSelector((state) => state.cartReducer);
+  console.log("esto es el carrito", cart);
 
   const handleClearClick = (e) => {
     e.preventDefault();
@@ -35,10 +35,10 @@ function Cart() {
                       </tr>
                     </thead>
                     <tbody>
-                      {carrito &&
-                        carrito.map((item, index) => {
+                      {cart &&
+                        cart.map((item, index) => {
                           total = total + item.price * item.quantity;
-                          return <CarSingleItem key={index} item={item} />;
+                          return <CartSingleItem key={index} item={item} />;
                         })}
                     </tbody>
                   </table>

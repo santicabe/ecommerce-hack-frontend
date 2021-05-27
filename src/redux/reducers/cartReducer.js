@@ -7,12 +7,26 @@ const cartReducer = produce((state, action) => {
     case "ADD_PRODUCT": //actions.products ?
       return [...state, action.payload];
 
+    // state.push(action.payload)
+    // break;
+
     case "ADD_QUANTITY": //actions.products ?
-      console.log(state);
-      return [...state, action.payload.quantity + 1];
+      const product = state.find((item) => item.name === action.payload.name);
+      product.quantity += action.payload.quantity;
+      break;
+
+    case "ADD_1": //actions.products ?
+      const product2 = state.find((item) => item.name === action.payload.name);
+      product2.quantity += 1;
+      break;
+
+    case "SUBSTRACT_1": //actions.products ?
+      const product3 = state.find((item) => item.name === action.payload.name);
+      product3.quantity -= 1;
+      break;
 
     case "CLEAR_PRODUCTS":
-      return []; //es la mejor practica???
+      return [];
     default:
       return state;
   }
