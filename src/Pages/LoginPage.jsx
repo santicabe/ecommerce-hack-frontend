@@ -105,7 +105,7 @@ function LoginPage() {
                 />
               </div>
               <div className="d-flex justify-content-center">
-                <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04 mb-2 mt-3">
+                <button className="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04 mb-2 mt-3">
                   Login
                 </button>
               </div>
