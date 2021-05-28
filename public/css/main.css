@@ -3604,7 +3604,7 @@ input.num-product::-webkit-inner-spin-button {
   height: 600px;
 }
 
-@media (max-width:900px){
+@media (max-width:1000px){
   #carouselAll{
     display: none;
   }
