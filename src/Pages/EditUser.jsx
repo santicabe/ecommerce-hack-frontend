@@ -50,7 +50,7 @@ function EditUser() {
         },
       }
     );
-    getUser();
+    //getUser();
   }
   useEffect(() => {
     getUser();
