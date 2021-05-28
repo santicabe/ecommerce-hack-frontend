@@ -5,24 +5,54 @@ import axios from "axios";
 
 function EditUser() {
   const user = useSelector((state) => state.userReducer);
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
+
+  const [userToEdit, setUserToEdit] = useState([]);
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [password, setPassword] = useState("");
+
   const [userLoggedIn, setUserLoggedIn] = useState([]);
 
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        const response = await axios.get(
-          process.env.REACT_APP_BACK_END_URL + `/users/${user.userId}`
-        );
-        setUserLoggedIn(response.data.user);
-      } catch (err) {
-        console.log(err);
+  const handleClick = (e) => setUserToEdit(e);
+
+  const getUser = async () => {
+    try {
+      const response = await axios.get(
+        process.env.REACT_APP_BACK_END_URL + `/users/${user.userId}`
+      );
+      setUserLoggedIn(response.data.user);
+    } catch (err) {
+      console.log(err);
+    }
+    getUser();
+  };
+
+  async function onFormSubmit(e) {
+    e.preventDefault();
+    await axios.patch(
+      process.env.REACT_APP_BACK_END_URL + `/users/${user.userId}`,
+      {
+        firstName,
+        lastName,
+        email,
+        phone,
+        address,
+        password,
+      },
+      {
+        headers: {
+          // Authorization: `Bearer ${user.token}`,
+          "Content-Type": "application/json",
+        },
       }
-    };
+    );
+    getUser();
+  }
+  useEffect(() => {
     getUser();
   }, []);
 
@@ -48,10 +78,7 @@ function EditUser() {
                       <td scope="row">Lastname</td>
                       <td>{userLoggedIn.lastName}</td>
                     </tr>
-                    <tr>
-                      <td scope="row">UserName</td>
-                      <td>{userLoggedIn.userName}</td>
-                    </tr>
+
                     <tr>
                       <td scope="row">Email</td>
                       <td>{userLoggedIn.email}</td>
@@ -66,14 +93,19 @@ function EditUser() {
                     </tr>
                   </tbody>
                 </table>
-                <button className="btn btn-primary">Edit</button>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => handleClick(userLoggedIn)}
+                >
+                  Edit
+                </button>
               </div>
             </div>
           </div>
           <div class="col">
             <h4 className="mb-3 mt-5">Edit user:</h4>
             <div className="container mw-50 mb-5">
-              <form action="" className="border p-3">
+              <form action="" className="border p-3" onSubmit={onFormSubmit}>
                 <label htmlFor="userName" className="form-label">
                   First Name
                 </label>
@@ -82,7 +114,8 @@ function EditUser() {
                   id="firstName"
                   name="FirstName"
                   className="form-control"
-                  //   defaultValue={data.userName}
+                  defaultValue={userToEdit.firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                 />
                 <label htmlFor="lastName" className="mt-3">
                   Last Name
@@ -91,35 +124,30 @@ function EditUser() {
                   name="lastName"
                   id="lastName"
                   className="form-control"
-                  //   defaultValue={data.email}
+                  defaultValue={userToEdit.lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                 />
+
                 <label htmlFor="email" className="mt-3">
                   Email
                 </label>
                 <input
+                  type="email"
                   name="email"
                   id="email"
                   className="form-control"
-                  //   defaultValue={data.email}
+                  defaultValue={userToEdit.email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <label htmlFor="phone" className="mt-3">
                   Phone
                 </label>
                 <input
-                  type="number"
                   name="phone"
                   id="phone"
                   className="form-control"
-                  //   defaultValue={data.email}
-                />
-                <label htmlFor="password" className="mt-3">
-                  Password
-                </label>
-                <input
-                  name="password"
-                  id="password"
-                  className="form-control"
-                  //   defaultValue={data.email}
+                  defaultValue={userToEdit.phone}
+                  onChange={(e) => setPhone(e.target.value)}
                 />
                 <label htmlFor="address" className="mt-3">
                   Address
@@ -128,11 +156,23 @@ function EditUser() {
                   name="address"
                   id="address"
                   className="form-control"
-                  //   defaultValue={data.email}
+                  defaultValue={userToEdit.address}
+                  onChange={(e) => setAddress(e.target.value)}
+                />
+                <label htmlFor="password" className="mt-3">
+                  New Password
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  className="form-control"
+                  // defaultValue={userToEdit.password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
 
                 <button type="submit" className="btn btn-primary mt-4">
-                  Save!
+                  Save
                 </button>
               </form>
             </div>

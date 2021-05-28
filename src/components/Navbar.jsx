@@ -8,7 +8,7 @@ import React from "react";
 function Navbar() {
   const cart = useSelector((state) => state.cartReducer);
   let productsAmount = 0;
-
+  console.log(cart);
   cart.forEach((item) => {
     productsAmount += item.quantity;
     console.log(productsAmount);
@@ -96,7 +96,7 @@ function Navbar() {
           <a href="/" className="logo ml-4 mt-1">
             <img
               src="https://image.flaticon.com/icons/png/512/3184/3184948.png"
-              style={{ width:"30px" }}
+              style={{ width: "30px" }}
               alt="IMG-LOGO"
             />
             <h4

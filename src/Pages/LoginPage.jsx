@@ -27,7 +27,6 @@ function LoginPage() {
         },
       }
     );
-    console.log("respuesta", response.data);
 
     if (response.data) {
       dispatch(actions.setUser(response.data));
