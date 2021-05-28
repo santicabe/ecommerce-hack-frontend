@@ -59,7 +59,7 @@ function CategoriesAdmin() {
             </div>
             <div className="col">
               <h4 className="mb-3">Edit:</h4>
-              <form action="" className="border border-secondary p-3">
+              <form action="" className="border border-secondary rounded p-3">
                 <label htmlFor="name" className="form-label">
                   Name
                 </label>

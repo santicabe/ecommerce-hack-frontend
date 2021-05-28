@@ -1,10 +1,19 @@
 import "../cozastore/css/main.css";
 import "../cozastore/css/util.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import React from "react";
 
 function Navbar() {
+  const cart = useSelector((state) => state.cartReducer);
+  let productsAmount = 0;
+
+  cart.forEach((item) => {
+    productsAmount += item.quantity;
+    console.log(productsAmount);
+  });
+
   return (
     <div className="bg-danger">
       <header className="header-v2">
@@ -70,7 +79,7 @@ function Navbar() {
                 <div className="flex-c-m h-full p-lr-10 ">
                   <div
                     className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart"
-                    data-notify="0"
+                    data-notify={productsAmount}
                   >
                     <Link to="/cart">
                       <i className="zmdi zmdi-shopping-cart"></i>
@@ -111,7 +120,7 @@ function Navbar() {
             <div className="flex-c-m h-full p-lr-10 ">
               <div
                 className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart"
-                data-notify="2"
+                data-notify={productsAmount}
               >
                 <Link to="/cart">
                   <i className="zmdi zmdi-shopping-cart"></i>
@@ -126,8 +135,10 @@ function Navbar() {
           </div>
           <div className="menu-mobile">
             <ul className="main-menu-m">
-              <li>
-                <a href="index.html">Home</a>
+              <li className="active-menu">
+                <Link to="/">
+                  <span>Home</span>
+                </Link>
               </li>
 
               <li>
@@ -135,25 +146,25 @@ function Navbar() {
               </li>
 
               <li>
-                <a
-                  href="shoping-cart.html"
-                  className="label1 rs1"
-                  data-label1="hot"
-                >
-                  Features
-                </a>
+                <Link to="/profile">
+                  <span>Profile</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/login">
+                  <span>Login</span>
+                </Link>
               </li>
 
               <li>
-                <a href="blog.html">Blog</a>
+                <Link to="/register">
+                  <span>Register</span>
+                </Link>
               </li>
-
               <li>
-                <a href="about.html">About</a>
-              </li>
-
-              <li>
-                <a href="contact.html">Contact</a>
+                <Link to="/admin">
+                  <span>Admin</span>
+                </Link>
               </li>
             </ul>
           </div>
