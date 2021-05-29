@@ -9,7 +9,7 @@ function Categorias() {
       <div className="container">
         <div className="row">
           <div className="col-md-6 col-xl-4 p-b-30 m-lr-auto">
-            <Link to="/categories">
+            <Link to="/categories?category=1">
               <div className="block1 wrap-pic-w">
                 <img
                   src="https://preview.colorlib.com/theme/cozastore/images/xbanner-01.jpg.pagespeed.ic.Uj5FE94mgU.webp"
@@ -41,7 +41,7 @@ function Categorias() {
           </div>
 
           <div className="col-md-6 col-xl-4 p-b-30 m-lr-auto">
-            <Link to="/categories">
+            <Link to="/categories?category=2">
               <div className="block1 wrap-pic-w">
                 <img
                   src="https://preview.colorlib.com/theme/cozastore/images/xbanner-02.jpg.pagespeed.ic.MQuZq6F18q.webp"
@@ -72,7 +72,7 @@ function Categorias() {
             </Link>
           </div>
           <div className="col-md-6 col-xl-4 p-b-30 m-lr-auto">
-            <Link to="/categories">
+            <Link to="/categories?category=3">
               <div className="block1 wrap-pic-w">
                 <img
                   src="https://preview.colorlib.com/theme/cozastore/images/xbanner-03.jpg.pagespeed.ic.1rqLomOaMb.webp"

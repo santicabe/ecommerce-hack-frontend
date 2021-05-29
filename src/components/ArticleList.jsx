@@ -4,9 +4,14 @@ import React, { useEffect } from "react";
 import SingleArticle from "./SingleArticle";
 import axios from "axios";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
+
 function ArticleList() {
+  const search = useLocation().search;
+  const queryCategory = new URLSearchParams(search).get("category") || 0;
+
   const [products, setProducts] = useState([]);
-  const [category, setCategory] = useState(0);
+  const [category, setCategory] = useState(queryCategory);
 
   const handleClick = (e) => setCategory(e);
 
@@ -39,7 +44,7 @@ function ArticleList() {
 
         <div className="flex-w flex-sb-m p-b-52">
           <div className="flex-w flex-l-m filter-tope-group m-tb-10">
-            {category === 0 ? (
+            {category == 0 ? (
               <button
                 className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
                 data-filter="*"
@@ -56,7 +61,7 @@ function ArticleList() {
                 All Products
               </button>
             )}
-            {category === 1 ? (
+            {category == 1 ? (
               <button
                 className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
                 data-filter="*"
@@ -74,7 +79,7 @@ function ArticleList() {
               </button>
             )}
 
-            {category === 2 ? (
+            {category == 2 ? (
               <button
                 className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
                 data-filter="*"
@@ -91,7 +96,7 @@ function ArticleList() {
                 Men
               </button>
             )}
-            {category === 3 ? (
+            {category == 3 ? (
               <button
                 className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
                 data-filter="*"
@@ -108,7 +113,7 @@ function ArticleList() {
                 bag
               </button>
             )}
-            {category === 4 ? (
+            {category == 4 ? (
               <button
                 className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
                 data-filter="*"
@@ -126,7 +131,7 @@ function ArticleList() {
               </button>
             )}
 
-            {category === 5 ? (
+            {category == 5 ? (
               <button
                 className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1"
                 data-filter="*"
