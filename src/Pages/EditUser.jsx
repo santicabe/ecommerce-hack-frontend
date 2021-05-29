@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
-
+import LogIn from "./LoginPage";
 function EditUser() {
   const user = useSelector((state) => state.userReducer);
 
@@ -52,7 +52,14 @@ function EditUser() {
       }
     );
   }
-
+  if (userLoggedIn === null) {
+    return (
+      <>
+        <h1>Logueate</h1>
+        <LogIn />
+      </>
+    );
+  }
   return (
     <div>
       <h3 className="ltext-103 cl5">User</h3>

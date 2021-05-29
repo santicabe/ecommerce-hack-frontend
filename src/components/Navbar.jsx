@@ -18,7 +18,7 @@ function Navbar() {
         <div className="container-menu-desktop trans-03 ">
           <div className="wrap-menu-desktop ">
             <nav className="limiter-menu-desktop ">
-              <a href="/" className="logo ml-5">
+              <span className="logo ml-5">
                 <img
                   src="https://image.flaticon.com/icons/png/512/3184/3184948.png"
                   //https://image.flaticon.com/icons/png/512/4710/4710022.png
@@ -33,7 +33,8 @@ function Navbar() {
                   {" "}
                   <strong>HackCommerce</strong>
                 </h4>
-              </a>
+              </span>
+
               <div className="menu-desktop">
                 <ul className="main-menu">
                   <li className="active-menu">
@@ -147,11 +148,12 @@ function Navbar() {
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent23">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="/">
+              <Link to="/">
+                <li class="nav-item active">
                   Home <span class="sr-only">(current)</span>
-                </a>
-              </li>
+                </li>
+              </Link>
+
               <li class="nav-item">
                 <a class="nav-link" href="/">
                   Features
