@@ -9,6 +9,8 @@ function CartSingleItem({ item }) {
   const [ProductToCart, setProductToCart] = useState({});
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     setProductToCart({
       name: item.name,
       quantity: itemQuantity,

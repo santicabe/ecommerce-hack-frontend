@@ -16,10 +16,7 @@ function Categorias() {
                   alt="IMG-BANNER"
                 />
 
-                <a
-                  href="product.html"
-                  className="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3"
-                >
+                <span className="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                   <div className="block1-txt-child1 flex-col-l">
                     <span className="block1-name ltext-102 trans-04 p-b-8">
                       Women
@@ -35,7 +32,7 @@ function Categorias() {
                       Shop Now
                     </div>
                   </div>
-                </a>
+                </span>
               </div>
             </Link>
           </div>
@@ -48,10 +45,7 @@ function Categorias() {
                   alt="IMG-BANNER"
                 />
 
-                <a
-                  href="product.html"
-                  className="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3"
-                >
+                <span className="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                   <div className="block1-txt-child1 flex-col-l">
                     <span className="block1-name ltext-102 trans-04 p-b-8">
                       Men
@@ -67,7 +61,7 @@ function Categorias() {
                       Shop Now
                     </div>
                   </div>
-                </a>
+                </span>
               </div>
             </Link>
           </div>
@@ -79,10 +73,7 @@ function Categorias() {
                   alt="IMG-BANNER"
                 />
 
-                <a
-                  href="product.html"
-                  className="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3"
-                >
+                <span className="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                   <div className="block1-txt-child1 flex-col-l">
                     <span className="block1-name ltext-102 trans-04 p-b-8">
                       Accessories
@@ -98,7 +89,7 @@ function Categorias() {
                       Shop Now
                     </div>
                   </div>
-                </a>
+                </span>
               </div>
             </Link>
           </div>

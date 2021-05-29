@@ -4,6 +4,7 @@ import CartSingleItem from "./CartSingleItem";
 function Cart() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer);
+  window.scrollTo(0, 0);
 
   const handleClearClick = (e) => {
     e.preventDefault();
@@ -147,7 +148,7 @@ function Cart() {
                   onClick={handleClearClick}
                   className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer"
                 >
-                  Limpiar carrito
+                  Delete all
                 </button>
               </div>
             </div>
