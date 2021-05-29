@@ -47,7 +47,7 @@ function ProductsAdmin() {
 
     const sendData = async () => {
       try {
-        const response = await axios({
+        await axios({
           method: "PATCH",
           url: process.env.REACT_APP_BACK_END_URL + `/products/${item.id}`,
           data: formData,
