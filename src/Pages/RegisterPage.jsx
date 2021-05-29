@@ -15,6 +15,7 @@ function RegisterPage() {
   // const [phone, setPhone] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
+  window.scrollTo(0, 0);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -9,6 +9,8 @@ function CartSingleItem({ item }) {
   const [ProductToCart, setProductToCart] = useState({});
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
     setProductToCart({
       name: item.name,
       quantity: itemQuantity,
@@ -22,6 +24,11 @@ function CartSingleItem({ item }) {
     dispatch(actions.substract_1(ProductToCart));
   };
 
+  const handleClickRubbish = (e) => {
+    e.preventDefault();
+    dispatch(actions.CLEAR_SINGLE_PRODUCT(ProductToCart));
+  };
+
   return (
     <tr className="table_row">
       <td className="column-1">
@@ -31,6 +38,7 @@ function CartSingleItem({ item }) {
       </td>
       <td className="column-2">{item.name}</td>
       <td className="column-3">$ {item.price}</td>
+
       <td className="column-4">
         <div className="wrap-num-product flex-w m-l-auto m-r-0">
           <div
@@ -60,13 +68,15 @@ function CartSingleItem({ item }) {
           </div>
         </div>
       </td>
-      <td className="column-5">
-        $ {item.price * item.quantity}{" "}
-        <i
-          className="fa fa-trash ml-5"
+
+      <td className="column-5">${item.price * item.quantity} </td>
+      <td className="column-6">
+        <button
+          onClick={handleClickRubbish}
+          className="fa fa-trash ml-5 bg-red p-3"
           style={{ fontSize: "1.3rem" }}
           aria-hidden="true"
-        ></i>
+        ></button>
       </td>
     </tr>
   );

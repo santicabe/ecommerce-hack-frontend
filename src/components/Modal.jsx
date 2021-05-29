@@ -45,16 +45,11 @@ function Modal() {
 
   const handleClickOnCart = (e) => {
     const itemExists = cart.find((item) => item.name === ProductToCart.name);
-    console.log(itemExists);
 
     if (itemExists === undefined) {
       dispatch(actions.setProducts(ProductToCart));
-      console.log(cart);
     } else {
-      // cart[index].quantity += 1;
       dispatch(actions.add_quantity(ProductToCart));
-
-      console.log(cart);
     }
   };
 

@@ -1,11 +1,10 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import CartSingleItem from "./CartSingleItem";
 function Cart() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer);
-  console.log("esto es el carrito", cart);
+  window.scrollTo(0, 0);
 
   const handleClearClick = (e) => {
     e.preventDefault();
@@ -32,6 +31,7 @@ function Cart() {
                         <th className="column-3">Price</th>
                         <th className="column-4">Quantity</th>
                         <th className="column-5">Total</th>
+                        <th className="column-6">Controls </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -148,7 +148,7 @@ function Cart() {
                   onClick={handleClearClick}
                   className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer"
                 >
-                  Limpiar carrito
+                  Delete all
                 </button>
               </div>
             </div>
