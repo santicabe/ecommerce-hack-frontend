@@ -4,9 +4,14 @@ import React, { useEffect } from "react";
 import SingleArticle from "./SingleArticle";
 import axios from "axios";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
+
 function ArticleList() {
+  const search = useLocation().search;
+  const queryCategory = new URLSearchParams(search).get("category") || 0;
+
   const [products, setProducts] = useState([]);
-  const [category, setCategory] = useState(0);
+  const [category, setCategory] = useState(queryCategory);
 
   const handleClick = (e) => setCategory(e);
 
@@ -22,7 +27,6 @@ function ArticleList() {
       try {
         const response = await axios.get(url);
         setProducts(response.data.products);
-        // console.log(response.data.products);
       } catch (err) {
         console.log(err);
       }

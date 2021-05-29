@@ -16,7 +16,6 @@ function CategoriesAdmin() {
       try {
         const response = await axios.get(url);
         setCategories(response.data.categories);
-        //console.log(response.data.products);
       } catch (err) {
         console.log(err);
       }

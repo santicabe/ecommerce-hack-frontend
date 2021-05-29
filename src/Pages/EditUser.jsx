@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
-
+import LogIn from "./LoginPage";
 function EditUser() {
   const user = useSelector((state) => state.userReducer);
 
@@ -18,18 +18,19 @@ function EditUser() {
   const [userLoggedIn, setUserLoggedIn] = useState([]);
 
   const handleClick = (e) => setUserToEdit(e);
-
-  const getUser = async () => {
-    try {
-      const response = await axios.get(
-        process.env.REACT_APP_BACK_END_URL + `/users/${user.userId}`
-      );
-      setUserLoggedIn(response.data.user);
-    } catch (err) {
-      console.log(err);
-    }
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const response = await axios.get(
+          process.env.REACT_APP_BACK_END_URL + `/users/${user.userId}`
+        );
+        setUserLoggedIn(response.data.user);
+      } catch (err) {
+        console.log(err);
+      }
+    };
     getUser();
-  };
+  }, [user.userId]);
 
   async function onFormSubmit(e) {
     e.preventDefault();
@@ -50,12 +51,15 @@ function EditUser() {
         },
       }
     );
-    getUser();
   }
-  useEffect(() => {
-    getUser();
-  }, []);
-
+  if (userLoggedIn === null) {
+    return (
+      <>
+        <h1>Logueate</h1>
+        <LogIn />
+      </>
+    );
+  }
   return (
     <div>
       <h3 className="ltext-103 cl5">User</h3>
@@ -69,26 +73,26 @@ function EditUser() {
                 <table class="table table-striped border">
                   <tbody>
                     <tr>
-                      <td scope="row">
+                      <th scope="row">
                         <strong>Firstname</strong>
-                      </td>
+                      </th>
                       <td>{userLoggedIn.firstName}</td>
                     </tr>
                     <tr>
-                      <td scope="row">Lastname</td>
+                      <th scope="row">Lastname</th>
                       <td>{userLoggedIn.lastName}</td>
                     </tr>
 
                     <tr>
-                      <td scope="row">Email</td>
+                      <th scope="row">Email</th>
                       <td>{userLoggedIn.email}</td>
                     </tr>
                     <tr>
-                      <td scope="row">Phone</td>
+                      <th scope="row">Phone</th>
                       <td>{userLoggedIn.phone}</td>
                     </tr>
                     <tr>
-                      <td scope="row">Address</td>
+                      <th scope="row">Address</th>
                       <td>{userLoggedIn.address}</td>
                     </tr>
                   </tbody>

@@ -8,6 +8,7 @@ import CategoriesAdmin from "../components/AdminComponents/CategoriesAdmin";
 function Admin() {
   const [menu, setMenu] = useState(0);
   const handleClick = (e) => setMenu(e);
+  window.scrollTo(0, 0);
 
   return (
     <div>

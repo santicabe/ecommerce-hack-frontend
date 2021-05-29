@@ -12,6 +12,7 @@ function LoginPage() {
   const history = useHistory();
 
   // const { addToast } = useToasts();
+  window.scrollTo(0, 0);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
