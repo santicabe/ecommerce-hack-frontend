@@ -23,8 +23,6 @@ function ArticleList() {
   }
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-
     const getArticles = async () => {
       try {
         const response = await axios.get(url);
