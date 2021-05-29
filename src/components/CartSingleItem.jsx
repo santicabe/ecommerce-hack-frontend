@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import actions from "../redux/actions/cartActions";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 function CartSingleItem({ item }) {
   const dispatch = useDispatch();
@@ -22,6 +23,11 @@ function CartSingleItem({ item }) {
     dispatch(actions.substract_1(ProductToCart));
   };
 
+  const handleClickRubbish = (e) => {
+    e.preventDefault();
+    console.log("Hola wey");
+  };
+
   return (
     <tr className="table_row">
       <td className="column-1">
@@ -31,6 +37,7 @@ function CartSingleItem({ item }) {
       </td>
       <td className="column-2">{item.name}</td>
       <td className="column-3">$ {item.price}</td>
+
       <td className="column-4">
         <div className="wrap-num-product flex-w m-l-auto m-r-0">
           <div
@@ -60,13 +67,17 @@ function CartSingleItem({ item }) {
           </div>
         </div>
       </td>
-      <td className="column-5">
-        $ {item.price * item.quantity}{" "}
-        <i
-          className="fa fa-trash ml-5"
-          style={{ fontSize: "1.3rem" }}
-          aria-hidden="true"
-        ></i>
+
+      <td className="column-5">${item.price * item.quantity} </td>
+      <td className="column-6">
+        <link rel="stylesheet" href="">
+          <i
+            onClick={handleClickRubbish}
+            className="fa fa-trash ml-5 bg-red"
+            style={{ fontSize: "1.3rem" }}
+            aria-hidden="true"
+          ></i>{" "}
+        </link>
       </td>
     </tr>
   );

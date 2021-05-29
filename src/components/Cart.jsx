@@ -32,6 +32,7 @@ function Cart() {
                         <th className="column-3">Price</th>
                         <th className="column-4">Quantity</th>
                         <th className="column-5">Total</th>
+                        <th className="column-6">Controls </th>
                       </tr>
                     </thead>
                     <tbody>
