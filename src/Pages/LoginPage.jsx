@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import actions from "../redux/actions/userActions";
-// import { useToasts } from "react-toast-notifications";
+import { useToasts } from "react-toast-notifications";
 
 function LoginPage() {
   const [userName, setUserName] = useState("");
@@ -11,7 +11,7 @@ function LoginPage() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  // const { addToast } = useToasts();
+  const { addToast } = useToasts();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,10 +31,10 @@ function LoginPage() {
     if (response.data) {
       dispatch(actions.setUser(response.data));
       history.push("/");
-      // addToast("Bienvenido!", {
-      //   autoDismiss: true,
-      //   appearance: "success",
-      // });
+      addToast("Bienvenido!", {
+        autoDismiss: true,
+        appearance: "success",
+      });
     }
   };
   //funcion para verificar el Login, la constante checkCredentials se tiene que hacer un onSumbit del form en Login

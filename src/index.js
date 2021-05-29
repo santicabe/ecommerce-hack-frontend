@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-
+import { ToastProvider } from "react-toast-notifications";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import { Provider } from "react-redux";
@@ -15,7 +15,9 @@ ReactDOM.render(
       <React.StrictMode>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <App />
+            <ToastProvider placement="top-left">
+              <App />
+            </ToastProvider>
           </PersistGate>
         </Provider>
       </React.StrictMode>
