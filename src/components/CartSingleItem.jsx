@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import actions from "../redux/actions/cartActions";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 
 function CartSingleItem({ item }) {
   const dispatch = useDispatch();
@@ -25,7 +24,7 @@ function CartSingleItem({ item }) {
 
   const handleClickRubbish = (e) => {
     e.preventDefault();
-    console.log("Hola wey");
+    dispatch(actions.CLEAR_SINGLE_PRODUCT(ProductToCart));
   };
 
   return (
@@ -70,14 +69,12 @@ function CartSingleItem({ item }) {
 
       <td className="column-5">${item.price * item.quantity} </td>
       <td className="column-6">
-        <link rel="stylesheet" href="">
-          <i
-            onClick={handleClickRubbish}
-            className="fa fa-trash ml-5 bg-red"
-            style={{ fontSize: "1.3rem" }}
-            aria-hidden="true"
-          ></i>{" "}
-        </link>
+        <button
+          onClick={handleClickRubbish}
+          className="fa fa-trash ml-5 bg-red p-3"
+          style={{ fontSize: "1.3rem" }}
+          aria-hidden="true"
+        ></button>
       </td>
     </tr>
   );

@@ -8,10 +8,8 @@ import React from "react";
 function Navbar() {
   const cart = useSelector((state) => state.cartReducer);
   let productsAmount = 0;
-  console.log(cart);
   cart.forEach((item) => {
     productsAmount += item.quantity;
-    console.log(productsAmount);
   });
 
   return (

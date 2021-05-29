@@ -16,7 +16,6 @@ function UsersAdmin() {
       try {
         const response = await axios.get(url);
         setUsers(response.data.users);
-        //console.log(response.data.products);
       } catch (err) {
         console.log(err);
       }

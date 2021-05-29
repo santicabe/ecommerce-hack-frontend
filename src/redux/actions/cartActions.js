@@ -23,5 +23,11 @@ const actions = {
       payload: product,
     };
   },
+  CLEAR_SINGLE_PRODUCT: (product) => {
+    return {
+      type: "CLEAR_SINGLE_PRODUCT",
+      payload: product,
+    };
+  },
 };
 export default actions;

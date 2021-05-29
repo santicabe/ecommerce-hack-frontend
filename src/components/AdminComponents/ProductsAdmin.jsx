@@ -15,7 +15,6 @@ function ProductsAdmin() {
   const [stock, setStock] = useState(0);
   const [categoryId, setCategoryId] = useState(0);
   const [isFeatured, setIsFeatured] = useState(true);
-  console.log("name" + name + "desc" + description);
 
   // const user = useSelector((state) => state.user);
   // const dispatch = useDispatch();
@@ -45,8 +44,6 @@ function ProductsAdmin() {
     formData.append("categoryId", categoryId);
     formData.append("stock", stock);
     formData.append("isFeatured", isFeatured);
-    console.log(name);
-    console.log(...formData);
 
     const sendData = async () => {
       try {
@@ -59,7 +56,6 @@ function ProductsAdmin() {
             // Authorization: `Bearer ${user.token}`,
           },
         });
-        console.log("artículo se modificó con éxito", response);
       } catch (err) {
         console.log(err);
       }

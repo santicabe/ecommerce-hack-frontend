@@ -27,6 +27,9 @@ const cartReducer = produce((state, action) => {
 
     case "CLEAR_PRODUCTS":
       return [];
+
+    case "CLEAR_SINGLE_PRODUCT":
+      return state.filter((product) => product.name !== action.payload.name);
     default:
       return state;
   }
