@@ -714,7 +714,7 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   background-color: white;
   display: none;
   position: absolute;
-  bottom: -200%;
+  bottom: -165%;
   z-index: 999;
   transition: ease-in !important;
 }
