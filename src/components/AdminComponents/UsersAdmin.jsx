@@ -24,7 +24,7 @@ function UsersAdmin() {
   }, [url]);
   return (
     <div>
-      <h3 className="mb-5">Users</h3>
+      <h3 className="mb-5 text-center">Users</h3>
       <div className="container">
         <div className="row">
           <div className="col">
@@ -49,7 +49,7 @@ function UsersAdmin() {
                     <td>{item.email}</td>
                     <td>{item.role}</td>
                     <td>{String(item.isActive)}</td>
-                    <td>
+                    <td className="text-center">
                       <button
                         type="button"
                         className="btn btn-success"
@@ -64,7 +64,7 @@ function UsersAdmin() {
             </table>
           </div>
           <div className="col">
-            <h4 className="mb-3">Edit:</h4>
+            <h4 className="mb-3 text-center">Edit:</h4>
             <form action="" className="border border-secondary p-3 mb-4">
               <div className="text-start">
                 <label htmlFor="userName" className="form-label text-start">
@@ -116,10 +116,11 @@ function UsersAdmin() {
                   <option selected={false}>False</option>
                 </select>
               )}
-
-              <button type="submit" className="btn btn-primary mt-4">
-                Save
-              </button>
+              <div className="text-center">
+                <button type="submit" className="btn btn-primary mt-4">
+                  Save
+                </button>
+              </div>
             </form>
           </div>
         </div>

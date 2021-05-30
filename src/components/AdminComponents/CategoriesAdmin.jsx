@@ -25,7 +25,7 @@ function CategoriesAdmin() {
   return (
     <div>
       <div>
-        <h3 className="mb-5">Categories</h3>
+        <h3 className="mb-5 text-center">Categories</h3>
         <div className="container">
           <div className="row">
             <div className="col">
@@ -56,8 +56,8 @@ function CategoriesAdmin() {
                 </tbody>
               </table>
             </div>
-            <div className="col">
-              <h4 className="mb-3">Edit:</h4>
+            <div className="col mb-4">
+              <h4 className="mb-3 text-center">Edit:</h4>
               <form action="" className="border border-secondary rounded p-3">
                 <label htmlFor="name" className="form-label">
                   Name
@@ -69,11 +69,14 @@ function CategoriesAdmin() {
                   className="form-control"
                   defaultValue={data.name}
                 />
-                <button type="submit" className="btn btn-primary mt-4">
-                  Save
-                </button>
+                <div className="text-center">
+                  {" "}
+                  <button type="submit" className="btn btn-primary mt-4">
+                    Save
+                  </button>
+                </div>
               </form>
-              <h4 className="mb-3 mt-5">Create:</h4>
+              <h4 className="mb-3 mt-5 text-center">Create:</h4>
               <form action="" className="border border-secondary p-3">
                 <label htmlFor="newName" className="form-label">
                   Name
@@ -84,9 +87,11 @@ function CategoriesAdmin() {
                   name="newName"
                   className="form-control"
                 />
-                <button type="submit" className="btn btn-primary mt-4">
-                  Save
-                </button>
+                <div className="text-center">
+                  <button type="submit" className="btn btn-primary mt-4">
+                    Save
+                  </button>
+                </div>
               </form>
             </div>
           </div>
