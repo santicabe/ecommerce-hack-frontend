@@ -79,25 +79,34 @@ function Navbar() {
               </div>
 
               <div className="wrap-icon-header flex-w flex-r-m ">
-                <div className="flex-c-m h-full p-r-24 position_relative">
-                  <SearchBox />
-                </div>
                 <div className="flex-c-m h-full p-lr-10 ">
-                  <div
-                    className="icon-header-item cl2 hov-cl1 trans-04  p-r-11 icon-header-noti js-show-cart "
-                    data-notify={productsAmount}
-                  >
-                    <Link to="/cart">
-                      <i className="zmdi zmdi-shopping-cart"></i>
-                    </Link>
+                  <div className="flex-c-m h-full position_relative">
+                    <SearchBox />
                   </div>
-                </div>
+                  <Link to="/cart">
+                    <div
+                      className="icon-header-item cl2 hov-cl1 trans-04  p-r-11 icon-header-noti js-show-cart "
+                      data-notify={productsAmount}
+                    >
+                      <i className="zmdi zmdi-shopping-cart"></i>
+                    </div>
+                  </Link>
 
-                <div
-                  className="flex-c-m h-full p-l-18 p-r-25 bor5"
-                  style={{ fontFamily: "Poppins-Regular", fontWeight: "80px" }}
-                >
-                  Logout
+                  <span
+                    class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
+                    data-notify="0"
+                  >
+                    <i class="zmdi zmdi-favorite-outline"></i>
+                  </span>
+                  {/* <div
+                    className="flex-c-m h-full p-l-18 p-r-25 bor5"
+                    style={{
+                      fontFamily: "Poppins-Regular",
+                      fontWeight: "80px",
+                    }}
+                  >
+                    Logout
+                  </div> */}
                 </div>
               </div>
             </nav>
