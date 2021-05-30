@@ -71,7 +71,7 @@ function EditUser() {
       {userLoggedIn && (
         <div>
           <div className="container">
-            <h3 className="ltext-103 cl5 text-center">User</h3>
+            <h3 className="ltext-103 cl5 text-center mt-3">User</h3>
 
             <div class="container">
               <div class="row align-items-start">

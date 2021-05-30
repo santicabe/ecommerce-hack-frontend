@@ -194,125 +194,124 @@ function Navbar() {
           </div>
 
           {/* button hamburguesa */}
-          
-            <button
-              className="navbar-toggler first-button mb-1 "
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent20"
-              aria-controls="navbarSupportedContent20"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <div className={`animated-icon1 ${isMenuOpen && "open"}`}>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </button>
 
-            <div
-              className={`collapse navbar-collapse menu-mobile ${
-                isMenuOpen && "show"
-              }`}
-              id="navbarSupportedContent20"
-            >
-              <ul className="navbar-nav mr-auto button-item">
-                <li>
-                  <Link to="/" className="nav-item">
-                    <span
-                      style={{
-                        fontFamily: "Poppins-Regular",
-                        fontWeight: "100px",
-                      }}
-                      className="button-item"
-                    >
-                      <i class="fas fa-home"></i> Home
-                    </span>
-                  </Link>
-                </li>
-
-                <li>
-                  <a href="product.html" className="nav-item">
-                    <span
-                      style={{
-                        fontFamily: "Poppins-Regular",
-                        fontWeight: "100px",
-                      }}
-                      className="button-item"
-                    >
-                      <i class="fas fa-shopping-bag"></i> Shop
-                    </span>
-                  </a>
-                </li>
-
-                <li>
-                  <Link to="/profile" className="nav-item">
-                    <span
-                      style={{
-                        fontFamily: "Poppins-Regular",
-                        fontWeight: "100px",
-                      }}
-                      className="button-item"
-                    >
-                      <i class="fas fa-user-alt"></i> Profile
-                    </span>
-                  </Link>
-                </li>
-                {!user.userName && (
-                  <>
-                    {" "}
-                    <li>
-                      <Link to="/login" className="nav-item">
-                        <span
-                          style={{
-                            fontFamily: "Poppins-Regular",
-                            fontWeight: "100px",
-                          }}
-                          className="button-item"
-                        >
-                          <i class="fas fa-sign-in-alt"></i> Login
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/register" className="nav-item">
-                        <span
-                          style={{
-                            fontFamily: "Poppins-Regular",
-                            fontWeight: "100px",
-                          }}
-                          className="button-item"
-                        >
-                          <i class="far fa-plus-square"></i>Register
-                        </span>
-                      </Link>
-                    </li>
-                  </>
-                )}
-
-                {user && user.role === "admin" && (
-                  <>
-                    {" "}
-                    <li>
-                      <Link to="/admin" className="nav-item">
-                        <span
-                          style={{
-                            fontFamily: "Poppins-Regular",
-                            fontWeight: "100px",
-                          }}
-                          className="button-item"
-                        >
-                          <i class="fas fa-users-cog"></i>Admin
-                        </span>
-                      </Link>
-                    </li>
-                  </>
-                )}
-              </ul>
+          <button
+            className="navbar-toggler first-button mb-1 "
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent20"
+            aria-controls="navbarSupportedContent20"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <div className={`animated-icon1 ${isMenuOpen && "open"}`}>
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
-          
+          </button>
+
+          <div
+            className={`collapse navbar-collapse menu-mobile ${
+              isMenuOpen && "show"
+            }`}
+            id="navbarSupportedContent20"
+          >
+            <ul className="navbar-nav mr-auto button-item">
+              <li>
+                <Link to="/" className="nav-item">
+                  <span
+                    style={{
+                      fontFamily: "Poppins-Regular",
+                      fontWeight: "100px",
+                    }}
+                    className="button-item"
+                  >
+                    <i class="fa fa-home" aria-hidden="true"></i> Home
+                  </span>
+                </Link>
+              </li>
+
+              <li>
+                <a href="product.html" className="nav-item">
+                  <span
+                    style={{
+                      fontFamily: "Poppins-Regular",
+                      fontWeight: "100px",
+                    }}
+                    className="button-item"
+                  >
+                    <i class="fa fa-shopping-bag" aria-hidden="true"></i> Shop
+                  </span>
+                </a>
+              </li>
+
+              <li>
+                <Link to="/profile" className="nav-item">
+                  <span
+                    style={{
+                      fontFamily: "Poppins-Regular",
+                      fontWeight: "100px",
+                    }}
+                    className="button-item"
+                  >
+                    <i class="fa fa-user" aria-hidden="true"></i> Profile
+                  </span>
+                </Link>
+              </li>
+              {!user.userName && (
+                <>
+                  {" "}
+                  <li>
+                    <Link to="/login" className="nav-item">
+                      <span
+                        style={{
+                          fontFamily: "Poppins-Regular",
+                          fontWeight: "100px",
+                        }}
+                        className="button-item"
+                      >
+                        <i class="fa fa-sign-in" aria-hidden="true"></i> Login
+                      </span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/register" className="nav-item">
+                      <span
+                        style={{
+                          fontFamily: "Poppins-Regular",
+                          fontWeight: "100px",
+                        }}
+                        className="button-item"
+                      >
+                        <i class="fa fa-plus" aria-hidden="true"></i> Register
+                      </span>
+                    </Link>
+                  </li>
+                </>
+              )}
+
+              {user && user.role === "admin" && (
+                <>
+                  {" "}
+                  <li>
+                    <Link to="/admin" className="nav-item">
+                      <span
+                        style={{
+                          fontFamily: "Poppins-Regular",
+                          fontWeight: "100px",
+                        }}
+                        className="button-item"
+                      >
+                        <i class="fa fa-cogs" aria-hidden="true"></i>Admin
+                      </span>
+                    </Link>
+                  </li>
+                </>
+              )}
+            </ul>
+          </div>
 
           {/* <div className="btn-show-menu-mobile hamburger hamburger--squeeze">
             <span className="hamburger-box">
