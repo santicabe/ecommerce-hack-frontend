@@ -28,9 +28,10 @@ function Navbar() {
     });
   };
 
-  cart.forEach((item) => {
-    productsAmount += item.quantity;
-  });
+  cart &&
+    cart.forEach((item) => {
+      productsAmount += item.quantity;
+    });
   console.log("...", user.role);
 
   return (
@@ -164,6 +165,19 @@ function Navbar() {
                   <div className="flex-c-m h-full position_relative">
                     <SearchBox />
                   </div>
+                  {user.userName && (
+                    <>
+                      {" "}
+                      <li className="mr-3">
+                        <Link to="/profile">
+                          <span className="text-dark">
+                            Welcome {user.userName}
+                          </span>
+                        </Link>
+                      </li>
+                    </>
+                  )}
+
                   <Link to="/cart">
                     <div
                       className="icon-header-item cl2 hov-cl1 trans-04  p-r-11 icon-header-noti js-show-cart "
@@ -242,8 +256,9 @@ function Navbar() {
           </div>
 
           {/* button hamburguesa */}
+
           <button
-            className="navbar-toggler first-button"
+            className="navbar-toggler first-button mb-1 "
             type="button"
             data-toggle="collapse"
             data-target="#navbarSupportedContent20"
@@ -268,43 +283,101 @@ function Navbar() {
             <ul className="navbar-nav mr-auto button-item">
               <li>
                 <Link to="/" className="nav-item">
-                  <span className="button-item">Home</span>
+                  <span
+                    style={{
+                      fontFamily: "Poppins-Regular",
+                      fontWeight: "100px",
+                    }}
+                    className="button-item"
+                  >
+                    <i class="fa fa-home" aria-hidden="true"></i> Home
+                  </span>
                 </Link>
               </li>
 
               <li>
                 <a href="product.html" className="nav-item">
-                  <span className="button-item">Shop</span>
+                  <span
+                    style={{
+                      fontFamily: "Poppins-Regular",
+                      fontWeight: "100px",
+                    }}
+                    className="button-item"
+                  >
+                    <i class="fa fa-shopping-bag" aria-hidden="true"></i> Shop
+                  </span>
                 </a>
               </li>
 
               <li>
                 <Link to="/profile" className="nav-item">
-                  <span className="button-item">Profile</span>
+                  <span
+                    style={{
+                      fontFamily: "Poppins-Regular",
+                      fontWeight: "100px",
+                    }}
+                    className="button-item"
+                  >
+                    <i class="fa fa-user" aria-hidden="true"></i> Profile
+                  </span>
                 </Link>
               </li>
-              <li>
-                <Link to="/login" className="nav-item">
-                  <span className="button-item">Login</span>
-                </Link>
-              </li>
+              {!user.userName && (
+                <>
+                  {" "}
+                  <li>
+                    <Link to="/login" className="nav-item">
+                      <span
+                        style={{
+                          fontFamily: "Poppins-Regular",
+                          fontWeight: "100px",
+                        }}
+                        className="button-item"
+                      >
+                        <i class="fa fa-sign-in" aria-hidden="true"></i> Login
+                      </span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/register" className="nav-item">
+                      <span
+                        style={{
+                          fontFamily: "Poppins-Regular",
+                          fontWeight: "100px",
+                        }}
+                        className="button-item"
+                      >
+                        <i class="fa fa-plus" aria-hidden="true"></i> Register
+                      </span>
+                    </Link>
+                  </li>
+                </>
+              )}
 
-              <li>
-                <Link to="/register" className="nav-item">
-                  <span className="button-item">Register</span>
-                </Link>
-              </li>
-              <li>
-                <Link to="/admin" className="nav-item">
-                  <span className="button-item">Admin</span>
-                </Link>
-              </li>
+              {user && user.role === "admin" && (
+                <>
+                  {" "}
+                  <li>
+                    <Link to="/admin" className="nav-item">
+                      <span
+                        style={{
+                          fontFamily: "Poppins-Regular",
+                          fontWeight: "100px",
+                        }}
+                        className="button-item"
+                      >
+                        <i class="fa fa-cogs" aria-hidden="true"></i>Admin
+                      </span>
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
 
           {/* <div className="btn-show-menu-mobile hamburger hamburger--squeeze">
             <span className="hamburger-box">
-              <span className="hamburger-inner"></span>
+            <span className="hamburger-inner"></span>
             </span>
           </div> */}
           {/* <div className="menu-mobile">
