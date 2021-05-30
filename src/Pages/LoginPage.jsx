@@ -50,7 +50,7 @@ function LoginPage() {
               <img src="images/registration-form-1.jpg" alt="" />
             </div>
             <form onSubmit={handleSubmit}>
-              <h3>Login</h3>
+              <h3 className="text-center">Login</h3>
 
               <div className="form-wrapper my-3">
                 <input

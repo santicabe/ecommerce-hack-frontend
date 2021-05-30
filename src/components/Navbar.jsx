@@ -9,6 +9,7 @@ import React from "react";
 function Navbar() {
   const cart = useSelector((state) => state.cartReducer);
   let productsAmount = 0;
+
   cart.forEach((item) => {
     productsAmount += item.quantity;
   });
@@ -22,9 +23,6 @@ function Navbar() {
               <span className="logo ml-5">
                 <img
                   src="https://image.flaticon.com/icons/png/512/3184/3184948.png"
-                  //https://image.flaticon.com/icons/png/512/4710/4710022.png
-                  //https://image.flaticon.com/icons/png/512/3184/3184948.png
-
                   alt="IMG-LOGO"
                 />
                 <h4
