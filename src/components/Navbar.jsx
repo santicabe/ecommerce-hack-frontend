@@ -14,6 +14,10 @@ function Navbar() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedCat, setSelectedCat] = useState(0);
+
+  const handleClick = (e) => setSelectedCat(e);
+
   let productsAmount = 0;
 
   const handleClearClick = (e) => {
@@ -54,44 +58,102 @@ function Navbar() {
 
               <div className="menu-desktop">
                 <ul className="main-menu">
-                  <li className="active-menu">
-                    <Link to="/">
-                      <span>Home</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/Cart">
-                      <span>Shop</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/profile">
-                      <span>Profile</span>
-                    </Link>
-                  </li>
+                  {selectedCat === 0 ? (
+                    <li className="active-menu" onClick={() => handleClick(0)}>
+                      <Link to="/">
+                        <span>Home</span>
+                      </Link>
+                    </li>
+                  ) : (
+                    <li onClick={() => handleClick(0)}>
+                      <Link to="/">
+                        <span>Home</span>
+                      </Link>
+                    </li>
+                  )}
+                  {selectedCat === 1 ? (
+                    <li className="active-menu" className="active-menu">
+                      <Link to="/Cart">
+                        <span>Shop</span>
+                      </Link>
+                    </li>
+                  ) : (
+                    <li onClick={() => handleClick(1)}>
+                      <Link to="/Cart">
+                        <span>Shop</span>
+                      </Link>
+                    </li>
+                  )}
+                  {selectedCat === 2 ? (
+                    <li className="active-menu" onClick={() => handleClick(2)}>
+                      <Link to="/profile">
+                        <span>Profile</span>
+                      </Link>
+                    </li>
+                  ) : (
+                    <li onClick={() => handleClick(2)}>
+                      <Link to="/profile">
+                        <span>Profile</span>
+                      </Link>
+                    </li>
+                  )}
+
                   {!user.userName && (
                     <>
                       {" "}
-                      <li>
-                        <Link to="/login">
-                          <span>Login</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/register">
-                          <span>Register</span>
-                        </Link>
-                      </li>
+                      {selectedCat === 3 ? (
+                        <li
+                          className="active-menu"
+                          onClick={() => handleClick(3)}
+                        >
+                          <Link to="/login">
+                            <span>Login</span>
+                          </Link>
+                        </li>
+                      ) : (
+                        <li onClick={() => handleClick(3)}>
+                          <Link to="/login">
+                            <span>Login</span>
+                          </Link>
+                        </li>
+                      )}
+                      {selectedCat === 4 ? (
+                        <li
+                          className="active-menu"
+                          onClick={() => handleClick(4)}
+                        >
+                          <Link to="/register">
+                            <span>Register</span>
+                          </Link>
+                        </li>
+                      ) : (
+                        <li onClick={() => handleClick(4)}>
+                          <Link to="/register">
+                            <span>Register</span>
+                          </Link>
+                        </li>
+                      )}
                     </>
                   )}
                   {user && user.role === "admin" && (
                     <>
                       {" "}
-                      <li>
-                        <Link to="/admin">
-                          <span>Admin</span>
-                        </Link>
-                      </li>
+                      {selectedCat === 5 ? (
+                        <li
+                          className="active-menu"
+                          onClick={() => handleClick(5)}
+                        >
+                          <Link to="/admin">
+                            <span>Admin</span>
+                          </Link>
+                        </li>
+                      ) : (
+                        <li onClick={() => handleClick(5)}>
+                          <Link to="/admin">
+                            <span>Admin</span>
+                          </Link>
+                        </li>
+                      )}
                     </>
                   )}
                 </ul>
