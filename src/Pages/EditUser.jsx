@@ -47,7 +47,7 @@ function EditUser() {
       },
       {
         headers: {
-          // Authorization: `Bearer ${user.token}`,
+          Authorization: `Bearer ${user.token}`,
           "Content-Type": "application/json",
         },
       }

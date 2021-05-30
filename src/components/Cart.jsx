@@ -20,7 +20,7 @@ function Cart() {
       <div className="container">
         <h3 className="ltext-103 cl5 text-center">cart</h3>
         <form className="bg0 p-t-75 p-b-85">
-          <div className="container">
+          <div className="container text-center">
             <div className="row">
               <div className="col-lg-10 col-xl-7 m-lr-auto m-b-50">
                 <div className="m-l-25 m-r--38 m-lr-0-xl">

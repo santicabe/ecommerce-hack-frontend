@@ -53,7 +53,7 @@ function ProductsAdmin() {
           data: formData,
           headers: {
             "Content-Type": "multipart/form-data",
-            // Authorization: `Bearer ${user.token}`,
+            Authorization: `Bearer ${user.token}`,
           },
         });
       } catch (err) {
