@@ -109,7 +109,7 @@ function Navbar() {
                       <li className="mr-3">
                         <Link to="/profile">
                           <span className="text-dark">
-                            Bienvenido {user.userName}
+                            Welcome {user.userName}
                           </span>
                         </Link>
                       </li>
