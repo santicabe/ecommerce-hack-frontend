@@ -17,34 +17,36 @@ function Cart() {
 
   return (
     <div>
-      <form className="bg0 p-t-75 p-b-85">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-10 col-xl-7 m-lr-auto m-b-50">
-              <div className="m-l-25 m-r--38 m-lr-0-xl">
-                <div className="wrap-table-shopping-cart">
-                  <table className="table-shopping-cart">
-                    <thead>
-                      <tr className="table_head">
-                        <th className="column-1">Product</th>
-                        <th className="column-2">Name</th>
-                        <th className="column-3">Price</th>
-                        <th className="column-4">Quantity</th>
-                        <th className="column-5">Total</th>
-                        <th className="column-6">Controls </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {cart &&
-                        cart.map((item, index) => {
-                          total = total + item.price * item.quantity;
-                          return <CartSingleItem key={index} item={item} />;
-                        })}
-                    </tbody>
-                  </table>
-                </div>
+      <div className="container">
+        <h3 className="ltext-103 cl5 text-center">cart</h3>
+        <form className="bg0 p-t-75 p-b-85">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-10 col-xl-7 m-lr-auto m-b-50">
+                <div className="m-l-25 m-r--38 m-lr-0-xl">
+                  <div className="wrap-table-shopping-cart">
+                    <table className="table-shopping-cart">
+                      <thead>
+                        <tr className="table_head">
+                          <th className="column-1">Product</th>
+                          <th className="column-2">Name</th>
+                          <th className="column-3">Price</th>
+                          <th className="column-4">Quantity</th>
+                          <th className="column-5">Total</th>
+                          <th className="column-6">Controls </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {cart &&
+                          cart.map((item, index) => {
+                            total = total + item.price * item.quantity;
+                            return <CartSingleItem key={index} item={item} />;
+                          })}
+                      </tbody>
+                    </table>
+                  </div>
 
-                {/* AÑADIR CUPÓN 
+                  {/* AÑADIR CUPÓN 
                 <div className="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
                   <div className="flex-w flex-m m-r-20 m-tb-5">
                     <input
@@ -63,14 +65,16 @@ function Cart() {
                     Update Cart
                   </div>
                 </div> */}
+                </div>
               </div>
-            </div>
 
-            <div className="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
-              <div className="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
-                <h4 className="mtext-109 cl2 p-b-30">Cart Totals</h4>
+              <div className="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
+                <div className="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
+                  <h4 className="mtext-109 cl2 p-b-30 text-center">
+                    Cart Totals
+                  </h4>
 
-                {/* <div className="flex-w flex-t bor12 p-b-13">
+                  {/* <div className="flex-w flex-t bor12 p-b-13">
                   <div className="size-208">
                     <span className="stext-110 cl2">Subtotal:</span>
                   </div>
@@ -80,7 +84,7 @@ function Cart() {
                   </div>
                 </div> */}
 
-                {/* INFORMACIÓN DE ENVIO  
+                  {/* INFORMACIÓN DE ENVIO  
                 <div className="flex-w flex-t bor12 p-t-15 p-b-30">
                   <div className="size-208 w-full-ssm">
                     <span className="stext-110 cl2">Shipping:</span>
@@ -131,30 +135,31 @@ function Cart() {
                   </div>
                 </div> */}
 
-                <div className="flex-w flex-t p-t-27 p-b-33">
-                  <div className="size-208">
-                    <span className="mtext-101 cl2">Total:</span>
+                  <div className="flex-w flex-t p-t-27 p-b-33 text-center">
+                    <div className="size-208">
+                      <span className="mtext-101 cl2 ">Total:</span>
+                    </div>
+
+                    <div className="size-209 p-t-1">
+                      <span className="mtext-110 cl2">${total}</span>
+                    </div>
                   </div>
 
-                  <div className="size-209 p-t-1">
-                    <span className="mtext-110 cl2">${total}</span>
-                  </div>
+                  <button className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer mb-3">
+                    Proceed to Checkout
+                  </button>
+                  <button
+                    onClick={handleClearClick}
+                    className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer"
+                  >
+                    Delete all
+                  </button>
                 </div>
-
-                <button className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer mb-3">
-                  Proceed to Checkout
-                </button>
-                <button
-                  onClick={handleClearClick}
-                  className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer"
-                >
-                  Delete all
-                </button>
               </div>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }

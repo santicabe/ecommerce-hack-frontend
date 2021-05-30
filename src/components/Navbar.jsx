@@ -3,6 +3,7 @@ import "../cozastore/css/util.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState } from "react";
+import SearchBox from "./SearchBox";
 // import "./js/hamburger";
 
 import React from "react";
@@ -12,6 +13,7 @@ function Navbar() {
   const user = useSelector((state) => state.userReducer);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   let productsAmount = 0;
+
   cart.forEach((item) => {
     productsAmount += item.quantity;
   });
@@ -25,9 +27,6 @@ function Navbar() {
               <span className="logo ml-5">
                 <img
                   src="https://image.flaticon.com/icons/png/512/3184/3184948.png"
-                  //https://image.flaticon.com/icons/png/512/4710/4710022.png
-                  //https://image.flaticon.com/icons/png/512/3184/3184948.png
-
                   alt="IMG-LOGO"
                 />
                 <h4
@@ -50,7 +49,9 @@ function Navbar() {
                     </Link>
                   </li>
                   <li>
-                    <a href="product.html">Shop</a>
+                    <Link to="/Cart">
+                      <span>Shop</span>
+                    </Link>
                   </li>
                   <li>
                     <Link to="/profile">
@@ -82,10 +83,11 @@ function Navbar() {
               </div>
 
               <div className="wrap-icon-header flex-w flex-r-m h-full">
-                <div className="flex-c-m h-full p-r-24">
-                  <div className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-modal-search">
+                <div className="flex-c-m h-full p-r-24 position_relative">
+                  {/* <div className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-modal-search">
                     <i className="zmdi zmdi-search"></i>
-                  </div>
+                  </div> */}
+                  <SearchBox />
                 </div>
                 <div className="flex-c-m h-full p-lr-10 ">
                   <div
@@ -125,11 +127,11 @@ function Navbar() {
             </a>
           </div>
           <div className="wrap-icon-header flex-w flex-r-m h-full m-r-15">
-            <div className="flex-c-m h-full p-r-10">
-              <div className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-modal-search">
-                <i className="zmdi zmdi-search"></i>
-              </div>
-            </div>
+            {/* <div className="flex-c-m h-full p-r-10">
+                <div className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-modal-search">
+                  <i className="zmdi zmdi-search"></i>
+                </div>
+              </div> */}
             <div className="flex-c-m h-full p-lr-10 ">
               <div
                 className="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart"
@@ -217,7 +219,9 @@ function Navbar() {
               </li>
 
               <li>
-                <a href="product.html">Shop</a>
+                <Link to="/cart">
+                  <span>Shop</span>
+                </Link>
               </li>
 
               <li>

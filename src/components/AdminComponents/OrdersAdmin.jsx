@@ -3,7 +3,7 @@ import React from "react";
 function OrdersAdmin() {
   return (
     <div>
-      <h1>Orders</h1>
+      <h1 className="text-center">Orders</h1>
     </div>
   );
 }

@@ -66,7 +66,7 @@ function ProductsAdmin() {
 
   return (
     <div>
-      <h3 className="mb-5">Products</h3>
+      <h3 className="mb-5 text-center">Products</h3>
       <div className="container">
         <div className="row">
           <div className="col">
@@ -100,7 +100,7 @@ function ProductsAdmin() {
             </table>
           </div>
           <div className="col">
-            <h4 className="mb-3">Edit:</h4>
+            <h4 className="mb-3 text-center">Edit:</h4>
             <form
               //action="POST"
               className="border border-secondary rounded p-3"
@@ -197,9 +197,11 @@ function ProductsAdmin() {
                   <option selected={false}>False</option>
                 </select>
               )}
-              <button type="submit" className="btn btn-primary mt-4">
-                Save
-              </button>
+              <div className="text-center">
+                <button type="submit" className="btn btn-primary mt-4">
+                  Save
+                </button>
+              </div>
             </form>
           </div>
         </div>

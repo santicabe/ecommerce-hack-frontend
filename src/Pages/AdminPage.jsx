@@ -14,7 +14,7 @@ function Admin() {
     <div>
       <div className="container">
         <div className="p-b-10">
-          <h3 className="ltext-103 cl5">Admin</h3>
+          <h3 className="ltext-103 cl5 text-center">Admin</h3>
         </div>
         <div className="flex-w flex-l-m filter-tope-group m-tb-10">
           {menu === 0 ? (
