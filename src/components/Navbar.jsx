@@ -24,9 +24,10 @@ function Navbar() {
     });
   };
 
-  cart.forEach((item) => {
-    productsAmount += item.quantity;
-  });
+  cart &&
+    cart.forEach((item) => {
+      productsAmount += item.quantity;
+    });
   console.log("...", user.role);
 
   return (
@@ -102,6 +103,19 @@ function Navbar() {
                   <div className="flex-c-m h-full position_relative">
                     <SearchBox />
                   </div>
+                  {user.userName && (
+                    <>
+                      {" "}
+                      <li className="mr-3">
+                        <Link to="/profile">
+                          <span className="text-dark">
+                            Welcome {user.userName}
+                          </span>
+                        </Link>
+                      </li>
+                    </>
+                  )}
+
                   <Link to="/cart">
                     <div
                       className="icon-header-item cl2 hov-cl1 trans-04  p-r-11 icon-header-noti js-show-cart "
