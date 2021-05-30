@@ -73,7 +73,7 @@ function CartSingleItem({ item }) {
       <td className="column-6">
         <button
           onClick={handleClickRubbish}
-          className="fa fa-trash ml-5 bg-red p-3"
+          className="fa fa-trash ml-5 bg-red mr-3 p-4"
           style={{ fontSize: "1.3rem" }}
           aria-hidden="true"
         ></button>
