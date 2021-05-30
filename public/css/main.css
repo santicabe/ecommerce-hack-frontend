@@ -250,6 +250,11 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   border-left: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.position_relative {
+  position: relative;
+}
+
+
 .right-top-bar a:hover {
   color: #6c7ae0;
 }
@@ -2709,7 +2714,7 @@ input.num-product::-webkit-inner-spin-button {
   color: red;
 }
 .bg-red:hover {
-  cursor:pointer;
+  cursor: pointer;
   color: blue;
 }
 /*---------------------------------------------*/

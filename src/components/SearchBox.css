@@ -1,0 +1,26 @@
+.search-input {
+  width: 90%;
+}
+
+.img-chica {
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+}
+
+.search-results {
+  position: absolute;
+  top: 110%;
+  z-index: 9999;
+  width: 130%;
+  height: 30vh;
+  overflow-y: auto;
+  background: rgb(172, 202, 231);
+  transform: scale(0);
+  transform-origin: top center;
+  transition: all 0.2s linear;
+}
+
+.show {
+  transform: scale(1);
+}
