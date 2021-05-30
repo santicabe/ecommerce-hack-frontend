@@ -5,10 +5,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer
-      className="bg3 p-t-75 p-b-32"
-      
-    >
+    <footer className="bg3 p-t-75 p-b-32">
       <div className="container">
         <div className="row">
           <div className="col-sm-6 col-lg-3 p-b-50">
@@ -81,7 +78,7 @@ function Footer() {
 
             <div className="p-t-27">
               <a href="/" className="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-                <i className="fa fa-facebook"></i>
+                <i class="fa fa-facebook-square" aria-hidden="true"></i>
               </a>
 
               <a href="/" className="fs-18 cl7 hov-cl1 trans-04 m-r-16">
@@ -121,23 +118,38 @@ function Footer() {
         <div className="p-t-40">
           <div className="flex-c-m flex-w p-b-18">
             <a href="/" className="m-all-1">
-              <img src="images/icons/icon-pay-01.png" alt="ICON-PAY" />
+              <img
+                src="https://preview.colorlib.com/theme/cozastore/images/icons/xicon-pay-05.png.pagespeed.ic.x0LpVPNXiU.png"
+                alt="ICON-PAY"
+              />
             </a>
 
             <a href="/" className="m-all-1">
-              <img src="images/icons/icon-pay-02.png" alt="ICON-PAY" />
+              <img
+                src="https://preview.colorlib.com/theme/cozastore/images/icons/xicon-pay-01.png.pagespeed.ic.xvOr_mBxdb.png"
+                alt="ICON-PAY"
+              />
             </a>
 
             <a href="/" className="m-all-1">
-              <img src="images/icons/icon-pay-03.png" alt="ICON-PAY" />
+              <img
+                src="https://preview.colorlib.com/theme/cozastore/images/icons/xicon-pay-02.png.pagespeed.ic.rg_hDWQXGj.png"
+                alt="ICON-PAY"
+              />
             </a>
 
             <a href="/" className="m-all-1">
-              <img src="images/icons/icon-pay-04.png" alt="ICON-PAY" />
+              <img
+                src="https://preview.colorlib.com/theme/cozastore/images/icons/xicon-pay-03.png.pagespeed.ic.oQPI6u_CWi.png"
+                alt="ICON-PAY"
+              />
             </a>
 
             <a href="/" className="m-all-1">
-              <img src="images/icons/icon-pay-05.png" alt="ICON-PAY" />
+              <img
+                src="https://preview.colorlib.com/theme/cozastore/images/icons/xicon-pay-04.png.pagespeed.ic.lQoKBVZlWg.png"
+                alt="ICON-PAY"
+              />
             </a>
           </div>
 
