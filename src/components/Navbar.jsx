@@ -1,21 +1,33 @@
 import "../cozastore/css/main.css";
 import "../cozastore/css/util.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+
 import { useState } from "react";
 import SearchBox from "./SearchBox";
+import { useSelector, useDispatch } from "react-redux";
 // import "./js/hamburger";
 
 import React from "react";
 
 function Navbar() {
+  const user = useSelector((state) => state.userReducer);
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   let productsAmount = 0;
 
+  const handleClearClick = (e) => {
+    e.preventDefault();
+    window.location.reload();
+    dispatch({
+      type: "CLEAR_USER",
+    });
+  };
+
   cart.forEach((item) => {
     productsAmount += item.quantity;
   });
+  console.log("...", user.role);
 
   return (
     <div className="bg-danger">
@@ -57,24 +69,31 @@ function Navbar() {
                       <span>Profile</span>
                     </Link>
                   </li>
-
-                  <li>
-                    <Link to="/login">
-                      <span>Login</span>
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link to="/register">
-                      <span>Register</span>
-                    </Link>
-                  </li>
-
-                  <li>
-                    <Link to="/admin">
-                      <span>Admin</span>
-                    </Link>
-                  </li>
+                  {!user.userName && (
+                    <>
+                      {" "}
+                      <li>
+                        <Link to="/login">
+                          <span>Login</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/register">
+                          <span>Register</span>
+                        </Link>
+                      </li>
+                    </>
+                  )}
+                  {user && user.role === "admin" && (
+                    <>
+                      {" "}
+                      <li>
+                        <Link to="/admin">
+                          <span>Admin</span>
+                        </Link>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </div>
 
@@ -98,15 +117,34 @@ function Navbar() {
                   >
                     <i class="zmdi zmdi-favorite-outline"></i>
                   </span>
-                  {/* <div
-                    className="flex-c-m h-full p-l-18 p-r-25 bor5"
-                    style={{
-                      fontFamily: "Poppins-Regular",
-                      fontWeight: "80px",
-                    }}
-                  >
-                    Logout
-                  </div> */}
+
+                  {user.userName && (
+                    <>
+                      {" "}
+                      {/* <button
+                        className="btn"
+                        onClick={() => {
+                          localStorage.clear();
+                          window.location.reload();
+                        }}
+                      >
+                        <span className="fw-bold ms-3">
+                          <i class="fa fa-sign-out" aria-hidden="true"></i>{" "}
+                          Salir
+                        </span>
+                      </button> */}
+                      <button
+                        onClick={handleClearClick}
+                        className="flex-c-m h-full p-l-18 p-r-25 bor5"
+                        style={{
+                          fontFamily: "Poppins-Regular",
+                          fontWeight: "80px",
+                        }}
+                      >
+                        <i class="fa fa-sign-out" aria-hidden="true"></i> Logout
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
             </nav>

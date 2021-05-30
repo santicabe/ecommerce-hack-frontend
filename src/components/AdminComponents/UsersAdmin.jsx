@@ -1,27 +1,58 @@
 import React from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 import { useState } from "react";
 
 function UsersAdmin() {
+  const user = useSelector((state) => state.userReducer);
   const [users, setUsers] = useState([]);
   const [data, setData] = useState([]);
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("");
+  const [isActive, setisActive] = useState("");
 
   const handleClick = (e) => setData(e);
+  const getUsers = async () => {
+    try {
+      const response = await axios.get(
+        process.env.REACT_APP_BACK_END_URL + "/users",
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-  const url = process.env.REACT_APP_BACK_END_URL + "/users";
-
+      setUsers(response.data.users);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const response = await axios.get(url);
-        setUsers(response.data.users);
-      } catch (err) {
-        console.log(err);
+    getUsers();
+  }, []);
+  async function onFormSubmit(e) {
+    e.preventDefault();
+    await axios.patch(
+      process.env.REACT_APP_BACK_END_URL + `/users/${user.userId}`,
+      {
+        userName,
+        email,
+        role,
+        isActive,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+          "Content-Type": "application/json",
+        },
       }
-    };
-    getProducts();
-  }, [url]);
+    );
+    getUsers();
+  }
   return (
     <div>
       <h3 className="mb-5 text-center">Users</h3>
@@ -65,7 +96,11 @@ function UsersAdmin() {
           </div>
           <div className="col">
             <h4 className="mb-3 text-center">Edit:</h4>
-            <form action="" className="border border-secondary p-3 mb-4">
+            <form
+              action=""
+              onSubmit={onFormSubmit}
+              className="border border-secondary p-3 mb-4"
+            >
               <div className="text-start">
                 <label htmlFor="userName" className="form-label text-start">
                   Username

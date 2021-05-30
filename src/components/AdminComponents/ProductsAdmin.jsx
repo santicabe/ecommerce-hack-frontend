@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 // import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 // import { useDispatch } from "react-redux";
 
 function ProductsAdmin() {
   // const history = useHistory();
-  const [productos, setProductos] = useState([]);
+  const [products, setProducts] = useState([]);
   const [item, setItem] = useState([]);
 
   const [name, setName] = useState("");
@@ -16,23 +17,29 @@ function ProductsAdmin() {
   const [categoryId, setCategoryId] = useState(0);
   const [isFeatured, setIsFeatured] = useState(true);
 
-  // const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.userReducer);
   // const dispatch = useDispatch();
   const handleClick = (e) => setItem(e);
-  // process.env.REACT_APP_BACK_END_URL + `/products/${item.id}`,
+
+  const getProducts = async () => {
+    try {
+      const response = await axios.get(
+        process.env.REACT_APP_BACK_END_URL + "/products/admin",
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      setProducts(response.data.products);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   useEffect(() => {
-    const getProducts = async () => {
-      try {
-        const response = await axios.get(
-          process.env.REACT_APP_BACK_END_URL + "/products/admin"
-        );
-        setProductos(response.data.products);
-      } catch (err) {
-        console.log(err);
-      }
-    };
     getProducts();
-  }, []);
+  });
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -52,8 +59,8 @@ function ProductsAdmin() {
           url: process.env.REACT_APP_BACK_END_URL + `/products/${item.id}`,
           data: formData,
           headers: {
-            "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${user.token}`,
+            "Content-Type": "multipart/form-data",
           },
         });
       } catch (err) {
@@ -80,22 +87,23 @@ function ProductsAdmin() {
                 </tr>
               </thead>
               <tbody>
-                {productos.map((item) => (
-                  <tr key={item.id}>
-                    <th scope="row">{item.id}</th>
-                    <td>{item.name}</td>
-                    <td>$ {item.price}</td>
-                    <td>
-                      <button
-                        type="button"
-                        className="btn btn-success"
-                        onClick={() => handleClick(item)}
-                      >
-                        Edit
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+                {products &&
+                  products.map((item) => (
+                    <tr key={item.id}>
+                      <th scope="row">{item.id}</th>
+                      <td>{item.name}</td>
+                      <td>$ {item.price}</td>
+                      <td>
+                        <button
+                          type="button"
+                          className="btn btn-success"
+                          onClick={() => handleClick(item)}
+                        >
+                          Edit
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>

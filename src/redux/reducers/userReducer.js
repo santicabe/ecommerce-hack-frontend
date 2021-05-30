@@ -5,6 +5,8 @@ const userReducer = produce((state, action) => {
   switch (action.type) {
     case "SET_USER":
       return (state = action.payload);
+    case "CLEAR_USER":
+      return [];
     default:
       return state;
   }

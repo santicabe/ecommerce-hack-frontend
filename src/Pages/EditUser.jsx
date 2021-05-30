@@ -6,6 +6,7 @@ import axios from "axios";
 
 function EditUser() {
   const user = useSelector((state) => state.userReducer);
+
   const history = useHistory();
   const [userToEdit, setUserToEdit] = useState([]);
 
@@ -19,19 +20,26 @@ function EditUser() {
   const [userLoggedIn, setUserLoggedIn] = useState([]);
 
   const handleClick = (e) => setUserToEdit(e);
+
+  const getUser = async () => {
+    try {
+      const response = await axios.get(
+        process.env.REACT_APP_BACK_END_URL + `/users/${user.userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      setUserLoggedIn(response.data.user);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   useEffect(() => {
-    const getUser = async () => {
-      try {
-        const response = await axios.get(
-          process.env.REACT_APP_BACK_END_URL + `/users/${user.userId}`
-        );
-        setUserLoggedIn(response.data.user);
-      } catch (err) {
-        console.log(err);
-      }
-    };
     getUser();
-  }, [user.userId]);
+  });
 
   async function onFormSubmit(e) {
     e.preventDefault();
@@ -52,10 +60,12 @@ function EditUser() {
         },
       }
     );
+    getUser();
   }
   if (userLoggedIn === null) {
     history.push("/register");
   }
+
   return (
     <>
       {userLoggedIn && (

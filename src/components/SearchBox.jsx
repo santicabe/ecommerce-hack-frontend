@@ -24,7 +24,7 @@ function SearchBox() {
         process.env.REACT_APP_BACK_END_URL + "/products",
         {
           headers: {
-            Authorization: `Bearer ${user.token}`,
+            // Authorization: `Bearer ${user.token}`,
             "Content-Type": "application/json",
           },
         }

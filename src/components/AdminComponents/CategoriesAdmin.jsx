@@ -1,27 +1,36 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { useState } from "react";
+// import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 function CategoriesAdmin() {
+  const user = useSelector((state) => state.userReducer);
   const [categories, setCategories] = useState([]);
   const [data, setData] = useState([]);
 
   const handleClick = (e) => setData(e);
 
-  const url = process.env.REACT_APP_BACK_END_URL + "/category";
-
   useEffect(() => {
     const getCategories = async () => {
       try {
-        const response = await axios.get(url);
+        const response = await axios.get(
+          process.env.REACT_APP_BACK_END_URL + "/category",
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
         setCategories(response.data.categories);
       } catch (err) {
         console.log(err);
       }
     };
     getCategories();
-  }, [url]);
+  }, [user.token]);
   return (
     <div>
       <div>

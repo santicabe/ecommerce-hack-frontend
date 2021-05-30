@@ -5,5 +5,10 @@ const actions = {
       payload: user,
     };
   },
+  clearUser: () => {
+    return {
+      type: "CLEAR_USER",
+    };
+  },
 };
 export default actions;
