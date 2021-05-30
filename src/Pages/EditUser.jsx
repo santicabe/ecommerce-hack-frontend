@@ -62,7 +62,7 @@ function EditUser() {
   }
   return (
     <div>
-      <h3 className="ltext-103 cl5">User</h3>
+      <h3 className="ltext-103 cl5 mt-4">User</h3>
 
       <div class="container">
         <div class="row align-items-start">
