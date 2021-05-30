@@ -39,7 +39,7 @@ function SearchBox() {
       <form className="rounded-pill trending py-2">
         <div className="py-2 px-3 d-flex justify-content-between align-items-center">
           <div>
-            <i className="fas fa-search"></i>
+            <i className="zmdi zmdi-search"></i>
           </div>
           <input
             type="text"
