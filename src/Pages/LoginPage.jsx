@@ -35,12 +35,12 @@ function LoginPage() {
       });
     }
 
-    if (response.data) {
-      addToast("Try again!", {
-        appearance: "warning",
-        autoDismiss: true,
-      });
-    }
+    // if (response.data) {
+    //   addToast("Try again!", {
+    //     appearance: "warning",
+    //     autoDismiss: true,
+    //   });
+    // }
     if (response.data) {
       dispatch(actions.setUser(response.data));
       history.push("/");
