@@ -35,7 +35,7 @@ function LoginPage() {
       });
     }
 
-    if (response.data === error) {
+    if (response.data) {
       addToast("Try again!", {
         appearance: "warning",
         autoDismiss: true,
