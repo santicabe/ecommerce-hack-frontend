@@ -5,24 +5,27 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ToastProvider } from "react-toast-notifications";
 import { BrowserRouter as Router } from "react-router-dom";
-
 import { Provider } from "react-redux";
 import { store, persistor } from "./redux/store/store";
 import { PersistGate } from "redux-persist/integration/react";
+import { MyCustomToastContainer } from "./components/MyCustomToastContainer.jsx";
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <React.StrictMode>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <ToastProvider placement="top-left">
+            <ToastProvider
+              components={{ ToastContainer: MyCustomToastContainer }}
+              placement="top-right"
+              placementOffset={[200, 50]}
+            >
               <App />
             </ToastProvider>
           </PersistGate>
         </Provider>
       </React.StrictMode>
     </Router>
-    ,
   </React.StrictMode>,
   document.getElementById("root")
 );

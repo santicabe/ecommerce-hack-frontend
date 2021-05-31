@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { useToasts } from "react-toast-notifications";
 
 function EditUser() {
   const user = useSelector((state) => state.userReducer);
@@ -18,7 +19,7 @@ function EditUser() {
   const [password, setPassword] = useState("");
 
   const [userLoggedIn, setUserLoggedIn] = useState([]);
-
+  const { addToast } = useToasts();
   const handleClick = (e) => setUserToEdit(e);
 
   const getUser = async () => {
@@ -43,7 +44,7 @@ function EditUser() {
 
   async function onFormSubmit(e) {
     e.preventDefault();
-    await axios.patch(
+    const response = await axios.patch(
       process.env.REACT_APP_BACK_END_URL + `/users/${user.userId}`,
       {
         firstName,
@@ -61,7 +62,19 @@ function EditUser() {
       }
     );
     getUser();
+    if (response.data) {
+      addToast("Done!", {
+        appearance: "success",
+        autoDismiss: true,
+      });
+    } else {
+      addToast("Try again!", {
+        autoDismiss: true,
+        appearance: "warning",
+      });
+    }
   }
+
   if (userLoggedIn === null) {
     history.push("/register");
   }

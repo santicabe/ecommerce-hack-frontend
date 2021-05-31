@@ -1,7 +1,7 @@
 import "../cozastore/css/main.css";
 import "../cozastore/css/util.css";
 import { Link } from "react-router-dom";
-
+import { useToasts } from "react-toast-notifications";
 import { useState } from "react";
 import SearchBox from "./SearchBox";
 import { useSelector, useDispatch } from "react-redux";
@@ -19,10 +19,16 @@ function Navbar() {
   const handleClick = (e) => setSelectedCat(e);
 
   let productsAmount = 0;
+  const { addToast } = useToasts();
 
   const handleClearClick = (e) => {
     e.preventDefault();
-    window.location.reload();
+    addToast("Good bye!", {
+      appearance: "success",
+      autoDismiss: true,
+    });
+    // window.location.reload();
+
     dispatch({
       type: "CLEAR_USER",
     });
@@ -73,7 +79,7 @@ function Navbar() {
                     </li>
                   )}
                   {selectedCat === 1 ? (
-                    <li className="active-menu" className="active-menu">
+                    <li className="active-menu">
                       <Link to="/Cart">
                         <span>Shop</span>
                       </Link>
@@ -85,18 +91,26 @@ function Navbar() {
                       </Link>
                     </li>
                   )}
-                  {selectedCat === 2 ? (
-                    <li className="active-menu" onClick={() => handleClick(2)}>
-                      <Link to="/profile">
-                        <span>Profile</span>
-                      </Link>
-                    </li>
-                  ) : (
-                    <li onClick={() => handleClick(2)}>
-                      <Link to="/profile">
-                        <span>Profile</span>
-                      </Link>
-                    </li>
+                  {user.userName && (
+                    <>
+                      {" "}
+                      {selectedCat === 2 ? (
+                        <li
+                          className="active-menu"
+                          onClick={() => handleClick(2)}
+                        >
+                          <Link to="/profile">
+                            <span>Profile</span>
+                          </Link>
+                        </li>
+                      ) : (
+                        <li onClick={() => handleClick(2)}>
+                          <Link to="/profile">
+                            <span>Profile</span>
+                          </Link>
+                        </li>
+                      )}
+                    </>
                   )}
 
                   {!user.userName && (

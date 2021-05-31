@@ -27,14 +27,23 @@ function LoginPage() {
         },
       }
     );
+    console.log("este es el usuario", response.data);
+    if (response.data) {
+      addToast("Welcome!", {
+        appearance: "success",
+        autoDismiss: true,
+      });
+    }
 
+    if (response.data === error) {
+      addToast("Try again!", {
+        appearance: "warning",
+        autoDismiss: true,
+      });
+    }
     if (response.data) {
       dispatch(actions.setUser(response.data));
       history.push("/");
-      addToast("Bienvenido!", {
-        autoDismiss: true,
-        appearance: "success",
-      });
     }
   };
 

@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import actions from "../redux/actions/userActions";
+import { useToasts } from "react-toast-notifications";
 
 function RegisterPage() {
   const [firstName, setFirstName] = useState("");
@@ -11,11 +12,11 @@ function RegisterPage() {
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [adress, setAdress] = useState("");
-  // const [phone, setPhone] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
   window.scrollTo(0, 0);
+
+  const { addToast } = useToasts();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,20 +29,20 @@ function RegisterPage() {
         userName,
         email,
         password,
-        // adress,
-        // phone,
-      },
-      {
-        // headers: {
-        //   "Access-Control-Allow-Origin": "*",
-        //   "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-        //   "Content-Type": "application/json",
-        // },
       }
     );
-    console.log("respuesta", response.data);
-    if (response.data) {
+
+    if (response.data.error) {
+      addToast("This user name already exists!", {
+        autoDismiss: true,
+        appearance: "warning",
+      });
+    } else {
       dispatch(actions.setUser(response.data));
+      addToast("Welcome!", {
+        autoDismiss: true,
+        appearance: "success",
+      });
       history.push("/");
     }
   };
