@@ -18,7 +18,11 @@ function CategoriesAdmin() {
       try {
         const response = await axios.get(
           process.env.REACT_APP_BACK_END_URL + "/category",
+
           {
+            data: {
+              id: user.userId,
+            },
             headers: {
               Authorization: `Bearer ${user.token}`,
               "Content-Type": "application/json",

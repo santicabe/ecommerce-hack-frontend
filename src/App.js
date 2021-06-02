@@ -1,7 +1,7 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { Route } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
 import Modal from "./components/Modal";
 import LoginPage from "./Pages/LoginPage";
@@ -14,16 +14,25 @@ import Categories from "./components/Categories";
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Route exact path="/" component={HomePage} />
-      <Route path="/article/:slug" component={Modal} />
-      <Route exact path="/cart" component={Cart} />
-      <Route exact path="/login" component={LoginPage} />
-      <Route exact path="/register" component={RegisterPage} />
-      <Route exact path="/admin" component={AdminPage} />
-      <Route exact path="/profile" component={EditUser} />
-      <Route exact path="/categories" component={Categories} />
-      <Footer />
+      <Router>
+        <Navbar />
+
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          {/* <PublicRoute restricted={true} component={LoginPage} exact path="/" /> */}
+          <Route path="/article/:slug" component={Modal} />
+          <Route exact path="/cart" component={Cart} />
+          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="/register" component={RegisterPage} />
+          <Route exact path="/categories" component={Categories} />
+        </Switch>
+
+        <Switch>
+          <Route exact path="/profile" component={EditUser} />
+          <Route exact path="/admin" component={AdminPage} />
+        </Switch>
+        <Footer />
+      </Router>
     </div>
   );
 }

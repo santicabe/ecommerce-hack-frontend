@@ -13,7 +13,7 @@ function UsersAdmin() {
   const [role, setRole] = useState("");
   const [isActive, setisActive] = useState("");
   const [edit, setEdit] = useState(false);
-
+  window.scrollTo(0, 0);
   console.log(data);
 
   const handleEdit = (e) => setEdit(e);
@@ -22,6 +22,7 @@ function UsersAdmin() {
     try {
       const response = await axios.get(
         process.env.REACT_APP_BACK_END_URL + "/users",
+        { params: { id: user.userId } },
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -63,7 +64,7 @@ function UsersAdmin() {
       <h3 className="mb-5 text-center">Users</h3>
       <div className="container">
         <div className="row">
-          <div className="col">
+          <div className="col-md-8">
             <table className="table table-striped">
               <thead>
                 <tr>
@@ -71,7 +72,7 @@ function UsersAdmin() {
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
                   <th scope="col">Role</th>
-                  <th scope="col">Is Active</th>
+                  <th scope="col">isActive</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -79,7 +80,9 @@ function UsersAdmin() {
                 {users.map((item) => (
                   <tr key={item.id}>
                     <th scope="row">{item.id}</th>
-                    <td>
+                    <td
+                      style={{ wordBreak: "break-all", wordWrap: "break-word" }}
+                    >
                       {item.firstName} {item.lastName}
                     </td>
                     <td>{item.email}</td>
@@ -102,7 +105,7 @@ function UsersAdmin() {
               </tbody>
             </table>
           </div>
-          <div className="col">
+          <div className="col-md-4">
             {edit === true ? (
               <div>
                 {" "}

@@ -36,12 +36,12 @@ function ProductsAdmin() {
       );
       setProducts(response.data.products);
     } catch (err) {
-      console.log(err);
+      console.log("este es el error", err);
     }
   };
   useEffect(() => {
     getProducts();
-  });
+  }, []);
 
   const onFormSubmit = (e) => {
     e.preventDefault();

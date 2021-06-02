@@ -7,7 +7,7 @@ import { useToasts } from "react-toast-notifications";
 
 function EditUser() {
   const user = useSelector((state) => state.userReducer);
-
+  console.log(user);
   const history = useHistory();
   const [userToEdit, setUserToEdit] = useState([]);
 
@@ -26,6 +26,7 @@ function EditUser() {
     try {
       const response = await axios.get(
         process.env.REACT_APP_BACK_END_URL + `/users/${user.userId}`,
+        { params: { id: user.userId } },
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -143,6 +144,7 @@ function EditUser() {
                         First Name
                       </label>
                       <input
+                        // maxLength="10"
                         type="text"
                         id="firstName"
                         name="FirstName"
