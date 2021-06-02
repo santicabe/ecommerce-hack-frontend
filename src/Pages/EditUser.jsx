@@ -17,10 +17,12 @@ function EditUser() {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [password, setPassword] = useState("");
+  const [edit, setEdit] = useState(false);
 
   const [userLoggedIn, setUserLoggedIn] = useState([]);
   const { addToast } = useToasts();
   const handleClick = (e) => setUserToEdit(e);
+  const handleEdit = (e) => setEdit(e);
 
   const getUser = async () => {
     try {
@@ -124,7 +126,10 @@ function EditUser() {
                         {" "}
                         <button
                           className="btn btn-primary "
-                          onClick={() => handleClick(userLoggedIn)}
+                          onClick={() => {
+                            handleEdit(true);
+                            handleClick(userLoggedIn);
+                          }}
                         >
                           Edit
                         </button>
@@ -133,85 +138,94 @@ function EditUser() {
                   </div>
                 </div>
                 <div class="col">
-                  <h4 className="mb-3 mt-5 text-center">Edit user:</h4>
-                  <div className="container mw-50 mb-5">
-                    <form
-                      action=""
-                      className="border p-3"
-                      onSubmit={onFormSubmit}
-                    >
-                      <label htmlFor="userName" className="form-label">
-                        First Name
-                      </label>
-                      <input
-                        // maxLength="10"
-                        type="text"
-                        id="firstName"
-                        name="FirstName"
-                        className="form-control"
-                        defaultValue={userToEdit.firstName}
-                        onChange={(e) => setFirstName(e.target.value)}
-                      />
-                      <label htmlFor="lastName" className="mt-3">
-                        Last Name
-                      </label>
-                      <input
-                        name="lastName"
-                        id="lastName"
-                        className="form-control"
-                        defaultValue={userToEdit.lastName}
-                        onChange={(e) => setLastName(e.target.value)}
-                      />
+                  {edit === true ? (
+                    <div>
+                      <h4 className="mb-3 mt-5 text-center">Edit user:</h4>
+                      <div className="container mw-50 mb-5">
+                        <form
+                          action=""
+                          className="border p-3"
+                          onSubmit={onFormSubmit}
+                        >
+                          <label htmlFor="userName" className="form-label">
+                            First Name
+                          </label>
+                          <input
+                            type="text"
+                            id="firstName"
+                            name="FirstName"
+                            className="form-control"
+                            defaultValue={userToEdit.firstName}
+                            onChange={(e) => setFirstName(e.target.value)}
+                          />
+                          <label htmlFor="lastName" className="mt-3">
+                            Last Name
+                          </label>
+                          <input
+                            name="lastName"
+                            id="lastName"
+                            className="form-control"
+                            defaultValue={userToEdit.lastName}
+                            onChange={(e) => setLastName(e.target.value)}
+                          />
 
-                      <label htmlFor="email" className="mt-3">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        className="form-control"
-                        defaultValue={userToEdit.email}
-                        onChange={(e) => setEmail(e.target.value)}
-                      />
-                      <label htmlFor="phone" className="mt-3">
-                        Phone
-                      </label>
-                      <input
-                        name="phone"
-                        id="phone"
-                        className="form-control"
-                        defaultValue={userToEdit.phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                      />
-                      <label htmlFor="address" className="mt-3">
-                        Address
-                      </label>
-                      <input
-                        name="address"
-                        id="address"
-                        className="form-control"
-                        defaultValue={userToEdit.address}
-                        onChange={(e) => setAddress(e.target.value)}
-                      />
-                      <label htmlFor="password" className="mt-3">
-                        New Password
-                      </label>
-                      <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        className="form-control"
-                        // defaultValue={userToEdit.password}
-                        onChange={(e) => setPassword(e.target.value)}
-                      />
-                      <div className="text-center">
-                        <button type="submit" className="btn btn-primary mt-4">
-                          Save
-                        </button>
+                          <label htmlFor="email" className="mt-3">
+                            Email
+                          </label>
+                          <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            className="form-control"
+                            defaultValue={userToEdit.email}
+                            onChange={(e) => setEmail(e.target.value)}
+                          />
+                          <label htmlFor="phone" className="mt-3">
+                            Phone
+                          </label>
+                          <input
+                            name="phone"
+                            id="phone"
+                            className="form-control"
+                            defaultValue={userToEdit.phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                          />
+                          <label htmlFor="address" className="mt-3">
+                            Address
+                          </label>
+                          <input
+                            name="address"
+                            id="address"
+                            className="form-control"
+                            defaultValue={userToEdit.address}
+                            onChange={(e) => setAddress(e.target.value)}
+                          />
+                          <label htmlFor="password" className="mt-3">
+                            New Password
+                          </label>
+                          <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            className="form-control"
+                            // defaultValue={userToEdit.password}
+                            onChange={(e) => setPassword(e.target.value)}
+                          />
+                          <div className="text-center">
+                            <button
+                              type="submit"
+                              className="btn btn-primary mt-4"
+                              onClick={() => handleEdit(false)}
+                            >
+                              Save
+                            </button>
+                          </div>
+                        </form>
                       </div>
-                    </form>
-                  </div>
+                    </div>
+                  ) : (
+                    <div></div>
+                  )}
                 </div>
               </div>
             </div>
