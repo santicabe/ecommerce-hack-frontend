@@ -3,38 +3,98 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 // import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { useToasts } from "react-toast-notifications";
 
 function CategoriesAdmin() {
   const user = useSelector((state) => state.userReducer);
   const [categories, setCategories] = useState([]);
   const [data, setData] = useState([]);
   const [edit, setEdit] = useState(0);
+  const [name, setName] = useState("");
+  console.log(data);
+  const { addToast } = useToasts();
 
   const handleClick = (e) => setData(e);
   const handleEdit = (e) => setEdit(e);
 
-  useEffect(() => {
-    const getCategories = async () => {
-      try {
-        const response = await axios.get(
-          process.env.REACT_APP_BACK_END_URL + "/category",
-          {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-              "Content-Type": "application/json",
-            },
-          }
-        );
+  const getCategories = async () => {
+    try {
+      const response = await axios.get(
+        process.env.REACT_APP_BACK_END_URL + "/category",
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-        setCategories(response.data.categories);
-      } catch (err) {
-        console.log(err);
-      }
-    };
+      setCategories(response.data.categories);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
     getCategories();
   }, [user.token]);
 
+  async function onFormSubmit(e) {
+    e.preventDefault();
+    const response = await axios.patch(
+      process.env.REACT_APP_BACK_END_URL + `/category/${data.id}`,
+      {
+        name,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    setEdit(0);
+    getCategories();
+    if (response.data) {
+      addToast("Done!", {
+        appearance: "success",
+        autoDismiss: true,
+      });
+    } else {
+      addToast("Try again!", {
+        autoDismiss: true,
+        appearance: "warning",
+      });
+    }
+  }
 
+  async function onFormSubmitCreate(e) {
+    e.preventDefault();
+    const response = await axios.post(
+      process.env.REACT_APP_BACK_END_URL + `/category`,
+      {
+        name,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    setEdit(0);
+    getCategories();
+    if (response.data) {
+      addToast("Done!", {
+        appearance: "success",
+        autoDismiss: true,
+      });
+    } else {
+      addToast("Try again!", {
+        autoDismiss: true,
+        appearance: "warning",
+      });
+    }
+  }
   return (
     <div>
       <div>
@@ -87,6 +147,7 @@ function CategoriesAdmin() {
                   <form
                     action=""
                     className="border border-secondary rounded p-3"
+                    onSubmit={onFormSubmit}
                   >
                     <label htmlFor="name" className="form-label">
                       Name
@@ -97,14 +158,11 @@ function CategoriesAdmin() {
                       name="name"
                       className="form-control"
                       defaultValue={data.name}
+                      onChange={(e) => setName(e.target.value)}
                     />
                     <div className="text-center">
                       {" "}
-                      <button
-                        type="submit"
-                        className="btn btn-primary mt-4"
-                        onClick={() => handleEdit(1)}
-                      >
+                      <button type="submit" className="btn btn-primary mt-4">
                         Save
                       </button>
                     </div>
@@ -113,7 +171,11 @@ function CategoriesAdmin() {
               ) : edit === 2 ? (
                 <div>
                   <h4 className="mb-3 text-center">Create:</h4>
-                  <form action="" className="border border-secondary p-3">
+                  <form
+                    action=""
+                    className="border border-secondary p-3"
+                    onSubmit={onFormSubmitCreate}
+                  >
                     <label htmlFor="newName" className="form-label">
                       Name
                     </label>
@@ -122,6 +184,7 @@ function CategoriesAdmin() {
                       id="newName"
                       name="newName"
                       className="form-control"
+                      onChange={(e) => setName(e.target.value)}
                     />
                     <div className="text-center">
                       <button type="submit" className="btn btn-primary mt-4">
