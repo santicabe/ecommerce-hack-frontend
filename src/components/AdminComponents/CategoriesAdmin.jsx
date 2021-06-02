@@ -33,6 +33,8 @@ function CategoriesAdmin() {
     };
     getCategories();
   }, [user.token]);
+
+
   return (
     <div>
       <div>
@@ -71,7 +73,7 @@ function CategoriesAdmin() {
               </table>
               <div className="text-center">
                 <button
-                  className="btn btn-primary "
+                  className="btn btn-primary mb-3"
                   onClick={() => handleEdit(2)}
                 >
                   Create
