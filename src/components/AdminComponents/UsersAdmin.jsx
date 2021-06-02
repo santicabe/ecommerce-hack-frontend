@@ -25,8 +25,9 @@ function UsersAdmin() {
     try {
       const response = await axios.get(
         process.env.REACT_APP_BACK_END_URL + "/users",
-        { params: { id: user.userId } },
         {
+          params: { id: user.userId },
+
           headers: {
             Authorization: `Bearer ${user.token}`,
             "Content-Type": "application/json",
@@ -93,31 +94,35 @@ function UsersAdmin() {
                 </tr>
               </thead>
               <tbody>
-                {users.map((item) => (
-                  <tr key={item.id}>
-                    <th scope="row">{item.id}</th>
-                    <td
-                      style={{ wordBreak: "break-all", wordWrap: "break-word" }}
-                    >
-                      {item.firstName} {item.lastName}
-                    </td>
-                    <td>{item.email}</td>
-                    <td>{item.role}</td>
-                    <td>{String(item.isActive)}</td>
-                    <td className="text-center">
-                      <button
-                        type="button"
-                        className="btn btn-success"
-                        onClick={() => {
-                          handleClick(item);
-                          handleEdit(true);
+                {users &&
+                  users.map((item) => (
+                    <tr key={item.id}>
+                      <th scope="row">{item.id}</th>
+                      <td
+                        style={{
+                          wordBreak: "break-all",
+                          wordWrap: "break-word",
                         }}
                       >
-                        Edit
-                      </button>
-                    </td>
-                  </tr>
-                ))}
+                        {item.firstName} {item.lastName}
+                      </td>
+                      <td>{item.email}</td>
+                      <td>{item.role}</td>
+                      <td>{String(item.isActive)}</td>
+                      <td className="text-center">
+                        <button
+                          type="button"
+                          className="btn btn-success"
+                          onClick={() => {
+                            handleClick(item);
+                            handleEdit(true);
+                          }}
+                        >
+                          Edit
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>

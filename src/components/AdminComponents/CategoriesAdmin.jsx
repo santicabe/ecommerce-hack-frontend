@@ -22,6 +22,8 @@ function CategoriesAdmin() {
       const response = await axios.get(
         process.env.REACT_APP_BACK_END_URL + "/category",
         {
+          params: { id: user.userId },
+
           headers: {
             Authorization: `Bearer ${user.token}`,
             "Content-Type": "application/json",
@@ -111,24 +113,25 @@ function CategoriesAdmin() {
                   </tr>
                 </thead>
                 <tbody>
-                  {categories.map((item) => (
-                    <tr>
-                      <th scope="row">{item.id}</th>
-                      <td>{item.name}</td>
-                      <td>
-                        <button
-                          type="button"
-                          className="btn btn-success"
-                          onClick={() => {
-                            handleClick(item);
-                            handleEdit(1);
-                          }}
-                        >
-                          Edit
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
+                  {categories &&
+                    categories.map((item) => (
+                      <tr>
+                        <th scope="row">{item.id}</th>
+                        <td>{item.name}</td>
+                        <td>
+                          <button
+                            type="button"
+                            className="btn btn-success"
+                            onClick={() => {
+                              handleClick(item);
+                              handleEdit(1);
+                            }}
+                          >
+                            Edit
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
                 </tbody>
               </table>
               <div className="text-center">

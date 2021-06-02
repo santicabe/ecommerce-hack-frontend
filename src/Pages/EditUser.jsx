@@ -28,7 +28,7 @@ function EditUser() {
     try {
       const response = await axios.get(
         process.env.REACT_APP_BACK_END_URL + `/users/${user.userId}`,
-        { params: { id: user.userId } },
+
         {
           headers: {
             Authorization: `Bearer ${user.token}`,

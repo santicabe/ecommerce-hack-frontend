@@ -26,8 +26,10 @@ function ProductsAdmin() {
   const getProducts = async () => {
     try {
       const response = await axios.get(
-        process.env.REACT_APP_BACK_END_URL + "/products/admin",
+        process.env.REACT_APP_BACK_END_URL + "/admin/products",
         {
+          params: { id: user.userId },
+
           headers: {
             Authorization: `Bearer ${user.token}`,
             "Content-Type": "application/json",
