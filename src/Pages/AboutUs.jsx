@@ -1,7 +1,6 @@
 import React from "react";
 import "../cozastore/css/main.css";
 
-
 function AboutUs() {
   return (
     <div className="container">
@@ -24,19 +23,27 @@ function AboutUs() {
                 fontWeight: "80px",
               }}
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-              fugit quibusdam unde maiores est corporis, similique optio
-              deleniti officia eveniet numquam nihil incidunt neque, doloremque
-              mollitia. In dolorem nam eveniet doloribus. Dolorum provident
-              quae, doloribus sunt harum amet, odit obcaecati quos sequi labore
-              neque quas iure corporis debitis. Non a placeat dolor quae quos
-              quod, iusto exercitationem quia cum, fugiat, ut vel officia. Et
-              eveniet praesentium architecto molestias sint voluptate neque, ut
-              unde molestiae illum id eum laboriosam libero aliquid,
-              reprehenderit ducimus officiis rem? Nemo error natus distinctio
-              eos velit cumque ullam nam libero, officia veniam voluptatibus
-              perferendis ut asperiores.
+              <p>
+                <strong>HackCommerce</strong> is the final project of Hack
+                Academy’s Coding Bootcamp. During a period of 3 weeks the team
+                applied, for the backend and the frontend, an extensive array of
+                technologies. The objective of the project was to create an
+                e-commerce website with the expected functionalities, such as
+                displaying the products, categories, filters, shopping cart,
+                user interface, admin interface and much more.
+              </p>
+              <p className="mt-2">
+                <strong>The Coding Bootcamp</strong> was a 3-month intensive
+                course taught by Hack Academy. Through Monday to Friday (and
+                even weekends) we developed and expanded our knowledge in a
+                variety of programming languages and frameworks. During the
+                course the students faced daily and weekly projects to apply the
+                concepts we learned simultaneously in class. This proved to be
+                quite a challenge for us but in the end the experience and the
+                knowledge we learned made it worth it.
+              </p>
             </p>
+            
           </div>
           <div className="col-6 aboutUsImage"></div>
         </div>
@@ -47,7 +54,7 @@ function AboutUs() {
             fontFamily: "Poppins-Regular",
           }}
         >
-          Nuestro equipo:
+          Meet the team:
         </h3>
         <div>
           <img
