@@ -3796,7 +3796,15 @@ input.num-product::-webkit-inner-spin-button {
   background-size: cover;
 }
 
-.filaNosotros{
+/* .filaNosotros{
   display: flex;
   justify-content: space-around;
+} */
+
+.linkedin {
+  color :rgb(102,102,102);
+}
+
+.linkedin:hover {
+  color: rgb(10, 102, 194);
 }
