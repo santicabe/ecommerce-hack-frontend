@@ -23,7 +23,7 @@ function Cart() {
   async function buyCart(e) {
     e.preventDefault();
     const response = await axios.post(
-      process.env.REACT_APP_BACK_END_URL + `/cart`,
+      process.env.REACT_APP_BACK_END_URL + `/orders`,
       {
         cart,
       },
@@ -34,6 +34,10 @@ function Cart() {
         },
       }
     );
+
+    dispatch({
+      type: "CLEAR_PRODUCTS",
+    });
     if (response.data) {
       addToast("Your purchase is done!", {
         appearance: "success",
