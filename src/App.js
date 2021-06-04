@@ -21,13 +21,11 @@ function App() {
           <Route exact path="/" component={HomePage} />
           {/* <PublicRoute restricted={true} component={LoginPage} exact path="/" /> */}
           <Route path="/article/:slug" component={Modal} />
-          <Route exact path="/cart" component={Cart} />
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/register" component={RegisterPage} />
-          <Route exact path="/categories" component={Categories} />
-        </Switch>
+          <Route path="/cart" component={Cart} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/register" component={RegisterPage} />
+          <Route path="/categories" component={Categories} />
 
-        <Switch>
           <Route exact path="/profile" component={EditUser} />
           <Route exact path="/admin" component={AdminPage} />
         </Switch>

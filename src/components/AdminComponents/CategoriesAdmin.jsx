@@ -40,7 +40,7 @@ function CategoriesAdmin() {
     getCategories();
   }, [user.token]);
 
-  async function onFormSubmit(e) {
+  async function onFormSubmitEdit(e) {
     e.preventDefault();
     const response = await axios.patch(
       process.env.REACT_APP_BACK_END_URL + `/category/${data.id}`,
@@ -48,6 +48,8 @@ function CategoriesAdmin() {
         name,
       },
       {
+        params: { id: user.userId },
+
         headers: {
           Authorization: `Bearer ${user.token}`,
           "Content-Type": "application/json",
@@ -77,6 +79,8 @@ function CategoriesAdmin() {
         name,
       },
       {
+        params: { id: user.userId },
+
         headers: {
           Authorization: `Bearer ${user.token}`,
           "Content-Type": "application/json",
@@ -150,7 +154,7 @@ function CategoriesAdmin() {
                   <form
                     action=""
                     className="border border-secondary rounded p-3"
-                    onSubmit={onFormSubmit}
+                    onSubmit={onFormSubmitEdit}
                   >
                     <label htmlFor="name" className="form-label">
                       Name

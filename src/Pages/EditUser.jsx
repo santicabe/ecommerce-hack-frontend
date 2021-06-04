@@ -43,7 +43,7 @@ function EditUser() {
   };
   useEffect(() => {
     getUser();
-  });
+  }, []);
 
   async function onFormSubmit(e) {
     e.preventDefault();
@@ -58,12 +58,16 @@ function EditUser() {
         password,
       },
       {
+        params: { id: user.userId },
+
         headers: {
           Authorization: `Bearer ${user.token}`,
           "Content-Type": "application/json",
         },
       }
     );
+    handleEdit(false);
+
     getUser();
     if (response.data) {
       addToast("Done!", {
@@ -215,7 +219,6 @@ function EditUser() {
                             <button
                               type="submit"
                               className="btn btn-primary mt-4"
-                              onClick={() => handleEdit(false)}
                             >
                               Save
                             </button>

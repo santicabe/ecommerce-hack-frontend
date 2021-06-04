@@ -12,7 +12,7 @@ function UsersAdmin() {
   const [role, setRole] = useState("");
   const [isActive, setIsActive] = useState("");
   const [edit, setEdit] = useState(false);
-  window.scrollTo(0, 0);
+
   console.log(data);
   const { addToast } = useToasts();
 
@@ -53,12 +53,15 @@ function UsersAdmin() {
         isActive,
       },
       {
+        params: { id: user.userId },
+
         headers: {
           Authorization: `Bearer ${user.token}`,
           "Content-Type": "application/json",
         },
       }
     );
+
     getUsers();
     setEdit(false);
     if (response.data) {
@@ -116,6 +119,7 @@ function UsersAdmin() {
                           onClick={() => {
                             handleClick(item);
                             handleEdit(true);
+                            window.scrollTo(0, 0);
                           }}
                         >
                           Edit
