@@ -8,7 +8,7 @@ function Cart() {
   const cart = useSelector((state) => state.cartReducer);
   const user = useSelector((state) => state.userReducer);
   const { addToast } = useToasts();
-  console.log(cart, user);
+  console.log("esto es el cart", cart, "esto es el user", user);
   window.scrollTo(0, 0);
 
   const handleClearClick = (e) => {
@@ -26,7 +26,6 @@ function Cart() {
       process.env.REACT_APP_BACK_END_URL + `/cart`,
       {
         cart,
-        user,
       },
       {
         headers: {
