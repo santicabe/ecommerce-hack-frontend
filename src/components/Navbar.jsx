@@ -23,6 +23,7 @@ function Navbar() {
 
   const handleClearClick = (e) => {
     e.preventDefault();
+    setIsMenuOpen(!isMenuOpen);
     addToast("Good bye!", {
       appearance: "success",
       autoDismiss: true,
@@ -296,8 +297,11 @@ function Navbar() {
           <div
             className={`collapse navbar-collapse menu-mobile ${
               isMenuOpen && "show"
-            }`}
-            id="navbarSupportedContent20"
+            } ${user.userName && "menu-mobile.active"} `}
+            // className={`collapse navbar-collapse  ${
+            //   isMenuOpen ? "show" : user.userName ? "active" : "menu-mobile"
+            // }`}
+            // id={`navbarSupportedContent20 `}
           >
             <ul className="navbar-nav mr-auto button-item">
               <li>
@@ -308,6 +312,7 @@ function Navbar() {
                       fontWeight: "100px",
                     }}
                     className="button-item"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
                   >
                     <i class="fa fa-home" aria-hidden="true"></i> Home
                   </span>
@@ -322,25 +327,29 @@ function Navbar() {
                       fontWeight: "100px",
                     }}
                     className="button-item"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
                   >
                     <i class="fa fa-shopping-bag" aria-hidden="true"></i> Shop
                   </span>
                 </a>
               </li>
 
-              <li>
-                <Link to="/profile" className="nav-item">
-                  <span
-                    style={{
-                      fontFamily: "Poppins-Regular",
-                      fontWeight: "100px",
-                    }}
-                    className="button-item"
-                  >
-                    <i class="fa fa-user" aria-hidden="true"></i> Profile
-                  </span>
-                </Link>
-              </li>
+              {user.username && (
+                <li>
+                  <Link to="/profile" className="nav-item">
+                    <span
+                      style={{
+                        fontFamily: "Poppins-Regular",
+                        fontWeight: "100px",
+                      }}
+                      className="button-item"
+                      onClick={() => setIsMenuOpen(!isMenuOpen)}
+                    >
+                      <i class="fa fa-user" aria-hidden="true"></i> Profile
+                    </span>
+                  </Link>
+                </li>
+              )}
               {!user.userName && (
                 <>
                   {" "}
@@ -352,6 +361,7 @@ function Navbar() {
                           fontWeight: "100px",
                         }}
                         className="button-item"
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
                       >
                         <i class="fa fa-sign-in" aria-hidden="true"></i> Login
                       </span>
@@ -365,6 +375,7 @@ function Navbar() {
                           fontWeight: "100px",
                         }}
                         className="button-item"
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
                       >
                         <i class="fa fa-plus" aria-hidden="true"></i> Register
                       </span>
@@ -384,10 +395,41 @@ function Navbar() {
                           fontWeight: "100px",
                         }}
                         className="button-item"
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
                       >
                         <i class="fa fa-cogs" aria-hidden="true"></i>Admin
                       </span>
                     </Link>
+                  </li>
+                </>
+              )}
+              <li>
+                <Link to="/about-us" className="nav-item">
+                  <span
+                    style={{
+                      fontFamily: "Poppins-Regular",
+                      fontWeight: "100px",
+                    }}
+                    className="button-item"
+                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  >
+                    <i class="fa fa-info" aria-hidden="true"></i> About us
+                  </span>
+                </Link>
+              </li>
+              {user.userName && (
+                <>
+                  <li className="nav-item">
+                    <span
+                      style={{
+                        fontFamily: "Poppins-Regular",
+                        fontWeight: "100px",
+                      }}
+                      className="button-item"
+                      onClick={handleClearClick}
+                    >
+                      <i class="fa fa-sign-in" aria-hidden="true"></i> Logout
+                    </span>
                   </li>
                 </>
               )}
