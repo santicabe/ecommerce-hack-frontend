@@ -35,6 +35,7 @@ function Modal() {
 
   useEffect(() => {
     setProductToCart({
+      id: singleProduct.id,
       name: singleProduct.name,
       image: singleProduct.image,
       price: singleProduct.price,
