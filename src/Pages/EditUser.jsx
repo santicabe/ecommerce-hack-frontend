@@ -43,7 +43,7 @@ function EditUser() {
   };
   useEffect(() => {
     getUser();
-  });
+  },[]);
 
   async function onFormSubmit(e) {
     e.preventDefault();

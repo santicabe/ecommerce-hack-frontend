@@ -171,6 +171,11 @@ function Navbar() {
                       )}
                     </>
                   )}
+                  <li onClick={() => handleClick(6)}>
+                    <Link to="/about-us">
+                      <span>About us</span>
+                    </Link>
+                  </li>
                 </ul>
               </div>
 

@@ -10,6 +10,7 @@ import RegisterPage from "./Pages/RegisterPage";
 import AdminPage from "./Pages/AdminPage";
 import EditUser from "./Pages/EditUser";
 import Categories from "./components/Categories";
+import AboutUs from "./Pages/AboutUs";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegisterPage} />
           <Route exact path="/categories" component={Categories} />
+          <Route exact path="/about-us" component={AboutUs} />
         </Switch>
 
         <Switch>
