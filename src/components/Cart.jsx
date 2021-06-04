@@ -1,9 +1,14 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CartSingleItem from "./CartSingleItem";
+import axios from "axios";
+import { useToasts } from "react-toast-notifications";
 function Cart() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cartReducer);
+  const user = useSelector((state) => state.userReducer);
+  const { addToast } = useToasts();
+  console.log(cart, user);
   window.scrollTo(0, 0);
 
   const handleClearClick = (e) => {
@@ -14,6 +19,34 @@ function Cart() {
   };
 
   let total = 0;
+
+  async function buyCart(e) {
+    e.preventDefault();
+    const response = await axios.post(
+      process.env.REACT_APP_BACK_END_URL + `/cart`,
+      {
+        cart,
+        user,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    if (response.data) {
+      addToast("Your purchase is done!", {
+        appearance: "success",
+        autoDismiss: true,
+      });
+    } else {
+      addToast("Try again!", {
+        autoDismiss: true,
+        appearance: "warning",
+      });
+    }
+  }
 
   return (
     <div>
@@ -145,7 +178,10 @@ function Cart() {
                     </div>
                   </div>
 
-                  <button className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer mb-3">
+                  <button
+                    onClick={buyCart}
+                    className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer mb-3"
+                  >
                     Proceed to Checkout
                   </button>
                   <button
